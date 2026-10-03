@@ -1,0 +1,27 @@
+# Design and interaction QA — 3 October 2026
+
+Result: blocked
+
+The desktop and 390 × 844 mobile interfaces render and are usable in local visual review. Full acceptance remains blocked by missing live services and reference-fidelity differences below; this is not a production-ready declaration.
+
+## Evidence
+
+- `docs/qa/desktop.jpg`: current desktop homepage, captured after a clean page load.
+- `docs/qa/mobile.jpg`: 390px mobile review; heading stays within the light hero panel and fixed bottom navigation is visible.
+- `docs/qa/comparison.jpg`: approved design board beside implementation, each proportionally fitted without stretching. This is a visual comparison, not a pixel-diff test.
+
+## Confirmed
+
+Forest-green category bar, saffron actions, serif headings, local handloom hero, four-column desktop products and two-column mobile products preserve the chosen visual direction. The hamburger precedes the logo. Mobile drawer exposes categories and seller links. Desktop has no compact bottom navigation. Pinch zoom is not disabled.
+
+Browser checks cover keyword search, product enquiry, seller category-specific fields, social inputs, admin preview navigation and editing dialog. The admin removal action is now inside the modal and reachable. The real `/admin` route displays the sign-in gate, with sign-in disabled while account services are unconfigured. Development previews do not grant a real session.
+
+A clean desktop page load reported no application errors; one browser-extension metadata error was unrelated to the app. Previous hot-reload context error did not reproduce after reload.
+
+## Differences still requiring design acceptance
+
+The implemented desktop uses more generous header, hero and section spacing than the approved board. Product photography is substituted with available/generated assets; the illustrative logo is replaced by a consistent storefront icon. Homepage microcopy is expanded. The mobile hero is taller and places category shortcuts after the hero. These are not exact reference matches. No exact visual-parity claim is made.
+
+## External acceptance
+
+Real signup, uploads, subscription payments, social embeds on physical phones, installed PWA behaviour and deployed response headers require configured services/device testing. See BUILD-STATUS.md for scope and launch requirements.
