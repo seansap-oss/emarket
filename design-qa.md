@@ -25,3 +25,7 @@ The implemented desktop uses more generous header, hero and section spacing than
 ## External acceptance
 
 Real signup, uploads, subscription payments, social embeds on physical phones, installed PWA behaviour and deployed response headers require configured services/device testing. See BUILD-STATUS.md for scope and launch requirements.
+
+## v0.4.0 showcase continuation
+
+The user requested public production samples and distinct category templates. The existing homepage visual direction is retained. /templates now provides five category choices; sample shop pages have ten working collections in total. Browser review confirms motorcycle selection, navigation to Leikai Rides, and Touring filtering from three products down to one. A low-contrast paragraph on dark template panels was corrected. Template screenshot: docs/qa/templates-v040.jpg. Automated showcase integrity tests pass and the production build emits the sample catalogue chunk. A separate browser production-preview port was blocked by the browser client, so interactive review used the managed development preview. Remote deployment of this update remains blocked by GitHub integration write permissions.

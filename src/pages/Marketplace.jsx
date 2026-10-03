@@ -32,6 +32,7 @@ import {
   SocialLinks,
   Video,
 } from "../components/UI";
+import { templates } from "../lib/templates";
 import { icons } from "../components/Layout";
 export function ProductCard({ item }) {
   const { session, navigate, notice } = useMarket();
@@ -45,13 +46,17 @@ export function ProductCard({ item }) {
         <span
           className={"condition " + (item.condition === "Used" ? "used" : "")}
         >
-          {item.condition}
+          {item.sample ? "Sample" : item.condition}
         </span>
         <button
           className={"save-button " + (saved ? "saved" : "")}
           aria-label={`Save ${item.title}`}
           aria-pressed={saved}
           onClick={async () => {
+            if (item.sample)
+              return notice(
+                "This sample cannot be saved. Browse the templates to explore the design.",
+              );
             if (!session) return navigate("/login");
             try {
               if (saved)
@@ -97,7 +102,8 @@ export function ProductCard({ item }) {
           className="contact-button"
           to={"/listing/" + item.id + "?enquire=1"}
         >
-          <WhatsappLogo size={17} /> Contact seller
+          <WhatsappLogo size={17} />{" "}
+          {item.sample ? "Explore sample" : "Contact seller"}
         </Link>
       </div>
     </article>
@@ -118,7 +124,8 @@ export function ShopCard({ seller }) {
         <div>
           <strong>{seller.name}</strong>
           <small>
-            {seller.theme === "general" ? "Home & lifestyle" : seller.theme}
+            {templates[seller.theme]?.category || seller.theme}
+            {seller.sample ? " · Sample shop" : ""}
           </small>
           <small>
             <MapPin size={12} />
@@ -324,7 +331,7 @@ export function Home() {
           <p role="status">Loading local finds…</p>
         ) : items.length ? (
           <div className="product-grid">
-            {items.slice(0, 4).map((item) => (
+            {items.slice(0, 8).map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}
           </div>
@@ -351,6 +358,21 @@ export function Home() {
           ))}
         </div>
       </section>
+      {fixtures && (
+        <section className="template-invite">
+          <div>
+            <span className="eyebrow">ONE MARKETPLACE. YOUR OWN LOOK.</span>
+            <h2>A storefront that fits what you sell.</h2>
+            <p>
+              Explore clothing, electronics, car, motorcycle and retail
+              templates.
+            </p>
+          </div>
+          <Link className="button primary" to="/templates">
+            Explore shop templates <ArrowRight />
+          </Link>
+        </section>
+      )}
       <section className="seller-invite">
         <Storefront size={54} weight="light" />
         <div>
@@ -774,7 +796,11 @@ export function SellerPage({ slug }) {
             setMore(rows.length > 24);
             setItems(rows.slice(0, 24));
           }
-          if (configured) {
+          if (fixtures) {
+            setCollections(
+              fixtures.collections.filter((c) => c.seller_id === s.id),
+            );
+          } else if (configured) {
             const c = await result(
               supabase
                 .from("collections")
@@ -804,6 +830,12 @@ export function SellerPage({ slug }) {
     );
   return (
     <div className={"page storefront theme-" + seller.theme}>
+      {seller.sample && (
+        <div className="sample-notice">
+          Sample shop · illustrative products and prices.{" "}
+          <Link to="/templates">Explore all templates</Link>
+        </div>
+      )}
       <div className="shop-cover">
         <Photo src={seller.cover} alt={seller.name} />
       </div>
@@ -844,6 +876,32 @@ export function SellerPage({ slug }) {
           </a>
         )}
       </div>
+      <section className="store-template-intro">
+        <span className="eyebrow">
+          {templates[seller.theme]?.name || "Neighbourhood"} ·{" "}
+          {templates[seller.theme]?.category}
+        </span>
+        <h2>{templates[seller.theme]?.headline}</h2>
+        <p>{seller.description}</p>
+        {seller.theme === "electronics" && (
+          <div className="template-features">
+            <span>Device specifications</span>
+            <span>Phones & accessories</span>
+            <span>Compare your options</span>
+          </div>
+        )}
+        {["vehicles", "motorcycles"].includes(seller.theme) && (
+          <div className="template-features">
+            <span>Year & mileage</span>
+            <span>
+              {seller.theme === "motorcycles"
+                ? "Engine capacity"
+                : "Fuel & model"}
+            </span>
+            <span>Enquire before viewing</span>
+          </div>
+        )}
+      </section>
       <div className="tabs">
         {["products", "about", "videos"].map((t) => (
           <button
@@ -996,6 +1054,12 @@ export function ProductPage({ id }) {
           <span className="eyebrow">
             {item.condition} · {item.category_id}
           </span>
+          {item.sample && (
+            <div className="sample-notice">
+              Sample product · not for sale · price and specifications are
+              illustrative.
+            </div>
+          )}
           <h1>{item.title}</h1>
           <strong className="detail-price">{money(item.price)}</strong>
           <p className="muted">
@@ -1031,7 +1095,8 @@ export function ProductPage({ id }) {
             className="button green full"
             onClick={() => setEnquire(true)}
           >
-            <WhatsappLogo size={22} /> Enquire on WhatsApp
+            <WhatsappLogo size={22} />{" "}
+            {item.sample ? "Preview enquiry" : "Enquire on WhatsApp"}
           </button>
           <div className="button-row">
             <button className="button outline" onClick={() => setSocial(true)}>
@@ -1062,7 +1127,14 @@ export function ProductPage({ id }) {
         </section>
       </div>
       {enquire && (
-        <Modal title="Message the seller" onClose={() => setEnquire(false)}>
+        <Modal
+          title={
+            item.sample
+              ? "Sample enquiry · no message will be sent"
+              : "Message the seller"
+          }
+          onClose={() => setEnquire(false)}
+        >
           <div className="enquiry-product">
             <Photo src={item.images?.[0]} alt="" />
             <div>
@@ -1120,13 +1192,11 @@ export function ProductPage({ id }) {
                 e.preventDefault();
                 try {
                   await result(
-                    supabase
-                      .from("reports")
-                      .insert({
-                        listing_id: id,
-                        user_id: session.user.id,
-                        reason,
-                      }),
+                    supabase.from("reports").insert({
+                      listing_id: id,
+                      user_id: session.user.id,
+                      reason,
+                    }),
                   );
                   setReport(false);
                   notice("Report submitted for review");

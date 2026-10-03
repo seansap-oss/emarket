@@ -1,4 +1,4 @@
-// Development-only visual fixtures. Never imported by a production build.
+// Public showcase catalogue. Fictional shops and illustrative prices; no seller contacts.
 export const categories = [
   ["fashion", "Fashion", "fashion", ["Size", "Colour", "Material"]],
   [
@@ -13,11 +13,18 @@ export const categories = [
     "vehicles",
     ["Make", "Model", "Year", "Kilometres", "Fuel"],
   ],
+  [
+    "motorcycles",
+    "Motorcycles",
+    "motorcycles",
+    ["Make", "Engine", "Year", "Kilometres"],
+  ],
   ["home", "Home & furniture", "general", ["Material", "Dimensions"]],
   ["electronics", "Electronics", "electronics", ["Brand", "Model"]],
   ["services", "Services", "general", ["Service area", "Price unit"]],
   ["property", "Property", "general", ["Area", "Bedrooms"]],
   ["bicycles", "Bicycles", "vehicles", ["Brand", "Frame size"]],
+  ["retail", "General retail", "general", ["Material", "Dimensions"]],
 ].map(([id, name, theme, fields], i) => ({
   id,
   name,
@@ -182,3 +189,164 @@ export const listings = [
   tags: "",
   created_at: "2026-10-03T04:00:00Z",
 }));
+
+sellers.push({
+  id: "sample-rides",
+  name: "Leikai Rides",
+  slug: "leikai-rides",
+  theme: "motorcycles",
+  type: "shop",
+  location: "Singjamei, Imphal",
+  cover: "/images/motorcycle.jpg",
+  description:
+    "Roadsters and touring motorcycles. Explore the Ride storefront template.",
+  socials: {},
+  whatsapp: "",
+});
+export const collections = sellers.flatMap((seller, index) => {
+  const names = [
+    ["Handloom", "Everyday clothing"],
+    ["Phones", "Audio & accessories"],
+    ["Pre-owned cars", "Premium selection"],
+    ["Home & living", "Everyday essentials"],
+    ["Roadsters", "Touring"],
+  ][index];
+  return names.map((name, position) => ({
+    id: `${seller.id}-collection-${position}`,
+    seller_id: seller.id,
+    name,
+    position,
+  }));
+});
+const extras = [
+  [
+    "Cotton everyday T-shirt",
+    650,
+    "fashion",
+    "tshirt.jpg",
+    0,
+    { Size: "S–XL", Material: "Cotton" },
+    1,
+  ],
+  [
+    "Handloom festive edit",
+    3200,
+    "fashion",
+    "phanek.webp",
+    0,
+    { Material: "Cotton", Colour: "Magenta" },
+    0,
+  ],
+  [
+    "Smartphone collection · 256 GB",
+    45900,
+    "mobiles",
+    "phone.jpg",
+    1,
+    { Storage: "256 GB", Condition: "Illustrative model" },
+    0,
+  ],
+  [
+    "Wireless listening collection",
+    3490,
+    "electronics",
+    "headphones.jpg",
+    1,
+    { Connectivity: "Bluetooth", Warranty: "Confirm with seller" },
+    1,
+  ],
+  [
+    "Premium coupe selection",
+    3650000,
+    "vehicles",
+    "car.jpg",
+    2,
+    { Year: "2020", Fuel: "Petrol", Kilometres: "24000" },
+    1,
+  ],
+  [
+    "Weekend coupe collection",
+    2950000,
+    "vehicles",
+    "car.jpg",
+    2,
+    { Year: "2018", Fuel: "Petrol", Kilometres: "42000" },
+    0,
+  ],
+  [
+    "Compact stool · natural finish",
+    4200,
+    "home",
+    "chair.jpg",
+    3,
+    { Material: "Wood" },
+    0,
+  ],
+  [
+    "Everyday cotton basics",
+    550,
+    "retail",
+    "tshirt.jpg",
+    3,
+    { Material: "Cotton" },
+    1,
+  ],
+  [
+    "Classic roadster collection",
+    185000,
+    "motorcycles",
+    "motorcycle.jpg",
+    4,
+    { Engine: "350 cc", Year: "2021", Kilometres: "12000" },
+    0,
+  ],
+  [
+    "Touring motorcycle selection",
+    245000,
+    "motorcycles",
+    "motorcycle.jpg",
+    4,
+    { Engine: "500 cc", Year: "2022", Kilometres: "8000" },
+    1,
+  ],
+  [
+    "Weekend roadster collection",
+    155000,
+    "motorcycles",
+    "motorcycle.jpg",
+    4,
+    { Engine: "350 cc", Year: "2020", Kilometres: "18000" },
+    0,
+  ],
+];
+extras.forEach(
+  ([title, price, category_id, img, si, attributes, collection], index) =>
+    listings.push({
+      id: `sample-extra-${index}`,
+      title,
+      price,
+      category_id,
+      images: ["/images/" + img],
+      seller_id: sellers[si].id,
+      seller: sellers[si],
+      location: sellers[si].location,
+      condition: ["vehicles", "motorcycles"].includes(category_id)
+        ? "Used"
+        : "New",
+      attributes,
+      status: "published",
+      socials: {},
+      tags: "sample demo " + category_id,
+      created_at: "2026-10-03T04:00:00Z",
+      collection_id: `${sellers[si].id}-collection-${collection}`,
+    }),
+);
+sellers.forEach((seller) => {
+  seller.sample = true;
+});
+listings.forEach((item, index) => {
+  item.sample = true;
+  item.collection_id ||= `${item.seller_id}-collection-${index === 4 || index === 5 ? 1 : 0}`;
+  item.description =
+    "Sample listing with an illustrative price and photograph, showing how your own products will appear. This item is not offered for sale. Replace samples with your own catalogue when account services are connected.";
+});

@@ -1,3 +1,4 @@
+import { templateForCategory, templates } from "../lib/templates";
 import React, { useState, useEffect } from "react";
 import {
   Storefront,
@@ -28,8 +29,12 @@ export function AuthPage({ reset = false }) {
     [error, setError] = useState(""),
     [done, setDone] = useState("");
   useEffect(() => {
-    if (session && !reset) navigate("/dashboard");
+    if (session && !reset) navigate(destination);
   }, [session, reset]);
+  const chosenTemplate = new URLSearchParams(location.search).get("template");
+  const destination = Object.hasOwn(templates, chosenTemplate)
+    ? "/dashboard?template=" + chosenTemplate
+    : "/dashboard";
   const submit = async (e) => {
     e.preventDefault();
     setBusy(true);
@@ -42,19 +47,19 @@ export function AuthPage({ reset = false }) {
           throw Error("Open the password reset link sent to your email first.");
         await result(s.auth.updateUser({ password }));
         notice("Password updated");
-        navigate("/dashboard");
+        navigate(destination);
       } else if (mode === "login") {
         await result(s.auth.signInWithPassword({ email, password }));
-        navigate("/dashboard");
+        navigate(destination);
       } else if (mode === "signup") {
         const d = await result(
           s.auth.signUp({
             email,
             password,
-            options: { emailRedirectTo: location.origin + "/dashboard" },
+            options: { emailRedirectTo: location.origin + destination },
           }),
         );
-        if (d.session) navigate("/dashboard");
+        if (d.session) navigate(destination);
         else
           setDone(
             "Check your email to confirm your account, then return to sign in.",
@@ -219,13 +224,18 @@ export function Guard({ children, adminOnly = false }) {
   return children;
 }
 export function SellerForm({ existing, onSaved }) {
-  const { session, refreshUser, notice } = useMarket();
+  const { session, refreshUser, notice, categories } = useMarket();
   const [form, setForm] = useState(
       existing || {
         name: "",
         slug: "",
         type: "individual",
-        theme: "general",
+        theme: Object.hasOwn(
+          templates,
+          new URLSearchParams(location.search).get("template"),
+        )
+          ? new URLSearchParams(location.search).get("template")
+          : "general",
         description: "",
         location: "Imphal",
         whatsapp: "",
@@ -285,6 +295,24 @@ export function SellerForm({ existing, onSaved }) {
             <option value="shop">A shop / business</option>
           </select>
         </Field>
+        <Field label="What does your shop sell?">
+          <select
+            aria-label="What does your shop sell?"
+            defaultValue=""
+            onChange={(e) =>
+              change("theme", templateForCategory(e.target.value))
+            }
+          >
+            <option value="" disabled>
+              Choose a category to apply its template
+            </option>
+            {categories.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </Field>
         <Field label="Shop presentation">
           <select
             value={form.theme}
@@ -293,9 +321,15 @@ export function SellerForm({ existing, onSaved }) {
             <option value="general">Neighbourhood · General</option>
             <option value="fashion">Atelier · Clothing & fashion</option>
             <option value="electronics">Circuit · Electronics</option>
-            <option value="vehicles">Showroom · Vehicles</option>
+            <option value="vehicles">Showroom · Cars</option>
+            <option value="motorcycles">Ride · Motorcycles</option>
           </select>
         </Field>
+      </div>
+      <div className={"template-choice theme-" + form.theme}>
+        <strong>{templates[form.theme]?.name} storefront</strong>
+        <p>{templates[form.theme]?.description}</p>
+        <Link to="/templates">View template examples</Link>
       </div>
       <Field
         label="Public name"

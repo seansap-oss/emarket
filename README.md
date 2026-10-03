@@ -14,7 +14,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Add the URL and publishable key of a **dedicated** Supabase project to `.env.local`. For a visual review without accounts, set `VITE_PREVIEW_MODE=true`. Fixtures and `/preview/seller` / `/preview/admin` are available only in Vite development mode. They do not simulate authentication and cannot publish changes. Production builds omit sample catalogue code.
+Add the URL and publishable key of a **dedicated** Supabase project to `.env.local`. For a visual review without accounts, set `VITE_PREVIEW_MODE=true`. Sample shops and products are enabled in production by default until a real backend is connected; set `VITE_SHOW_SAMPLES=false` and rebuild to remove them. `/preview/seller` and `/preview/admin` remain development-only. They do not simulate authentication and cannot publish changes. Public samples never simulate account sessions or allow real purchases.
 
 ```bash
 npm test

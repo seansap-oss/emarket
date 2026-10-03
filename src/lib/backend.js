@@ -5,6 +5,9 @@ export const configured = Boolean(
 );
 export const preview =
   import.meta.env.DEV && import.meta.env.VITE_PREVIEW_MODE === "true";
+// Public catalogue showcase: disabled explicitly or when a real backend is connected.
+export const showSamples =
+  !configured && import.meta.env.VITE_SHOW_SAMPLES !== "false";
 export const supabase = configured
   ? createClient(
       import.meta.env.VITE_SUPABASE_URL,

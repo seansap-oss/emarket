@@ -1,3 +1,4 @@
+import Templates from "./pages/Templates";
 import React, { Suspense, lazy, useEffect } from "react";
 import { MarketProvider, useMarket } from "./lib/context";
 import { Layout } from "./components/Layout";
@@ -55,6 +56,7 @@ function Router() {
         <Admin />
       </Guard>
     );
+  else if (p === "/templates") page = <Templates />;
   else if (preview && p === "/preview/seller") page = <Dashboard visual />;
   else if (preview && p === "/preview/admin") page = <Admin visual />;
   else if (["/help", "/privacy", "/terms"].includes(p))

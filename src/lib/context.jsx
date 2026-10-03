@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { supabase, configured, preview, result } from "./backend";
+import { supabase, configured, showSamples, result } from "./backend";
 const Context = createContext(null);
 export const useMarket = () => useContext(Context);
 export function MarketProvider({ children }) {
@@ -98,7 +98,7 @@ export function MarketProvider({ children }) {
         setCategories(cats);
         setPlans(ps);
         setSettings(st.value);
-      } else if (import.meta.env.DEV && preview) {
+      } else if (showSamples) {
         const d = await import("./preview-data.js");
         setFixtures(d);
         setCategories(d.categories);

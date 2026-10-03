@@ -52,3 +52,9 @@ Marketplace UI, product/shop discovery, product detail and WhatsApp composer; se
 - GitHub upload attempted: connector returned HTTP 403 `Resource not accessible by integration`. Git CLI has no authenticated credential. Source is committed locally, but NOT uploaded to GitHub.
 - Vercel project listing still contains only the unrelated IAS projects. No marketplace deployment exists in the connected team.
 - A downloadable source archive is provided pending GitHub write access. No secrets or node_modules are included.
+
+## v0.4.0 — supersedes earlier development-only catalogue statements
+
+Public placeholders now ship in production by explicit user request. Five sample stores, ten collections and seventeen products are included. /templates offers category previews. Seller category selection applies a template, including the new motorcycle theme. Samples stop when VITE_SHOW_SAMPLES=false or a real Supabase backend is configured. Protected preview routes remain development-only.
+
+The user's v0.3.0 repository commit has three successful Vercel deployments (emarket, emarket-adx4, emarket-dou6). Connector project listing is incomplete/stale; GitHub commit status confirms deployment. The v0.4.0 update cannot be pushed by this connection: GitHub still returns 403 for write operations. See SHOWCASE-UPDATE.md for applying the archive to the existing Windows folder and pushing to trigger redeployment.

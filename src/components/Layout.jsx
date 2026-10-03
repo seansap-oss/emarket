@@ -23,7 +23,7 @@ import {
 } from "@phosphor-icons/react";
 import { Link, useMarket } from "../lib/context";
 import { Modal } from "./UI";
-import { preview, supabase } from "../lib/backend";
+import { preview, showSamples, supabase } from "../lib/backend";
 export const icons = {
   fashion: TShirt,
   mobiles: DeviceMobile,
@@ -33,6 +33,8 @@ export const icons = {
   services: Wrench,
   property: Buildings,
   bicycles: Bicycle,
+  motorcycles: Bicycle,
+  retail: Storefront,
 };
 export function Layout({ children }) {
   const { navigate, path, session, categories, settings, notice } = useMarket();
@@ -99,7 +101,11 @@ export function Layout({ children }) {
           >
             <Heart size={23} />
           </Link>
-          <Link className="account-link" aria-label={session ? "My account" : "Sign in"} to={session ? "/dashboard" : "/login"}>
+          <Link
+            className="account-link"
+            aria-label={session ? "My account" : "Sign in"}
+            to={session ? "/dashboard" : "/login"}
+          >
             <User size={22} />
             <span>{session ? "My account" : "Sign in"}</span>
           </Link>
@@ -236,9 +242,10 @@ export function Layout({ children }) {
           </nav>
         </Modal>
       )}
-      {preview && (
+      {(showSamples || preview) && (
         <div className="preview-ribbon">
-          Design preview · sample listings · accounts require connection
+          <Link to="/templates">Explore shop templates · </Link>
+          Sample shops & illustrative prices · not available for purchase
         </div>
       )}
     </>

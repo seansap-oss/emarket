@@ -19,3 +19,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Use a separate Supabase project, never the existing IAS database. Provisioning awaits organisation selection.
 - Admin is a verified auth account listed in the private admin membership table; no shared password.
 - Update BUILD-STATUS.md honestly after verification and deployment. Do not call provider-dependent flows verified until exercised against configured services.
+
+## Public showcase decision — v0.4.0
+
+User explicitly requests placeholder shops/products on the live Vercel site, matching localhost. Public samples are now allowed and clearly labelled; sample records have no contact numbers and no purchase functionality. VITE_SHOW_SAMPLES=false removes samples on rebuild. A configured Supabase backend takes precedence. Admin/seller visual review routes remain development-only. Add a motorcycle storefront and automatic template selection by shop category.

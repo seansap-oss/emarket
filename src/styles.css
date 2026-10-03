@@ -2246,3 +2246,58 @@ th {
   }
 }
 @media(max-width:767px){.hero-panel{width:76%}.hero-panel h1{font-size:clamp(23px,7vw,28px)}.hero-panel .eyebrow{font-size:7px}.hero-panel p{max-width:190px}.hero-panel .hero-caption{font-size:8px}}
+/* Public sample catalogue and category-based storefronts. */
+.sample-notice { padding:12px 18px; background:#fff3ce; color:#684d13; font-size:13px; border-radius:8px; margin-bottom:18px; }
+.sample-notice a { text-decoration:underline; margin-left:8px; }
+.template-invite { margin:38px 0; padding:30px; background:#edf3ed; border-radius:12px; display:flex; align-items:center; justify-content:space-between; gap:25px; }
+.template-invite h2 { margin:7px 0; }
+.template-invite p { margin:0; }
+.store-template-intro { padding:28px 32px; margin:16px 0 24px; border-radius:12px; background:#f1f5ef; }
+.store-template-intro h2 { margin:10px 0; font-size:34px; }
+.store-template-intro p { max-width:650px; line-height:1.7; }
+.template-features { display:flex; flex-wrap:wrap; gap:12px; font-size:12px; }
+.template-features span { border:1px solid currentColor; border-radius:6px; padding:8px 12px; }
+.theme-fashion .store-template-intro { background:#f7edea; text-align:center; padding:40px; }
+.theme-fashion .store-template-intro p { margin:auto; }
+.theme-fashion .shop-cover { height:330px; }
+.theme-fashion .product-photo img { object-fit:cover; }
+.theme-electronics .store-template-intro { background:#112b40; color:white; }
+.theme-electronics .store-template-intro h2,.theme-vehicles .store-template-intro h2,.theme-motorcycles .store-template-intro h2 { color:inherit; font-family:'DM Sans',sans-serif; }
+.theme-electronics .store-template-intro .eyebrow,.theme-vehicles .store-template-intro .eyebrow,.theme-motorcycles .store-template-intro .eyebrow { color:#d4dedb; }
+.theme-electronics .product-card { border:1px solid #cbd8e4; border-radius:12px; padding:10px; }
+.theme-vehicles .store-template-intro { background:#26343c; color:white; }
+.theme-vehicles .product-grid,.theme-motorcycles .product-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.theme-motorcycles { --accent:#a74625; }
+.theme-motorcycles .store-template-intro { background:#39241e; color:#fff5ed; border-left:6px solid #d16b38; }
+.theme-motorcycles .product-photo { aspect-ratio:1.65; }
+.template-gallery > p { max-width:730px; line-height:1.8; }
+.template-picker { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0; }
+.template-picker button { border:1px solid #d5dfd6; border-radius:30px; padding:12px 19px; }
+.template-picker button.active { background:var(--green); color:white; }
+.template-preview { display:grid; grid-template-columns:1fr 1fr; overflow:hidden; border-radius:16px; background:#f5f1e9; }
+.template-preview > img { width:100%; height:100%; min-height:400px; object-fit:cover; }
+.template-preview > div { padding:40px; }
+.template-preview h2 { font-size:39px; }
+.template-preview p { line-height:1.7; }
+.template-preview .button { margin:10px 8px 10px 0; }
+.template-preview small { display:block; margin-top:15px; line-height:1.5; }
+.template-preview .chips span { border:1px solid #c8ccc5; padding:8px 12px; border-radius:20px; }
+.template-explainer { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin:35px 0; }
+.template-explainer p { line-height:1.7; }
+.template-choice { border-left:4px solid var(--accent,#064b3b); background:#f6f6f0; padding:18px; margin-bottom:20px; }
+.template-choice p { margin:8px 0; }
+.template-choice a { text-decoration:underline; }
+@media(max-width:767px){
+ .template-invite { flex-direction:column; align-items:flex-start; padding:22px; }
+ .template-preview { grid-template-columns:1fr; }
+ .template-preview > img { height:220px; min-height:0; }
+ .template-preview > div { padding:24px; }
+ .template-preview h2 { font-size:30px; }
+ .template-explainer { grid-template-columns:1fr; gap:8px; }
+ .store-template-intro,.theme-fashion .store-template-intro { padding:22px; }
+ .store-template-intro h2 { font-size:27px; }
+ .theme-fashion .shop-cover { height:220px; }
+ .theme-vehicles .product-grid,.theme-motorcycles .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .preview-ribbon { max-width:100%; font-size:9px; }
+}
+.theme-electronics .store-template-intro p,.theme-vehicles .store-template-intro p,.theme-motorcycles .store-template-intro p { color:#e0e4e1; }
