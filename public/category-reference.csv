@@ -1,0 +1,332 @@
+category,category_name,subcategory,subcategory_name,icon
+fashion,"Clothing, fashion & handloom",women-s-clothing,Women's clothing,TShirt
+fashion,"Clothing, fashion & handloom",men-s-clothing,Men's clothing,TShirt
+fashion,"Clothing, fashion & handloom",children-s-clothing,Children's clothing,TShirt
+fashion,"Clothing, fashion & handloom",t-shirts-tops,T-shirts & tops,TShirt
+fashion,"Clothing, fashion & handloom",traditional-phanek-innaphi,Traditional phanek & innaphi,TShirt
+fashion,"Clothing, fashion & handloom",shawls-handloom-textiles,Shawls & handloom textiles,TShirt
+fashion,"Clothing, fashion & handloom",footwear,Footwear,TShirt
+fashion,"Clothing, fashion & handloom",bags-wallets,Bags & wallets,TShirt
+fashion,"Clothing, fashion & handloom",jewellery-accessories,Jewellery & accessories,TShirt
+fashion,"Clothing, fashion & handloom",tailoring-materials,Tailoring materials,TShirt
+fashion,"Clothing, fashion & handloom",school-work-uniforms,School & work uniforms,TShirt
+fashion,"Clothing, fashion & handloom",pre-owned-clothing,Pre-owned clothing,TShirt
+mobiles,Mobiles & accessories,smartphones,Smartphones,DeviceMobile
+mobiles,Mobiles & accessories,feature-phones,Feature phones,DeviceMobile
+mobiles,Mobiles & accessories,tablets,Tablets,DeviceMobile
+mobiles,Mobiles & accessories,phone-cases-screen-protectors,Phone cases & screen protectors,DeviceMobile
+mobiles,Mobiles & accessories,chargers-cables,Chargers & cables,DeviceMobile
+mobiles,Mobiles & accessories,power-banks,Power banks,DeviceMobile
+mobiles,Mobiles & accessories,smartwatches,Smartwatches,DeviceMobile
+mobiles,Mobiles & accessories,mobile-spare-parts,Mobile spare parts,DeviceMobile
+mobiles,Mobiles & accessories,refurbished-phones,Refurbished phones,DeviceMobile
+electronics,"Electronics, computers & AV",laptops,Laptops,Desktop
+electronics,"Electronics, computers & AV",desktop-computers,Desktop computers,Desktop
+electronics,"Electronics, computers & AV",computer-components,Computer components,Desktop
+electronics,"Electronics, computers & AV",monitors,Monitors,Desktop
+electronics,"Electronics, computers & AV",printers-scanners,Printers & scanners,Desktop
+electronics,"Electronics, computers & AV",networking-wi-fi,Networking & Wi-Fi,Desktop
+electronics,"Electronics, computers & AV",headphones-speakers,Headphones & speakers,Desktop
+electronics,"Electronics, computers & AV",cameras-lenses,Cameras & lenses,Desktop
+electronics,"Electronics, computers & AV",televisions-projectors,Televisions & projectors,Desktop
+electronics,"Electronics, computers & AV",gaming-consoles,Gaming consoles,Desktop
+electronics,"Electronics, computers & AV",av-installation-equipment,AV installation equipment,Desktop
+electronics,"Electronics, computers & AV",smart-home-devices,Smart home devices,Desktop
+electronics,"Electronics, computers & AV",recording-studio-equipment,Recording & studio equipment,Desktop
+vehicles,Cars & commercial vehicles,hatchbacks,Hatchbacks,Car
+vehicles,Cars & commercial vehicles,sedans,Sedans,Car
+vehicles,Cars & commercial vehicles,suvs-crossovers,SUVs & crossovers,Car
+vehicles,Cars & commercial vehicles,mpvs-vans,MPVs & vans,Car
+vehicles,Cars & commercial vehicles,electric-cars,Electric cars,Car
+vehicles,Cars & commercial vehicles,luxury-sports-cars,Luxury & sports cars,Car
+vehicles,Cars & commercial vehicles,pickup-trucks,Pickup trucks,Car
+vehicles,Cars & commercial vehicles,trucks-goods-vehicles,Trucks & goods vehicles,Car
+vehicles,Cars & commercial vehicles,buses-passenger-vehicles,Buses & passenger vehicles,Car
+vehicles,Cars & commercial vehicles,car-parts-accessories,Car parts & accessories,Car
+vehicles,Cars & commercial vehicles,tyres-wheels,Tyres & wheels,Car
+vehicles,Cars & commercial vehicles,vehicle-servicing,Vehicle servicing,Car
+motorcycles,Motorcycles & scooters,commuter-motorcycles,Commuter motorcycles,Motorcycle
+motorcycles,Motorcycles & scooters,roadsters,Roadsters,Motorcycle
+motorcycles,Motorcycles & scooters,sports-motorcycles,Sports motorcycles,Motorcycle
+motorcycles,Motorcycles & scooters,touring-adventure-bikes,Touring & adventure bikes,Motorcycle
+motorcycles,Motorcycles & scooters,scooters,Scooters,Motorcycle
+motorcycles,Motorcycles & scooters,electric-motorcycles-scooters,Electric motorcycles & scooters,Motorcycle
+motorcycles,Motorcycles & scooters,motorcycle-parts,Motorcycle parts,Motorcycle
+motorcycles,Motorcycles & scooters,helmets-riding-gear,Helmets & riding gear,Motorcycle
+motorcycles,Motorcycles & scooters,motorcycle-servicing,Motorcycle servicing,Motorcycle
+home,Furniture & home living,sofas-seating,Sofas & seating,Armchair
+home,Furniture & home living,beds-mattresses,Beds & mattresses,Armchair
+home,Furniture & home living,tables-desks,Tables & desks,Armchair
+home,Furniture & home living,wardrobes-storage,Wardrobes & storage,Armchair
+home,Furniture & home living,office-furniture,Office furniture,Armchair
+home,Furniture & home living,kitchen-dining-furniture,Kitchen & dining furniture,Armchair
+home,Furniture & home living,curtains-soft-furnishings,Curtains & soft furnishings,Armchair
+home,Furniture & home living,home-decor,Home decor,Armchair
+home,Furniture & home living,outdoor-furniture,Outdoor furniture,Armchair
+home,Furniture & home living,used-furniture,Used furniture,Armchair
+construction,Construction materials,cement-binders,Cement & binders,Wall
+construction,Construction materials,sand-aggregates,Sand & aggregates,Wall
+construction,Construction materials,bricks-concrete-blocks,Bricks & concrete blocks,Wall
+construction,Construction materials,ready-mix-concrete,Ready-mix concrete,Wall
+construction,Construction materials,tmt-bars-reinforcement,TMT bars & reinforcement,Wall
+construction,Construction materials,structural-steel-sections,Structural steel sections,Wall
+construction,Construction materials,timber-plywood,Timber & plywood,Wall
+construction,Construction materials,roofing-sheets-systems,Roofing sheets & systems,Wall
+construction,Construction materials,doors-windows-frames,"Doors, windows & frames",Wall
+construction,Construction materials,glass-glazing,Glass & glazing,Wall
+construction,Construction materials,insulation-acoustic-materials,Insulation & acoustic materials,Wall
+construction,Construction materials,waterproofing-construction-chemicals,Waterproofing & construction chemicals,Wall
+construction,Construction materials,precast-concrete-products,Precast concrete products,Wall
+construction,Construction materials,geotextiles-drainage-materials,Geotextiles & drainage materials,Wall
+construction,Construction materials,reclaimed-building-materials,Reclaimed building materials,Wall
+architecture,"Architects, design & engineering",residential-architects,Residential architects,Blueprint
+architecture,"Architects, design & engineering",commercial-architects,Commercial architects,Blueprint
+architecture,"Architects, design & engineering",interior-designers,Interior designers,Blueprint
+architecture,"Architects, design & engineering",landscape-designers,Landscape designers,Blueprint
+architecture,"Architects, design & engineering",structural-engineers,Structural engineers,Blueprint
+architecture,"Architects, design & engineering",civil-engineering-consultants,Civil engineering consultants,Blueprint
+architecture,"Architects, design & engineering",mep-design-consultants,MEP design consultants,Blueprint
+architecture,"Architects, design & engineering",building-plans-drafting,Building plans & drafting,Blueprint
+architecture,"Architects, design & engineering",3d-visualisation-rendering,3D visualisation & rendering,Blueprint
+architecture,"Architects, design & engineering",land-surveying,Land surveying,Blueprint
+architecture,"Architects, design & engineering",quantity-surveying-estimation,Quantity surveying & estimation,Blueprint
+architecture,"Architects, design & engineering",project-management-consultants,Project management consultants,Blueprint
+architecture,"Architects, design & engineering",town-planning-consultants,Town planning consultants,Blueprint
+contractors,Construction & trade contractors,general-building-contractors,General building contractors,HardHat
+contractors,Construction & trade contractors,civil-works-contractors,Civil works contractors,HardHat
+contractors,Construction & trade contractors,home-renovation,Home renovation,HardHat
+contractors,Construction & trade contractors,masonry-plastering,Masonry & plastering,HardHat
+contractors,Construction & trade contractors,roofing-contractors,Roofing contractors,HardHat
+contractors,Construction & trade contractors,steel-fabrication-welding,Steel fabrication & welding,HardHat
+contractors,Construction & trade contractors,carpentry-joinery,Carpentry & joinery,HardHat
+contractors,Construction & trade contractors,painting-contractors,Painting contractors,HardHat
+contractors,Construction & trade contractors,flooring-tiling-installers,Flooring & tiling installers,HardHat
+contractors,Construction & trade contractors,waterproofing-contractors,Waterproofing contractors,HardHat
+contractors,Construction & trade contractors,electrical-contractors,Electrical contractors,HardHat
+contractors,Construction & trade contractors,plumbing-contractors,Plumbing contractors,HardHat
+contractors,Construction & trade contractors,hvac-installers,HVAC installers,HardHat
+contractors,Construction & trade contractors,demolition-site-clearing,Demolition & site clearing,HardHat
+contractors,Construction & trade contractors,landscaping-contractors,Landscaping contractors,HardHat
+warehouse,Warehouse & site supplies,pallet-racks,Pallet racks,Warehouse
+warehouse,Warehouse & site supplies,shelving-storage-systems,Shelving & storage systems,Warehouse
+warehouse,Warehouse & site supplies,pallets-crates-bins,"Pallets, crates & bins",Warehouse
+warehouse,Warehouse & site supplies,pallet-trucks-trolleys,Pallet trucks & trolleys,Warehouse
+warehouse,Warehouse & site supplies,forklifts-stackers,Forklifts & stackers,Warehouse
+warehouse,Warehouse & site supplies,lifting-hoists-slings,Lifting hoists & slings,Warehouse
+warehouse,Warehouse & site supplies,conveyors-loading-equipment,Conveyors & loading equipment,Warehouse
+warehouse,Warehouse & site supplies,packaging-boxes-cartons,Packaging boxes & cartons,Warehouse
+warehouse,Warehouse & site supplies,wrapping-strapping-tapes,"Wrapping, strapping & tapes",Warehouse
+warehouse,Warehouse & site supplies,weighing-scales,Weighing scales,Warehouse
+warehouse,Warehouse & site supplies,warehouse-labels-signage,Warehouse labels & signage,Warehouse
+warehouse,Warehouse & site supplies,tarpaulins-protective-covers,Tarpaulins & protective covers,Warehouse
+warehouse,Warehouse & site supplies,site-cabins-portable-toilets,Site cabins & portable toilets,Warehouse
+warehouse,Warehouse & site supplies,bulk-material-supply-distribution,Bulk material supply & distribution,Warehouse
+tools,"Tools, hardware & fasteners",hand-tools,Hand tools,Hammer
+tools,"Tools, hardware & fasteners",power-tools,Power tools,Hammer
+tools,"Tools, hardware & fasteners",drill-bits-cutting-discs,Drill bits & cutting discs,Hammer
+tools,"Tools, hardware & fasteners",nuts-bolts-screws,"Nuts, bolts & screws",Hammer
+tools,"Tools, hardware & fasteners",locks-hinges-handles,"Locks, hinges & handles",Hammer
+tools,"Tools, hardware & fasteners",welding-equipment-supplies,Welding equipment & supplies,Hammer
+tools,"Tools, hardware & fasteners",measuring-testing-tools,Measuring & testing tools,Hammer
+tools,"Tools, hardware & fasteners",ladders-work-platforms,Ladders & work platforms,Hammer
+tools,"Tools, hardware & fasteners",workshop-storage,Workshop storage,Hammer
+tools,"Tools, hardware & fasteners",abrasives-polishing,Abrasives & polishing,Hammer
+tools,"Tools, hardware & fasteners",adhesives-sealants,Adhesives & sealants,Hammer
+electrical,"Electrical, lighting & solar",wires-cables,Wires & cables,Lightning
+electrical,"Electrical, lighting & solar",switches-sockets,Switches & sockets,Lightning
+electrical,"Electrical, lighting & solar",distribution-boards-breakers,Distribution boards & breakers,Lightning
+electrical,"Electrical, lighting & solar",indoor-lighting,Indoor lighting,Lightning
+electrical,"Electrical, lighting & solar",outdoor-street-lighting,Outdoor & street lighting,Lightning
+electrical,"Electrical, lighting & solar",led-strips-decorative-lighting,LED strips & decorative lighting,Lightning
+electrical,"Electrical, lighting & solar",inverters-ups,Inverters & UPS,Lightning
+electrical,"Electrical, lighting & solar",batteries-energy-storage,Batteries & energy storage,Lightning
+electrical,"Electrical, lighting & solar",solar-panels,Solar panels,Lightning
+electrical,"Electrical, lighting & solar",solar-inverters-accessories,Solar inverters & accessories,Lightning
+electrical,"Electrical, lighting & solar",earthing-lightning-protection,Earthing & lightning protection,Lightning
+electrical,"Electrical, lighting & solar",ev-charging-equipment,EV charging equipment,Lightning
+plumbing,"Plumbing, bathroom & water",pipes-fittings,Pipes & fittings,Pipe
+plumbing,"Plumbing, bathroom & water",taps-mixers,Taps & mixers,Pipe
+plumbing,"Plumbing, bathroom & water",toilets-sanitaryware,Toilets & sanitaryware,Pipe
+plumbing,"Plumbing, bathroom & water",wash-basins-sinks,Wash basins & sinks,Pipe
+plumbing,"Plumbing, bathroom & water",showers-bathroom-accessories,Showers & bathroom accessories,Pipe
+plumbing,"Plumbing, bathroom & water",water-storage-tanks,Water storage tanks,Pipe
+plumbing,"Plumbing, bathroom & water",pumps-motors,Pumps & motors,Pipe
+plumbing,"Plumbing, bathroom & water",water-heaters,Water heaters,Pipe
+plumbing,"Plumbing, bathroom & water",water-filtration-treatment,Water filtration & treatment,Pipe
+plumbing,"Plumbing, bathroom & water",drainage-sewage-systems,Drainage & sewage systems,Pipe
+plumbing,"Plumbing, bathroom & water",valves-meters,Valves & meters,Pipe
+finishes,"Paint, flooring & interiors",interior-exterior-paint,Interior & exterior paint,PaintRoller
+finishes,"Paint, flooring & interiors",primers-wall-putty,Primers & wall putty,PaintRoller
+finishes,"Paint, flooring & interiors",tiles-mosaics,Tiles & mosaics,PaintRoller
+finishes,"Paint, flooring & interiors",marble-granite-stone,"Marble, granite & stone",PaintRoller
+finishes,"Paint, flooring & interiors",wood-laminate-flooring,Wood & laminate flooring,PaintRoller
+finishes,"Paint, flooring & interiors",vinyl-resilient-flooring,Vinyl & resilient flooring,PaintRoller
+finishes,"Paint, flooring & interiors",wall-panels-cladding,Wall panels & cladding,PaintRoller
+finishes,"Paint, flooring & interiors",wallpaper,Wallpaper,PaintRoller
+finishes,"Paint, flooring & interiors",false-ceilings-gypsum,False ceilings & gypsum,PaintRoller
+finishes,"Paint, flooring & interiors",modular-kitchens,Modular kitchens,PaintRoller
+finishes,"Paint, flooring & interiors",laminates-veneers,Laminates & veneers,PaintRoller
+finishes,"Paint, flooring & interiors",interior-partitions,Interior partitions,PaintRoller
+machinery,Machinery & equipment rental,excavators-earthmovers,Excavators & earthmovers,Factory
+machinery,Machinery & equipment rental,concrete-mixers-vibrators,Concrete mixers & vibrators,Factory
+machinery,Machinery & equipment rental,compactors-road-equipment,Compactors & road equipment,Factory
+machinery,Machinery & equipment rental,cranes-lifting-equipment,Cranes & lifting equipment,Factory
+machinery,Machinery & equipment rental,generators,Generators,Factory
+machinery,Machinery & equipment rental,air-compressors,Air compressors,Factory
+machinery,Machinery & equipment rental,scaffolding-shuttering,Scaffolding & shuttering,Factory
+machinery,Machinery & equipment rental,agricultural-machinery,Agricultural machinery,Factory
+machinery,Machinery & equipment rental,workshop-machines,Workshop machines,Factory
+machinery,Machinery & equipment rental,construction-equipment-hire,Construction equipment hire,Factory
+machinery,Machinery & equipment rental,industrial-machine-spares,Industrial machine spares,Factory
+safety,"Safety, security & fire equipment",helmets-site-ppe,Helmets & site PPE,ShieldCheck
+safety,"Safety, security & fire equipment",safety-footwear-gloves,Safety footwear & gloves,ShieldCheck
+safety,"Safety, security & fire equipment",harnesses-fall-protection,Harnesses & fall protection,ShieldCheck
+safety,"Safety, security & fire equipment",barriers-safety-signage,Barriers & safety signage,ShieldCheck
+safety,"Safety, security & fire equipment",fire-extinguishers,Fire extinguishers,ShieldCheck
+safety,"Safety, security & fire equipment",fire-alarms-detection,Fire alarms & detection,ShieldCheck
+safety,"Safety, security & fire equipment",cctv-surveillance,CCTV & surveillance,ShieldCheck
+safety,"Safety, security & fire equipment",access-control-locks,Access control & locks,ShieldCheck
+safety,"Safety, security & fire equipment",security-alarms,Security alarms,ShieldCheck
+safety,"Safety, security & fire equipment",first-aid-kits,First-aid kits,ShieldCheck
+safety,"Safety, security & fire equipment",emergency-lighting,Emergency lighting,ShieldCheck
+property,Property & spaces,homes-for-sale,Homes for sale,Buildings
+property,Property & spaces,apartments-for-sale,Apartments for sale,Buildings
+property,Property & spaces,residential-land,Residential land,Buildings
+property,Property & spaces,agricultural-land,Agricultural land,Buildings
+property,Property & spaces,homes-flats-for-rent,Homes & flats for rent,Buildings
+property,Property & spaces,rooms-shared-accommodation,Rooms & shared accommodation,Buildings
+property,Property & spaces,shops-showrooms,Shops & showrooms,Buildings
+property,Property & spaces,offices-coworking,Offices & coworking,Buildings
+property,Property & spaces,warehouses-godowns,Warehouses & godowns,Buildings
+property,Property & spaces,industrial-sheds-plots,Industrial sheds & plots,Buildings
+property,Property & spaces,property-agents,Property agents,Buildings
+logistics,Transport & logistics,local-delivery,Local delivery,Truck
+logistics,Transport & logistics,goods-vehicle-hire,Goods vehicle hire,Truck
+logistics,Transport & logistics,packers-movers,Packers & movers,Truck
+logistics,Transport & logistics,building-material-transport,Building material transport,Truck
+logistics,Transport & logistics,courier-services,Courier services,Truck
+logistics,Transport & logistics,freight-forwarding,Freight forwarding,Truck
+logistics,Transport & logistics,warehousing-services,Warehousing services,Truck
+logistics,Transport & logistics,cold-storage-services,Cold storage services,Truck
+logistics,Transport & logistics,passenger-vehicle-rental,Passenger vehicle rental,Truck
+bicycles,Bicycles & cycling,city-commuter-bicycles,City & commuter bicycles,Bicycle
+bicycles,Bicycles & cycling,mountain-bikes,Mountain bikes,Bicycle
+bicycles,Bicycles & cycling,road-bicycles,Road bicycles,Bicycle
+bicycles,Bicycles & cycling,kids-bicycles,Kids bicycles,Bicycle
+bicycles,Bicycles & cycling,electric-bicycles,Electric bicycles,Bicycle
+bicycles,Bicycles & cycling,cycling-accessories,Cycling accessories,Bicycle
+bicycles,Bicycles & cycling,bicycle-spare-parts,Bicycle spare parts,Bicycle
+bicycles,Bicycles & cycling,bicycle-repair,Bicycle repair,Bicycle
+appliances,Home & kitchen appliances,refrigerators,Refrigerators,WashingMachine
+appliances,Home & kitchen appliances,washing-machines,Washing machines,WashingMachine
+appliances,Home & kitchen appliances,air-conditioners,Air conditioners,WashingMachine
+appliances,Home & kitchen appliances,fans-air-coolers,Fans & air coolers,WashingMachine
+appliances,Home & kitchen appliances,cooktops-stoves,Cooktops & stoves,WashingMachine
+appliances,Home & kitchen appliances,microwaves-ovens,Microwaves & ovens,WashingMachine
+appliances,Home & kitchen appliances,mixers-small-appliances,Mixers & small appliances,WashingMachine
+appliances,Home & kitchen appliances,vacuum-cleaners,Vacuum cleaners,WashingMachine
+appliances,Home & kitchen appliances,water-purifiers,Water purifiers,WashingMachine
+appliances,Home & kitchen appliances,appliance-spare-parts,Appliance spare parts,WashingMachine
+food,"Food, groceries & local produce",rice-grains,Rice & grains,BowlFood
+food,"Food, groceries & local produce",fresh-vegetables,Fresh vegetables,BowlFood
+food,"Food, groceries & local produce",fresh-fruit,Fresh fruit,BowlFood
+food,"Food, groceries & local produce",pulses-spices,Pulses & spices,BowlFood
+food,"Food, groceries & local produce",packaged-local-foods,Packaged local foods,BowlFood
+food,"Food, groceries & local produce",baked-goods-sweets,Baked goods & sweets,BowlFood
+food,"Food, groceries & local produce",dairy-eggs,Dairy & eggs,BowlFood
+food,"Food, groceries & local produce",meat-fish,Meat & fish,BowlFood
+food,"Food, groceries & local produce",tea-coffee-beverages,"Tea, coffee & beverages",BowlFood
+food,"Food, groceries & local produce",ready-to-eat-meals,Ready-to-eat meals,BowlFood
+food,"Food, groceries & local produce",wholesale-groceries,Wholesale groceries,BowlFood
+agriculture,"Farming, gardening & plants",seeds-seedlings,Seeds & seedlings,Plant
+agriculture,"Farming, gardening & plants",indoor-plants,Indoor plants,Plant
+agriculture,"Farming, gardening & plants",garden-plants-saplings,Garden plants & saplings,Plant
+agriculture,"Farming, gardening & plants",pots-planters,Pots & planters,Plant
+agriculture,"Farming, gardening & plants",soil-compost,Soil & compost,Plant
+agriculture,"Farming, gardening & plants",fertilisers,Fertilisers,Plant
+agriculture,"Farming, gardening & plants",garden-tools,Garden tools,Plant
+agriculture,"Farming, gardening & plants",irrigation-equipment,Irrigation equipment,Plant
+agriculture,"Farming, gardening & plants",farm-tools,Farm tools,Plant
+agriculture,"Farming, gardening & plants",animal-feed,Animal feed,Plant
+agriculture,"Farming, gardening & plants",greenhouse-supplies,Greenhouse supplies,Plant
+beauty,Beauty & personal care,skincare,Skincare,Scissors
+beauty,Beauty & personal care,haircare,Haircare,Scissors
+beauty,Beauty & personal care,makeup,Makeup,Scissors
+beauty,Beauty & personal care,fragrances,Fragrances,Scissors
+beauty,Beauty & personal care,grooming-tools,Grooming tools,Scissors
+beauty,Beauty & personal care,salon-equipment,Salon equipment,Scissors
+beauty,Beauty & personal care,salon-barber-services,Salon & barber services,Scissors
+beauty,Beauty & personal care,makeup-artists,Makeup artists,Scissors
+beauty,Beauty & personal care,spa-wellness-services,Spa & wellness services,Scissors
+sports,"Sports, fitness & outdoors",fitness-equipment,Fitness equipment,Barbell
+sports,"Sports, fitness & outdoors",football-team-sports,Football & team sports,Barbell
+sports,"Sports, fitness & outdoors",badminton-racquet-sports,Badminton & racquet sports,Barbell
+sports,"Sports, fitness & outdoors",martial-arts-equipment,Martial arts equipment,Barbell
+sports,"Sports, fitness & outdoors",outdoor-camping-gear,Outdoor & camping gear,Barbell
+sports,"Sports, fitness & outdoors",sports-clothing,Sports clothing,Barbell
+sports,"Sports, fitness & outdoors",yoga-accessories,Yoga accessories,Barbell
+sports,"Sports, fitness & outdoors",fishing-equipment,Fishing equipment,Barbell
+sports,"Sports, fitness & outdoors",sports-coaching,Sports coaching,Barbell
+kids,"Baby, kids & toys",toys-games,Toys & games,Baby
+kids,"Baby, kids & toys",baby-clothing,Baby clothing,Baby
+kids,"Baby, kids & toys",strollers-carriers,Strollers & carriers,Baby
+kids,"Baby, kids & toys",cots-nursery-furniture,Cots & nursery furniture,Baby
+kids,"Baby, kids & toys",feeding-accessories,Feeding accessories,Baby
+kids,"Baby, kids & toys",kids-learning-materials,Kids learning materials,Baby
+kids,"Baby, kids & toys",kids-outdoor-play,Kids outdoor play,Baby
+kids,"Baby, kids & toys",maternity-accessories,Maternity accessories,Baby
+pets,Pet supplies & care,pet-food,Pet food,PawPrint
+pets,Pet supplies & care,pet-accessories,Pet accessories,PawPrint
+pets,Pet supplies & care,beds-carriers,Beds & carriers,PawPrint
+pets,Pet supplies & care,aquarium-supplies,Aquarium supplies,PawPrint
+pets,Pet supplies & care,pet-grooming,Pet grooming,PawPrint
+pets,Pet supplies & care,pet-boarding,Pet boarding,PawPrint
+pets,Pet supplies & care,pet-training,Pet training,PawPrint
+education,"Books, learning & stationery",school-college-books,School & college books,GraduationCap
+education,"Books, learning & stationery",competitive-exam-books,Competitive exam books,GraduationCap
+education,"Books, learning & stationery",general-books,General books,GraduationCap
+education,"Books, learning & stationery",stationery,Stationery,GraduationCap
+education,"Books, learning & stationery",art-supplies,Art supplies,GraduationCap
+education,"Books, learning & stationery",school-supplies,School supplies,GraduationCap
+education,"Books, learning & stationery",tuition-tutoring,Tuition & tutoring,GraduationCap
+education,"Books, learning & stationery",language-classes,Language classes,GraduationCap
+education,"Books, learning & stationery",computer-skills-training,Computer & skills training,GraduationCap
+education,"Books, learning & stationery",music-dance-lessons,Music & dance lessons,GraduationCap
+events,"Events, gifts & celebrations",event-planners,Event planners,Confetti
+events,"Events, gifts & celebrations",decorators,Decorators,Confetti
+events,"Events, gifts & celebrations",catering,Catering,Confetti
+events,"Events, gifts & celebrations",photography-videography,Photography & videography,Confetti
+events,"Events, gifts & celebrations",sound-lighting-hire,Sound & lighting hire,Confetti
+events,"Events, gifts & celebrations",venues-halls,Venues & halls,Confetti
+events,"Events, gifts & celebrations",gifts-hampers,Gifts & hampers,Confetti
+events,"Events, gifts & celebrations",flowers-bouquets,Flowers & bouquets,Confetti
+events,"Events, gifts & celebrations",wedding-services,Wedding services,Confetti
+events,"Events, gifts & celebrations",party-supplies,Party supplies,Confetti
+business,Business & professional services,accounting-bookkeeping,Accounting & bookkeeping,Briefcase
+business,Business & professional services,business-consulting,Business consulting,Briefcase
+business,Business & professional services,website-app-development,Website & app development,Briefcase
+business,Business & professional services,graphic-design,Graphic design,Briefcase
+business,Business & professional services,printing-signage,Printing & signage,Briefcase
+business,Business & professional services,digital-marketing,Digital marketing,Briefcase
+business,Business & professional services,translation,Translation,Briefcase
+business,Business & professional services,office-equipment,Office equipment,Briefcase
+business,Business & professional services,retail-pos-systems,Retail POS systems,Briefcase
+business,Business & professional services,commercial-cleaning,Commercial cleaning,Briefcase
+services,"Home, repair & local services",appliance-repair,Appliance repair,Wrench
+services,"Home, repair & local services",mobile-computer-repair,Mobile & computer repair,Wrench
+services,"Home, repair & local services",home-cleaning,Home cleaning,Wrench
+services,"Home, repair & local services",pest-control,Pest control,Wrench
+services,"Home, repair & local services",laundry-ironing,Laundry & ironing,Wrench
+services,"Home, repair & local services",furniture-repair,Furniture repair,Wrench
+services,"Home, repair & local services",locksmiths,Locksmiths,Wrench
+services,"Home, repair & local services",home-maintenance,Home maintenance,Wrench
+services,"Home, repair & local services",gardening-services,Gardening services,Wrench
+services,"Home, repair & local services",water-tank-cleaning,Water tank cleaning,Wrench
+retail,General retail & wholesale,daily-essentials,Daily essentials,Storefront
+retail,General retail & wholesale,household-supplies,Household supplies,Storefront
+retail,General retail & wholesale,kitchenware,Kitchenware,Storefront
+retail,General retail & wholesale,reusable-bags-containers,Reusable bags & containers,Storefront
+retail,General retail & wholesale,wholesale-mixed-goods,Wholesale mixed goods,Storefront
+retail,General retail & wholesale,shop-fixtures-displays,Shop fixtures & displays,Storefront
+retail,General retail & wholesale,local-crafts-souvenirs,Local crafts & souvenirs,Storefront
+retail,General retail & wholesale,seasonal-goods,Seasonal goods,Storefront

@@ -1,3 +1,4 @@
+import { categoryIcons } from "../components/CategoryIcon";
 import React, { useState, useEffect } from "react";
 import {
   SlidersHorizontal,
@@ -100,7 +101,17 @@ export function Admin({ visual = false }) {
     load();
   };
   const editFields = {
-    categories: ["id", "name", "theme", "fields", "position", "active"],
+    categories: [
+      "id",
+      "name",
+      "theme",
+      "icon",
+      "group_name",
+      "subcategories",
+      "fields",
+      "position",
+      "active",
+    ],
     plans: ["id", "name", "price", "listing_limit", "image_limit", "active"],
     campaigns: [
       "title",
@@ -383,6 +394,48 @@ export function Admin({ visual = false }) {
                   />
                   {k === "paid" ? "Payment has been independently verified" : k}
                 </label>
+              ) : k === "icon" ? (
+                <Field key={k} label="Category icon">
+                  <select
+                    value={editing.icon || "Storefront"}
+                    onChange={(e) =>
+                      setEditing({ ...editing, icon: e.target.value })
+                    }
+                  >
+                    {Object.keys(categoryIcons).map((name) => (
+                      <option key={name}>{name}</option>
+                    ))}
+                  </select>
+                </Field>
+              ) : k === "subcategories" ? (
+                <Field key={k} label="Subcategories — one id | name per line">
+                  <textarea
+                    rows={10}
+                    defaultValue={(editing.subcategories || [])
+                      .map((s) => s.id + " | " + s.name)
+                      .join("\n")}
+                    onBlur={(e) =>
+                      setEditing({
+                        ...editing,
+                        subcategories: e.target.value
+                          .split("\n")
+                          .filter((s) => s.trim())
+                          .map((line) => {
+                            const [id, ...name] = line.split("|");
+                            return {
+                              id: id.trim(),
+                              name: name.join("|").trim(),
+                              icon: editing.icon || "Storefront",
+                            };
+                          }),
+                      })
+                    }
+                  />
+                  <small>
+                    Keep existing IDs when renaming. Used subcategories cannot
+                    be removed.
+                  </small>
+                </Field>
               ) : k === "fields" ? (
                 <Field
                   key={k}

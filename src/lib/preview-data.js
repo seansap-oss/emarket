@@ -1,38 +1,6 @@
 // Public showcase catalogue. Fictional shops and illustrative prices; no seller contacts.
-export const categories = [
-  ["fashion", "Fashion", "fashion", ["Size", "Colour", "Material"]],
-  [
-    "mobiles",
-    "Mobiles",
-    "electronics",
-    ["Brand", "Model", "Storage", "Warranty"],
-  ],
-  [
-    "vehicles",
-    "Vehicles",
-    "vehicles",
-    ["Make", "Model", "Year", "Kilometres", "Fuel"],
-  ],
-  [
-    "motorcycles",
-    "Motorcycles",
-    "motorcycles",
-    ["Make", "Engine", "Year", "Kilometres"],
-  ],
-  ["home", "Home & furniture", "general", ["Material", "Dimensions"]],
-  ["electronics", "Electronics", "electronics", ["Brand", "Model"]],
-  ["services", "Services", "general", ["Service area", "Price unit"]],
-  ["property", "Property", "general", ["Area", "Bedrooms"]],
-  ["bicycles", "Bicycles", "vehicles", ["Brand", "Frame size"]],
-  ["retail", "General retail", "general", ["Material", "Dimensions"]],
-].map(([id, name, theme, fields], i) => ({
-  id,
-  name,
-  theme,
-  fields,
-  position: i,
-  active: true,
-}));
+import { categoryCatalog } from "./categories.js";
+export const categories = categoryCatalog;
 export const plans = [
   ["free", "Free", 0, 3],
   ["starter", "Starter", 500, 50],
@@ -349,4 +317,33 @@ listings.forEach((item, index) => {
   item.collection_id ||= `${item.seller_id}-collection-${index === 4 || index === 5 ? 1 : 0}`;
   item.description =
     "Sample listing with an illustrative price and photograph, showing how your own products will appear. This item is not offered for sale. Replace samples with your own catalogue when account services are connected.";
+});
+
+listings.forEach((item) => {
+  item.subcategory_id ||=
+    categories.find((c) => c.id === item.category_id)?.subcategories[0]?.id ||
+    null;
+});
+// Map sample products to meaningful browse filters.
+const sampleSubcategory = {
+  "sample-1": "smartphones",
+  "sample-2": "traditional-phanek-innaphi",
+  "sample-3": "luxury-sports-cars",
+  "sample-4": "tables-desks",
+  "sample-5": "headphones-speakers",
+  "sample-6": "women-s-clothing",
+  "sample-extra-0": "t-shirts-tops",
+  "sample-extra-1": "traditional-phanek-innaphi",
+  "sample-extra-2": "smartphones",
+  "sample-extra-3": "headphones-speakers",
+  "sample-extra-4": "luxury-sports-cars",
+  "sample-extra-5": "luxury-sports-cars",
+  "sample-extra-6": "tables-desks",
+  "sample-extra-7": "daily-essentials",
+  "sample-extra-8": "roadsters",
+  "sample-extra-9": "touring-adventure-bikes",
+  "sample-extra-10": "roadsters",
+};
+listings.forEach((item) => {
+  item.subcategory_id = sampleSubcategory[item.id] || item.subcategory_id;
 });

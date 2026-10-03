@@ -1,3 +1,8 @@
+import {
+  categoryName,
+  subcategoryName,
+  subcategoriesFor,
+} from "../lib/categories";
 import React, { useState, useEffect, useRef } from "react";
 import {
   Heart,
@@ -394,6 +399,7 @@ export function Search({ saved = false }) {
   const params = new URLSearchParams(path.split("?")[1]);
   const q = params.get("q") || "",
     cat = params.get("category") || "",
+    sub = params.get("subcategory") || "",
     loc = params.get("location") || "";
   const [items, setItems] = useState([]),
     [loading, setLoading] = useState(true),
@@ -405,7 +411,10 @@ export function Search({ saved = false }) {
     [page, setPage] = useState(0),
     [more, setMore] = useState(false),
     [filters, setFilters] = useState(false);
-  useEffect(() => setPage(0), [q, cat, loc, sort, condition, type, min, max]);
+  useEffect(
+    () => setPage(0),
+    [q, cat, sub, loc, sort, condition, type, min, max],
+  );
   useEffect(() => {
     let live = true;
     async function run() {
@@ -421,6 +430,7 @@ export function Search({ saved = false }) {
                 (x) =>
                   (!q || searchable(x).includes(q.toLowerCase())) &&
                   (!cat || x.category_id === cat) &&
+                  (!sub || x.subcategory_id === sub) &&
                   (!loc ||
                     x.location.toLowerCase().includes(loc.toLowerCase())) &&
                   (!condition || x.condition === condition) &&
@@ -435,6 +445,7 @@ export function Search({ saved = false }) {
             .rpc("search_listings", { p_query: q })
             .select("*,seller:sellers!inner(*)");
           if (cat) query = query.eq("category_id", cat);
+          if (sub) query = query.eq("subcategory_id", sub);
           if (loc)
             query = query.ilike(
               "location",
@@ -506,7 +517,8 @@ export function Search({ saved = false }) {
               : q
                 ? `Results for “${q}”`
                 : cat
-                  ? categories.find((c) => c.id === cat)?.name
+                  ? subcategoryName(categories, cat, sub) ||
+                    categoryName(categories, cat)
                   : "Explore the marketplace"}
           </h1>
           <p>Products from shops and individuals across Manipur.</p>
@@ -545,6 +557,31 @@ export function Search({ saved = false }) {
               ))}
             </select>
           </Field>
+          {cat && (
+            <Field label="Subcategory">
+              <select
+                value={sub}
+                onChange={(e) =>
+                  navigate(
+                    "/search?" +
+                      new URLSearchParams({
+                        q,
+                        category: cat,
+                        subcategory: e.target.value,
+                        location: loc,
+                      }),
+                  )
+                }
+              >
+                <option value="">All subcategories</option>
+                {subcategoriesFor(categories, cat).map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          )}
           <Field label="Condition">
             <select
               value={condition}
@@ -983,7 +1020,7 @@ export function SellerPage({ slug }) {
   );
 }
 export function ProductPage({ id }) {
-  const { fixtures, notice, session, path } = useMarket();
+  const { fixtures, notice, session, path, categories } = useMarket();
   const [item, setItem] = useState(null),
     [loading, setLoading] = useState(true),
     [image, setImage] = useState(0),
@@ -1027,7 +1064,7 @@ export function ProductPage({ id }) {
         <Link to="/">Home</Link>
         <span>/</span>
         <Link to={"/search?category=" + item.category_id}>
-          {item.category_id}
+          {categoryName(categories, item.category_id)}
         </Link>
         <span>/</span>
         {item.title}
@@ -1052,7 +1089,14 @@ export function ProductPage({ id }) {
         </section>
         <section className="detail-info">
           <span className="eyebrow">
-            {item.condition} · {item.category_id}
+            {item.condition} · {categoryName(categories, item.category_id)}{" "}
+            {item.subcategory_id &&
+              " · " +
+                subcategoryName(
+                  categories,
+                  item.category_id,
+                  item.subcategory_id,
+                )}
           </span>
           {item.sample && (
             <div className="sample-notice">

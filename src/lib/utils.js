@@ -74,6 +74,8 @@ export function searchable(item) {
     item.title,
     item.description,
     item.tags,
+    item.category_id?.replaceAll("-", " "),
+    item.subcategory_id?.replaceAll("-", " "),
     item.location,
     item.seller?.name,
     ...Object.values(item.attributes || {}),
@@ -89,6 +91,15 @@ export function normalizeImport(row, seller, categories) {
       c.name.toLowerCase() === String(row.category).toLowerCase(),
   );
   if (!category) throw Error("Unknown category");
+  const child = row.subcategory
+    ? (category.subcategories || []).find(
+        (s) =>
+          s.id === row.subcategory ||
+          s.name.toLowerCase() === String(row.subcategory).toLowerCase(),
+      )
+    : null;
+  if (row.subcategory && !child)
+    throw Error("Subcategory does not belong to selected category");
   if (!row.sku?.trim()) throw Error("SKU is required");
   if (!row.title || row.title.trim().length < 3)
     throw Error("Title must have at least 3 characters");
@@ -117,6 +128,7 @@ export function normalizeImport(row, seller, categories) {
     description: row.description || "",
     price: Number(row.price),
     category_id: category.id,
+    subcategory_id: child?.id || null,
     condition,
     location: row.location || seller.location,
     images,

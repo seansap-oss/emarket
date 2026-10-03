@@ -1,0 +1,2178 @@
+[
+  {
+    "id": "fashion",
+    "name": "Clothing, fashion & handloom",
+    "icon": "TShirt",
+    "group_name": "Shopping",
+    "theme": "fashion",
+    "fields": [
+      "Size",
+      "Colour",
+      "Material"
+    ],
+    "position": 0,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "women-s-clothing",
+        "name": "Women's clothing",
+        "icon": "TShirt"
+      },
+      {
+        "id": "men-s-clothing",
+        "name": "Men's clothing",
+        "icon": "TShirt"
+      },
+      {
+        "id": "children-s-clothing",
+        "name": "Children's clothing",
+        "icon": "TShirt"
+      },
+      {
+        "id": "t-shirts-tops",
+        "name": "T-shirts & tops",
+        "icon": "TShirt"
+      },
+      {
+        "id": "traditional-phanek-innaphi",
+        "name": "Traditional phanek & innaphi",
+        "icon": "TShirt"
+      },
+      {
+        "id": "shawls-handloom-textiles",
+        "name": "Shawls & handloom textiles",
+        "icon": "TShirt"
+      },
+      {
+        "id": "footwear",
+        "name": "Footwear",
+        "icon": "TShirt"
+      },
+      {
+        "id": "bags-wallets",
+        "name": "Bags & wallets",
+        "icon": "TShirt"
+      },
+      {
+        "id": "jewellery-accessories",
+        "name": "Jewellery & accessories",
+        "icon": "TShirt"
+      },
+      {
+        "id": "tailoring-materials",
+        "name": "Tailoring materials",
+        "icon": "TShirt"
+      },
+      {
+        "id": "school-work-uniforms",
+        "name": "School & work uniforms",
+        "icon": "TShirt"
+      },
+      {
+        "id": "pre-owned-clothing",
+        "name": "Pre-owned clothing",
+        "icon": "TShirt"
+      }
+    ]
+  },
+  {
+    "id": "mobiles",
+    "name": "Mobiles & accessories",
+    "icon": "DeviceMobile",
+    "group_name": "Shopping",
+    "theme": "electronics",
+    "fields": [
+      "Brand",
+      "Model",
+      "Storage",
+      "Warranty"
+    ],
+    "position": 1,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "smartphones",
+        "name": "Smartphones",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "feature-phones",
+        "name": "Feature phones",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "tablets",
+        "name": "Tablets",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "phone-cases-screen-protectors",
+        "name": "Phone cases & screen protectors",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "chargers-cables",
+        "name": "Chargers & cables",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "power-banks",
+        "name": "Power banks",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "smartwatches",
+        "name": "Smartwatches",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "mobile-spare-parts",
+        "name": "Mobile spare parts",
+        "icon": "DeviceMobile"
+      },
+      {
+        "id": "refurbished-phones",
+        "name": "Refurbished phones",
+        "icon": "DeviceMobile"
+      }
+    ]
+  },
+  {
+    "id": "electronics",
+    "name": "Electronics, computers & AV",
+    "icon": "Desktop",
+    "group_name": "Shopping",
+    "theme": "electronics",
+    "fields": [
+      "Brand",
+      "Model",
+      "Warranty"
+    ],
+    "position": 2,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "laptops",
+        "name": "Laptops",
+        "icon": "Desktop"
+      },
+      {
+        "id": "desktop-computers",
+        "name": "Desktop computers",
+        "icon": "Desktop"
+      },
+      {
+        "id": "computer-components",
+        "name": "Computer components",
+        "icon": "Desktop"
+      },
+      {
+        "id": "monitors",
+        "name": "Monitors",
+        "icon": "Desktop"
+      },
+      {
+        "id": "printers-scanners",
+        "name": "Printers & scanners",
+        "icon": "Desktop"
+      },
+      {
+        "id": "networking-wi-fi",
+        "name": "Networking & Wi-Fi",
+        "icon": "Desktop"
+      },
+      {
+        "id": "headphones-speakers",
+        "name": "Headphones & speakers",
+        "icon": "Desktop"
+      },
+      {
+        "id": "cameras-lenses",
+        "name": "Cameras & lenses",
+        "icon": "Desktop"
+      },
+      {
+        "id": "televisions-projectors",
+        "name": "Televisions & projectors",
+        "icon": "Desktop"
+      },
+      {
+        "id": "gaming-consoles",
+        "name": "Gaming consoles",
+        "icon": "Desktop"
+      },
+      {
+        "id": "av-installation-equipment",
+        "name": "AV installation equipment",
+        "icon": "Desktop"
+      },
+      {
+        "id": "smart-home-devices",
+        "name": "Smart home devices",
+        "icon": "Desktop"
+      },
+      {
+        "id": "recording-studio-equipment",
+        "name": "Recording & studio equipment",
+        "icon": "Desktop"
+      }
+    ]
+  },
+  {
+    "id": "vehicles",
+    "name": "Cars & commercial vehicles",
+    "icon": "Car",
+    "group_name": "Vehicles & transport",
+    "theme": "vehicles",
+    "fields": [
+      "Make",
+      "Model",
+      "Year",
+      "Kilometres",
+      "Fuel"
+    ],
+    "position": 3,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "hatchbacks",
+        "name": "Hatchbacks",
+        "icon": "Car"
+      },
+      {
+        "id": "sedans",
+        "name": "Sedans",
+        "icon": "Car"
+      },
+      {
+        "id": "suvs-crossovers",
+        "name": "SUVs & crossovers",
+        "icon": "Car"
+      },
+      {
+        "id": "mpvs-vans",
+        "name": "MPVs & vans",
+        "icon": "Car"
+      },
+      {
+        "id": "electric-cars",
+        "name": "Electric cars",
+        "icon": "Car"
+      },
+      {
+        "id": "luxury-sports-cars",
+        "name": "Luxury & sports cars",
+        "icon": "Car"
+      },
+      {
+        "id": "pickup-trucks",
+        "name": "Pickup trucks",
+        "icon": "Car"
+      },
+      {
+        "id": "trucks-goods-vehicles",
+        "name": "Trucks & goods vehicles",
+        "icon": "Car"
+      },
+      {
+        "id": "buses-passenger-vehicles",
+        "name": "Buses & passenger vehicles",
+        "icon": "Car"
+      },
+      {
+        "id": "car-parts-accessories",
+        "name": "Car parts & accessories",
+        "icon": "Car"
+      },
+      {
+        "id": "tyres-wheels",
+        "name": "Tyres & wheels",
+        "icon": "Car"
+      },
+      {
+        "id": "vehicle-servicing",
+        "name": "Vehicle servicing",
+        "icon": "Car"
+      }
+    ]
+  },
+  {
+    "id": "motorcycles",
+    "name": "Motorcycles & scooters",
+    "icon": "Motorcycle",
+    "group_name": "Vehicles & transport",
+    "theme": "motorcycles",
+    "fields": [
+      "Make",
+      "Model",
+      "Engine",
+      "Year",
+      "Kilometres"
+    ],
+    "position": 4,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "commuter-motorcycles",
+        "name": "Commuter motorcycles",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "roadsters",
+        "name": "Roadsters",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "sports-motorcycles",
+        "name": "Sports motorcycles",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "touring-adventure-bikes",
+        "name": "Touring & adventure bikes",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "scooters",
+        "name": "Scooters",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "electric-motorcycles-scooters",
+        "name": "Electric motorcycles & scooters",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "motorcycle-parts",
+        "name": "Motorcycle parts",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "helmets-riding-gear",
+        "name": "Helmets & riding gear",
+        "icon": "Motorcycle"
+      },
+      {
+        "id": "motorcycle-servicing",
+        "name": "Motorcycle servicing",
+        "icon": "Motorcycle"
+      }
+    ]
+  },
+  {
+    "id": "home",
+    "name": "Furniture & home living",
+    "icon": "Armchair",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Material",
+      "Dimensions"
+    ],
+    "position": 5,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "sofas-seating",
+        "name": "Sofas & seating",
+        "icon": "Armchair"
+      },
+      {
+        "id": "beds-mattresses",
+        "name": "Beds & mattresses",
+        "icon": "Armchair"
+      },
+      {
+        "id": "tables-desks",
+        "name": "Tables & desks",
+        "icon": "Armchair"
+      },
+      {
+        "id": "wardrobes-storage",
+        "name": "Wardrobes & storage",
+        "icon": "Armchair"
+      },
+      {
+        "id": "office-furniture",
+        "name": "Office furniture",
+        "icon": "Armchair"
+      },
+      {
+        "id": "kitchen-dining-furniture",
+        "name": "Kitchen & dining furniture",
+        "icon": "Armchair"
+      },
+      {
+        "id": "curtains-soft-furnishings",
+        "name": "Curtains & soft furnishings",
+        "icon": "Armchair"
+      },
+      {
+        "id": "home-decor",
+        "name": "Home decor",
+        "icon": "Armchair"
+      },
+      {
+        "id": "outdoor-furniture",
+        "name": "Outdoor furniture",
+        "icon": "Armchair"
+      },
+      {
+        "id": "used-furniture",
+        "name": "Used furniture",
+        "icon": "Armchair"
+      }
+    ]
+  },
+  {
+    "id": "construction",
+    "name": "Construction materials",
+    "icon": "Wall",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Material grade",
+      "Unit",
+      "Minimum order",
+      "Delivery area"
+    ],
+    "position": 6,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "cement-binders",
+        "name": "Cement & binders",
+        "icon": "Wall"
+      },
+      {
+        "id": "sand-aggregates",
+        "name": "Sand & aggregates",
+        "icon": "Wall"
+      },
+      {
+        "id": "bricks-concrete-blocks",
+        "name": "Bricks & concrete blocks",
+        "icon": "Wall"
+      },
+      {
+        "id": "ready-mix-concrete",
+        "name": "Ready-mix concrete",
+        "icon": "Wall"
+      },
+      {
+        "id": "tmt-bars-reinforcement",
+        "name": "TMT bars & reinforcement",
+        "icon": "Wall"
+      },
+      {
+        "id": "structural-steel-sections",
+        "name": "Structural steel sections",
+        "icon": "Wall"
+      },
+      {
+        "id": "timber-plywood",
+        "name": "Timber & plywood",
+        "icon": "Wall"
+      },
+      {
+        "id": "roofing-sheets-systems",
+        "name": "Roofing sheets & systems",
+        "icon": "Wall"
+      },
+      {
+        "id": "doors-windows-frames",
+        "name": "Doors, windows & frames",
+        "icon": "Wall"
+      },
+      {
+        "id": "glass-glazing",
+        "name": "Glass & glazing",
+        "icon": "Wall"
+      },
+      {
+        "id": "insulation-acoustic-materials",
+        "name": "Insulation & acoustic materials",
+        "icon": "Wall"
+      },
+      {
+        "id": "waterproofing-construction-chemicals",
+        "name": "Waterproofing & construction chemicals",
+        "icon": "Wall"
+      },
+      {
+        "id": "precast-concrete-products",
+        "name": "Precast concrete products",
+        "icon": "Wall"
+      },
+      {
+        "id": "geotextiles-drainage-materials",
+        "name": "Geotextiles & drainage materials",
+        "icon": "Wall"
+      },
+      {
+        "id": "reclaimed-building-materials",
+        "name": "Reclaimed building materials",
+        "icon": "Wall"
+      }
+    ]
+  },
+  {
+    "id": "architecture",
+    "name": "Architects, design & engineering",
+    "icon": "Blueprint",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Specialisation",
+      "Service area",
+      "Project type",
+      "Pricing basis"
+    ],
+    "position": 7,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "residential-architects",
+        "name": "Residential architects",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "commercial-architects",
+        "name": "Commercial architects",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "interior-designers",
+        "name": "Interior designers",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "landscape-designers",
+        "name": "Landscape designers",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "structural-engineers",
+        "name": "Structural engineers",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "civil-engineering-consultants",
+        "name": "Civil engineering consultants",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "mep-design-consultants",
+        "name": "MEP design consultants",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "building-plans-drafting",
+        "name": "Building plans & drafting",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "3d-visualisation-rendering",
+        "name": "3D visualisation & rendering",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "land-surveying",
+        "name": "Land surveying",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "quantity-surveying-estimation",
+        "name": "Quantity surveying & estimation",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "project-management-consultants",
+        "name": "Project management consultants",
+        "icon": "Blueprint"
+      },
+      {
+        "id": "town-planning-consultants",
+        "name": "Town planning consultants",
+        "icon": "Blueprint"
+      }
+    ]
+  },
+  {
+    "id": "contractors",
+    "name": "Construction & trade contractors",
+    "icon": "HardHat",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Trade",
+      "Service area",
+      "Project type",
+      "Pricing basis"
+    ],
+    "position": 8,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "general-building-contractors",
+        "name": "General building contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "civil-works-contractors",
+        "name": "Civil works contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "home-renovation",
+        "name": "Home renovation",
+        "icon": "HardHat"
+      },
+      {
+        "id": "masonry-plastering",
+        "name": "Masonry & plastering",
+        "icon": "HardHat"
+      },
+      {
+        "id": "roofing-contractors",
+        "name": "Roofing contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "steel-fabrication-welding",
+        "name": "Steel fabrication & welding",
+        "icon": "HardHat"
+      },
+      {
+        "id": "carpentry-joinery",
+        "name": "Carpentry & joinery",
+        "icon": "HardHat"
+      },
+      {
+        "id": "painting-contractors",
+        "name": "Painting contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "flooring-tiling-installers",
+        "name": "Flooring & tiling installers",
+        "icon": "HardHat"
+      },
+      {
+        "id": "waterproofing-contractors",
+        "name": "Waterproofing contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "electrical-contractors",
+        "name": "Electrical contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "plumbing-contractors",
+        "name": "Plumbing contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "hvac-installers",
+        "name": "HVAC installers",
+        "icon": "HardHat"
+      },
+      {
+        "id": "demolition-site-clearing",
+        "name": "Demolition & site clearing",
+        "icon": "HardHat"
+      },
+      {
+        "id": "landscaping-contractors",
+        "name": "Landscaping contractors",
+        "icon": "HardHat"
+      }
+    ]
+  },
+  {
+    "id": "warehouse",
+    "name": "Warehouse & site supplies",
+    "icon": "Warehouse",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Load capacity",
+      "Dimensions",
+      "Unit",
+      "Minimum order",
+      "Delivery area"
+    ],
+    "position": 9,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "pallet-racks",
+        "name": "Pallet racks",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "shelving-storage-systems",
+        "name": "Shelving & storage systems",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "pallets-crates-bins",
+        "name": "Pallets, crates & bins",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "pallet-trucks-trolleys",
+        "name": "Pallet trucks & trolleys",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "forklifts-stackers",
+        "name": "Forklifts & stackers",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "lifting-hoists-slings",
+        "name": "Lifting hoists & slings",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "conveyors-loading-equipment",
+        "name": "Conveyors & loading equipment",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "packaging-boxes-cartons",
+        "name": "Packaging boxes & cartons",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "wrapping-strapping-tapes",
+        "name": "Wrapping, strapping & tapes",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "weighing-scales",
+        "name": "Weighing scales",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "warehouse-labels-signage",
+        "name": "Warehouse labels & signage",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "tarpaulins-protective-covers",
+        "name": "Tarpaulins & protective covers",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "site-cabins-portable-toilets",
+        "name": "Site cabins & portable toilets",
+        "icon": "Warehouse"
+      },
+      {
+        "id": "bulk-material-supply-distribution",
+        "name": "Bulk material supply & distribution",
+        "icon": "Warehouse"
+      }
+    ]
+  },
+  {
+    "id": "tools",
+    "name": "Tools, hardware & fasteners",
+    "icon": "Hammer",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Model",
+      "Size",
+      "Unit",
+      "Warranty"
+    ],
+    "position": 10,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "hand-tools",
+        "name": "Hand tools",
+        "icon": "Hammer"
+      },
+      {
+        "id": "power-tools",
+        "name": "Power tools",
+        "icon": "Hammer"
+      },
+      {
+        "id": "drill-bits-cutting-discs",
+        "name": "Drill bits & cutting discs",
+        "icon": "Hammer"
+      },
+      {
+        "id": "nuts-bolts-screws",
+        "name": "Nuts, bolts & screws",
+        "icon": "Hammer"
+      },
+      {
+        "id": "locks-hinges-handles",
+        "name": "Locks, hinges & handles",
+        "icon": "Hammer"
+      },
+      {
+        "id": "welding-equipment-supplies",
+        "name": "Welding equipment & supplies",
+        "icon": "Hammer"
+      },
+      {
+        "id": "measuring-testing-tools",
+        "name": "Measuring & testing tools",
+        "icon": "Hammer"
+      },
+      {
+        "id": "ladders-work-platforms",
+        "name": "Ladders & work platforms",
+        "icon": "Hammer"
+      },
+      {
+        "id": "workshop-storage",
+        "name": "Workshop storage",
+        "icon": "Hammer"
+      },
+      {
+        "id": "abrasives-polishing",
+        "name": "Abrasives & polishing",
+        "icon": "Hammer"
+      },
+      {
+        "id": "adhesives-sealants",
+        "name": "Adhesives & sealants",
+        "icon": "Hammer"
+      }
+    ]
+  },
+  {
+    "id": "electrical",
+    "name": "Electrical, lighting & solar",
+    "icon": "Lightning",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Voltage",
+      "Power rating",
+      "Warranty"
+    ],
+    "position": 11,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "wires-cables",
+        "name": "Wires & cables",
+        "icon": "Lightning"
+      },
+      {
+        "id": "switches-sockets",
+        "name": "Switches & sockets",
+        "icon": "Lightning"
+      },
+      {
+        "id": "distribution-boards-breakers",
+        "name": "Distribution boards & breakers",
+        "icon": "Lightning"
+      },
+      {
+        "id": "indoor-lighting",
+        "name": "Indoor lighting",
+        "icon": "Lightning"
+      },
+      {
+        "id": "outdoor-street-lighting",
+        "name": "Outdoor & street lighting",
+        "icon": "Lightning"
+      },
+      {
+        "id": "led-strips-decorative-lighting",
+        "name": "LED strips & decorative lighting",
+        "icon": "Lightning"
+      },
+      {
+        "id": "inverters-ups",
+        "name": "Inverters & UPS",
+        "icon": "Lightning"
+      },
+      {
+        "id": "batteries-energy-storage",
+        "name": "Batteries & energy storage",
+        "icon": "Lightning"
+      },
+      {
+        "id": "solar-panels",
+        "name": "Solar panels",
+        "icon": "Lightning"
+      },
+      {
+        "id": "solar-inverters-accessories",
+        "name": "Solar inverters & accessories",
+        "icon": "Lightning"
+      },
+      {
+        "id": "earthing-lightning-protection",
+        "name": "Earthing & lightning protection",
+        "icon": "Lightning"
+      },
+      {
+        "id": "ev-charging-equipment",
+        "name": "EV charging equipment",
+        "icon": "Lightning"
+      }
+    ]
+  },
+  {
+    "id": "plumbing",
+    "name": "Plumbing, bathroom & water",
+    "icon": "Pipe",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Material",
+      "Diameter",
+      "Capacity",
+      "Unit",
+      "Warranty"
+    ],
+    "position": 12,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "pipes-fittings",
+        "name": "Pipes & fittings",
+        "icon": "Pipe"
+      },
+      {
+        "id": "taps-mixers",
+        "name": "Taps & mixers",
+        "icon": "Pipe"
+      },
+      {
+        "id": "toilets-sanitaryware",
+        "name": "Toilets & sanitaryware",
+        "icon": "Pipe"
+      },
+      {
+        "id": "wash-basins-sinks",
+        "name": "Wash basins & sinks",
+        "icon": "Pipe"
+      },
+      {
+        "id": "showers-bathroom-accessories",
+        "name": "Showers & bathroom accessories",
+        "icon": "Pipe"
+      },
+      {
+        "id": "water-storage-tanks",
+        "name": "Water storage tanks",
+        "icon": "Pipe"
+      },
+      {
+        "id": "pumps-motors",
+        "name": "Pumps & motors",
+        "icon": "Pipe"
+      },
+      {
+        "id": "water-heaters",
+        "name": "Water heaters",
+        "icon": "Pipe"
+      },
+      {
+        "id": "water-filtration-treatment",
+        "name": "Water filtration & treatment",
+        "icon": "Pipe"
+      },
+      {
+        "id": "drainage-sewage-systems",
+        "name": "Drainage & sewage systems",
+        "icon": "Pipe"
+      },
+      {
+        "id": "valves-meters",
+        "name": "Valves & meters",
+        "icon": "Pipe"
+      }
+    ]
+  },
+  {
+    "id": "finishes",
+    "name": "Paint, flooring & interiors",
+    "icon": "PaintRoller",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Finish",
+      "Colour",
+      "Coverage",
+      "Unit"
+    ],
+    "position": 13,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "interior-exterior-paint",
+        "name": "Interior & exterior paint",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "primers-wall-putty",
+        "name": "Primers & wall putty",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "tiles-mosaics",
+        "name": "Tiles & mosaics",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "marble-granite-stone",
+        "name": "Marble, granite & stone",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "wood-laminate-flooring",
+        "name": "Wood & laminate flooring",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "vinyl-resilient-flooring",
+        "name": "Vinyl & resilient flooring",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "wall-panels-cladding",
+        "name": "Wall panels & cladding",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "wallpaper",
+        "name": "Wallpaper",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "false-ceilings-gypsum",
+        "name": "False ceilings & gypsum",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "modular-kitchens",
+        "name": "Modular kitchens",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "laminates-veneers",
+        "name": "Laminates & veneers",
+        "icon": "PaintRoller"
+      },
+      {
+        "id": "interior-partitions",
+        "name": "Interior partitions",
+        "icon": "PaintRoller"
+      }
+    ]
+  },
+  {
+    "id": "machinery",
+    "name": "Machinery & equipment rental",
+    "icon": "Factory",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Make",
+      "Model",
+      "Capacity",
+      "Hire or sale",
+      "Pricing unit"
+    ],
+    "position": 14,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "excavators-earthmovers",
+        "name": "Excavators & earthmovers",
+        "icon": "Factory"
+      },
+      {
+        "id": "concrete-mixers-vibrators",
+        "name": "Concrete mixers & vibrators",
+        "icon": "Factory"
+      },
+      {
+        "id": "compactors-road-equipment",
+        "name": "Compactors & road equipment",
+        "icon": "Factory"
+      },
+      {
+        "id": "cranes-lifting-equipment",
+        "name": "Cranes & lifting equipment",
+        "icon": "Factory"
+      },
+      {
+        "id": "generators",
+        "name": "Generators",
+        "icon": "Factory"
+      },
+      {
+        "id": "air-compressors",
+        "name": "Air compressors",
+        "icon": "Factory"
+      },
+      {
+        "id": "scaffolding-shuttering",
+        "name": "Scaffolding & shuttering",
+        "icon": "Factory"
+      },
+      {
+        "id": "agricultural-machinery",
+        "name": "Agricultural machinery",
+        "icon": "Factory"
+      },
+      {
+        "id": "workshop-machines",
+        "name": "Workshop machines",
+        "icon": "Factory"
+      },
+      {
+        "id": "construction-equipment-hire",
+        "name": "Construction equipment hire",
+        "icon": "Factory"
+      },
+      {
+        "id": "industrial-machine-spares",
+        "name": "Industrial machine spares",
+        "icon": "Factory"
+      }
+    ]
+  },
+  {
+    "id": "safety",
+    "name": "Safety, security & fire equipment",
+    "icon": "ShieldCheck",
+    "group_name": "Build & industry",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Model",
+      "Size",
+      "Standard claimed by seller"
+    ],
+    "position": 15,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "helmets-site-ppe",
+        "name": "Helmets & site PPE",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "safety-footwear-gloves",
+        "name": "Safety footwear & gloves",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "harnesses-fall-protection",
+        "name": "Harnesses & fall protection",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "barriers-safety-signage",
+        "name": "Barriers & safety signage",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "fire-extinguishers",
+        "name": "Fire extinguishers",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "fire-alarms-detection",
+        "name": "Fire alarms & detection",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "cctv-surveillance",
+        "name": "CCTV & surveillance",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "access-control-locks",
+        "name": "Access control & locks",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "security-alarms",
+        "name": "Security alarms",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "first-aid-kits",
+        "name": "First-aid kits",
+        "icon": "ShieldCheck"
+      },
+      {
+        "id": "emergency-lighting",
+        "name": "Emergency lighting",
+        "icon": "ShieldCheck"
+      }
+    ]
+  },
+  {
+    "id": "property",
+    "name": "Property & spaces",
+    "icon": "Buildings",
+    "group_name": "Property & services",
+    "theme": "general",
+    "fields": [
+      "Area",
+      "Area unit",
+      "Bedrooms",
+      "Listing type"
+    ],
+    "position": 16,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "homes-for-sale",
+        "name": "Homes for sale",
+        "icon": "Buildings"
+      },
+      {
+        "id": "apartments-for-sale",
+        "name": "Apartments for sale",
+        "icon": "Buildings"
+      },
+      {
+        "id": "residential-land",
+        "name": "Residential land",
+        "icon": "Buildings"
+      },
+      {
+        "id": "agricultural-land",
+        "name": "Agricultural land",
+        "icon": "Buildings"
+      },
+      {
+        "id": "homes-flats-for-rent",
+        "name": "Homes & flats for rent",
+        "icon": "Buildings"
+      },
+      {
+        "id": "rooms-shared-accommodation",
+        "name": "Rooms & shared accommodation",
+        "icon": "Buildings"
+      },
+      {
+        "id": "shops-showrooms",
+        "name": "Shops & showrooms",
+        "icon": "Buildings"
+      },
+      {
+        "id": "offices-coworking",
+        "name": "Offices & coworking",
+        "icon": "Buildings"
+      },
+      {
+        "id": "warehouses-godowns",
+        "name": "Warehouses & godowns",
+        "icon": "Buildings"
+      },
+      {
+        "id": "industrial-sheds-plots",
+        "name": "Industrial sheds & plots",
+        "icon": "Buildings"
+      },
+      {
+        "id": "property-agents",
+        "name": "Property agents",
+        "icon": "Buildings"
+      }
+    ]
+  },
+  {
+    "id": "logistics",
+    "name": "Transport & logistics",
+    "icon": "Truck",
+    "group_name": "Vehicles & transport",
+    "theme": "general",
+    "fields": [
+      "Service area",
+      "Vehicle type",
+      "Capacity",
+      "Pricing basis"
+    ],
+    "position": 17,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "local-delivery",
+        "name": "Local delivery",
+        "icon": "Truck"
+      },
+      {
+        "id": "goods-vehicle-hire",
+        "name": "Goods vehicle hire",
+        "icon": "Truck"
+      },
+      {
+        "id": "packers-movers",
+        "name": "Packers & movers",
+        "icon": "Truck"
+      },
+      {
+        "id": "building-material-transport",
+        "name": "Building material transport",
+        "icon": "Truck"
+      },
+      {
+        "id": "courier-services",
+        "name": "Courier services",
+        "icon": "Truck"
+      },
+      {
+        "id": "freight-forwarding",
+        "name": "Freight forwarding",
+        "icon": "Truck"
+      },
+      {
+        "id": "warehousing-services",
+        "name": "Warehousing services",
+        "icon": "Truck"
+      },
+      {
+        "id": "cold-storage-services",
+        "name": "Cold storage services",
+        "icon": "Truck"
+      },
+      {
+        "id": "passenger-vehicle-rental",
+        "name": "Passenger vehicle rental",
+        "icon": "Truck"
+      }
+    ]
+  },
+  {
+    "id": "bicycles",
+    "name": "Bicycles & cycling",
+    "icon": "Bicycle",
+    "group_name": "Vehicles & transport",
+    "theme": "vehicles",
+    "fields": [
+      "Brand",
+      "Frame size",
+      "Type"
+    ],
+    "position": 18,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "city-commuter-bicycles",
+        "name": "City & commuter bicycles",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "mountain-bikes",
+        "name": "Mountain bikes",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "road-bicycles",
+        "name": "Road bicycles",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "kids-bicycles",
+        "name": "Kids bicycles",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "electric-bicycles",
+        "name": "Electric bicycles",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "cycling-accessories",
+        "name": "Cycling accessories",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "bicycle-spare-parts",
+        "name": "Bicycle spare parts",
+        "icon": "Bicycle"
+      },
+      {
+        "id": "bicycle-repair",
+        "name": "Bicycle repair",
+        "icon": "Bicycle"
+      }
+    ]
+  },
+  {
+    "id": "appliances",
+    "name": "Home & kitchen appliances",
+    "icon": "WashingMachine",
+    "group_name": "Shopping",
+    "theme": "electronics",
+    "fields": [
+      "Brand",
+      "Model",
+      "Capacity",
+      "Warranty"
+    ],
+    "position": 19,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "refrigerators",
+        "name": "Refrigerators",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "washing-machines",
+        "name": "Washing machines",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "air-conditioners",
+        "name": "Air conditioners",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "fans-air-coolers",
+        "name": "Fans & air coolers",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "cooktops-stoves",
+        "name": "Cooktops & stoves",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "microwaves-ovens",
+        "name": "Microwaves & ovens",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "mixers-small-appliances",
+        "name": "Mixers & small appliances",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "vacuum-cleaners",
+        "name": "Vacuum cleaners",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "water-purifiers",
+        "name": "Water purifiers",
+        "icon": "WashingMachine"
+      },
+      {
+        "id": "appliance-spare-parts",
+        "name": "Appliance spare parts",
+        "icon": "WashingMachine"
+      }
+    ]
+  },
+  {
+    "id": "food",
+    "name": "Food, groceries & local produce",
+    "icon": "BowlFood",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Pack size",
+      "Unit",
+      "Storage instructions",
+      "Delivery area"
+    ],
+    "position": 20,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "rice-grains",
+        "name": "Rice & grains",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "fresh-vegetables",
+        "name": "Fresh vegetables",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "fresh-fruit",
+        "name": "Fresh fruit",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "pulses-spices",
+        "name": "Pulses & spices",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "packaged-local-foods",
+        "name": "Packaged local foods",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "baked-goods-sweets",
+        "name": "Baked goods & sweets",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "dairy-eggs",
+        "name": "Dairy & eggs",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "meat-fish",
+        "name": "Meat & fish",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "tea-coffee-beverages",
+        "name": "Tea, coffee & beverages",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "ready-to-eat-meals",
+        "name": "Ready-to-eat meals",
+        "icon": "BowlFood"
+      },
+      {
+        "id": "wholesale-groceries",
+        "name": "Wholesale groceries",
+        "icon": "BowlFood"
+      }
+    ]
+  },
+  {
+    "id": "agriculture",
+    "name": "Farming, gardening & plants",
+    "icon": "Plant",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Variety",
+      "Pack size",
+      "Unit",
+      "Delivery area"
+    ],
+    "position": 21,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "seeds-seedlings",
+        "name": "Seeds & seedlings",
+        "icon": "Plant"
+      },
+      {
+        "id": "indoor-plants",
+        "name": "Indoor plants",
+        "icon": "Plant"
+      },
+      {
+        "id": "garden-plants-saplings",
+        "name": "Garden plants & saplings",
+        "icon": "Plant"
+      },
+      {
+        "id": "pots-planters",
+        "name": "Pots & planters",
+        "icon": "Plant"
+      },
+      {
+        "id": "soil-compost",
+        "name": "Soil & compost",
+        "icon": "Plant"
+      },
+      {
+        "id": "fertilisers",
+        "name": "Fertilisers",
+        "icon": "Plant"
+      },
+      {
+        "id": "garden-tools",
+        "name": "Garden tools",
+        "icon": "Plant"
+      },
+      {
+        "id": "irrigation-equipment",
+        "name": "Irrigation equipment",
+        "icon": "Plant"
+      },
+      {
+        "id": "farm-tools",
+        "name": "Farm tools",
+        "icon": "Plant"
+      },
+      {
+        "id": "animal-feed",
+        "name": "Animal feed",
+        "icon": "Plant"
+      },
+      {
+        "id": "greenhouse-supplies",
+        "name": "Greenhouse supplies",
+        "icon": "Plant"
+      }
+    ]
+  },
+  {
+    "id": "beauty",
+    "name": "Beauty & personal care",
+    "icon": "Scissors",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Pack size",
+      "Service area"
+    ],
+    "position": 22,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "skincare",
+        "name": "Skincare",
+        "icon": "Scissors"
+      },
+      {
+        "id": "haircare",
+        "name": "Haircare",
+        "icon": "Scissors"
+      },
+      {
+        "id": "makeup",
+        "name": "Makeup",
+        "icon": "Scissors"
+      },
+      {
+        "id": "fragrances",
+        "name": "Fragrances",
+        "icon": "Scissors"
+      },
+      {
+        "id": "grooming-tools",
+        "name": "Grooming tools",
+        "icon": "Scissors"
+      },
+      {
+        "id": "salon-equipment",
+        "name": "Salon equipment",
+        "icon": "Scissors"
+      },
+      {
+        "id": "salon-barber-services",
+        "name": "Salon & barber services",
+        "icon": "Scissors"
+      },
+      {
+        "id": "makeup-artists",
+        "name": "Makeup artists",
+        "icon": "Scissors"
+      },
+      {
+        "id": "spa-wellness-services",
+        "name": "Spa & wellness services",
+        "icon": "Scissors"
+      }
+    ]
+  },
+  {
+    "id": "sports",
+    "name": "Sports, fitness & outdoors",
+    "icon": "Barbell",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Brand",
+      "Size",
+      "Material"
+    ],
+    "position": 23,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "fitness-equipment",
+        "name": "Fitness equipment",
+        "icon": "Barbell"
+      },
+      {
+        "id": "football-team-sports",
+        "name": "Football & team sports",
+        "icon": "Barbell"
+      },
+      {
+        "id": "badminton-racquet-sports",
+        "name": "Badminton & racquet sports",
+        "icon": "Barbell"
+      },
+      {
+        "id": "martial-arts-equipment",
+        "name": "Martial arts equipment",
+        "icon": "Barbell"
+      },
+      {
+        "id": "outdoor-camping-gear",
+        "name": "Outdoor & camping gear",
+        "icon": "Barbell"
+      },
+      {
+        "id": "sports-clothing",
+        "name": "Sports clothing",
+        "icon": "Barbell"
+      },
+      {
+        "id": "yoga-accessories",
+        "name": "Yoga accessories",
+        "icon": "Barbell"
+      },
+      {
+        "id": "fishing-equipment",
+        "name": "Fishing equipment",
+        "icon": "Barbell"
+      },
+      {
+        "id": "sports-coaching",
+        "name": "Sports coaching",
+        "icon": "Barbell"
+      }
+    ]
+  },
+  {
+    "id": "kids",
+    "name": "Baby, kids & toys",
+    "icon": "Baby",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Age range",
+      "Size",
+      "Material"
+    ],
+    "position": 24,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "toys-games",
+        "name": "Toys & games",
+        "icon": "Baby"
+      },
+      {
+        "id": "baby-clothing",
+        "name": "Baby clothing",
+        "icon": "Baby"
+      },
+      {
+        "id": "strollers-carriers",
+        "name": "Strollers & carriers",
+        "icon": "Baby"
+      },
+      {
+        "id": "cots-nursery-furniture",
+        "name": "Cots & nursery furniture",
+        "icon": "Baby"
+      },
+      {
+        "id": "feeding-accessories",
+        "name": "Feeding accessories",
+        "icon": "Baby"
+      },
+      {
+        "id": "kids-learning-materials",
+        "name": "Kids learning materials",
+        "icon": "Baby"
+      },
+      {
+        "id": "kids-outdoor-play",
+        "name": "Kids outdoor play",
+        "icon": "Baby"
+      },
+      {
+        "id": "maternity-accessories",
+        "name": "Maternity accessories",
+        "icon": "Baby"
+      }
+    ]
+  },
+  {
+    "id": "pets",
+    "name": "Pet supplies & care",
+    "icon": "PawPrint",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Pet type",
+      "Size",
+      "Pack size"
+    ],
+    "position": 25,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "pet-food",
+        "name": "Pet food",
+        "icon": "PawPrint"
+      },
+      {
+        "id": "pet-accessories",
+        "name": "Pet accessories",
+        "icon": "PawPrint"
+      },
+      {
+        "id": "beds-carriers",
+        "name": "Beds & carriers",
+        "icon": "PawPrint"
+      },
+      {
+        "id": "aquarium-supplies",
+        "name": "Aquarium supplies",
+        "icon": "PawPrint"
+      },
+      {
+        "id": "pet-grooming",
+        "name": "Pet grooming",
+        "icon": "PawPrint"
+      },
+      {
+        "id": "pet-boarding",
+        "name": "Pet boarding",
+        "icon": "PawPrint"
+      },
+      {
+        "id": "pet-training",
+        "name": "Pet training",
+        "icon": "PawPrint"
+      }
+    ]
+  },
+  {
+    "id": "education",
+    "name": "Books, learning & stationery",
+    "icon": "GraduationCap",
+    "group_name": "Property & services",
+    "theme": "general",
+    "fields": [
+      "Subject",
+      "Level",
+      "Format",
+      "Service area"
+    ],
+    "position": 26,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "school-college-books",
+        "name": "School & college books",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "competitive-exam-books",
+        "name": "Competitive exam books",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "general-books",
+        "name": "General books",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "stationery",
+        "name": "Stationery",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "art-supplies",
+        "name": "Art supplies",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "school-supplies",
+        "name": "School supplies",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "tuition-tutoring",
+        "name": "Tuition & tutoring",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "language-classes",
+        "name": "Language classes",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "computer-skills-training",
+        "name": "Computer & skills training",
+        "icon": "GraduationCap"
+      },
+      {
+        "id": "music-dance-lessons",
+        "name": "Music & dance lessons",
+        "icon": "GraduationCap"
+      }
+    ]
+  },
+  {
+    "id": "events",
+    "name": "Events, gifts & celebrations",
+    "icon": "Confetti",
+    "group_name": "Property & services",
+    "theme": "general",
+    "fields": [
+      "Service area",
+      "Occasion",
+      "Pricing basis"
+    ],
+    "position": 27,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "event-planners",
+        "name": "Event planners",
+        "icon": "Confetti"
+      },
+      {
+        "id": "decorators",
+        "name": "Decorators",
+        "icon": "Confetti"
+      },
+      {
+        "id": "catering",
+        "name": "Catering",
+        "icon": "Confetti"
+      },
+      {
+        "id": "photography-videography",
+        "name": "Photography & videography",
+        "icon": "Confetti"
+      },
+      {
+        "id": "sound-lighting-hire",
+        "name": "Sound & lighting hire",
+        "icon": "Confetti"
+      },
+      {
+        "id": "venues-halls",
+        "name": "Venues & halls",
+        "icon": "Confetti"
+      },
+      {
+        "id": "gifts-hampers",
+        "name": "Gifts & hampers",
+        "icon": "Confetti"
+      },
+      {
+        "id": "flowers-bouquets",
+        "name": "Flowers & bouquets",
+        "icon": "Confetti"
+      },
+      {
+        "id": "wedding-services",
+        "name": "Wedding services",
+        "icon": "Confetti"
+      },
+      {
+        "id": "party-supplies",
+        "name": "Party supplies",
+        "icon": "Confetti"
+      }
+    ]
+  },
+  {
+    "id": "business",
+    "name": "Business & professional services",
+    "icon": "Briefcase",
+    "group_name": "Property & services",
+    "theme": "general",
+    "fields": [
+      "Specialisation",
+      "Service area",
+      "Pricing basis"
+    ],
+    "position": 28,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "accounting-bookkeeping",
+        "name": "Accounting & bookkeeping",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "business-consulting",
+        "name": "Business consulting",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "website-app-development",
+        "name": "Website & app development",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "graphic-design",
+        "name": "Graphic design",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "printing-signage",
+        "name": "Printing & signage",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "digital-marketing",
+        "name": "Digital marketing",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "translation",
+        "name": "Translation",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "office-equipment",
+        "name": "Office equipment",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "retail-pos-systems",
+        "name": "Retail POS systems",
+        "icon": "Briefcase"
+      },
+      {
+        "id": "commercial-cleaning",
+        "name": "Commercial cleaning",
+        "icon": "Briefcase"
+      }
+    ]
+  },
+  {
+    "id": "services",
+    "name": "Home, repair & local services",
+    "icon": "Wrench",
+    "group_name": "Property & services",
+    "theme": "general",
+    "fields": [
+      "Service area",
+      "Price unit"
+    ],
+    "position": 29,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "appliance-repair",
+        "name": "Appliance repair",
+        "icon": "Wrench"
+      },
+      {
+        "id": "mobile-computer-repair",
+        "name": "Mobile & computer repair",
+        "icon": "Wrench"
+      },
+      {
+        "id": "home-cleaning",
+        "name": "Home cleaning",
+        "icon": "Wrench"
+      },
+      {
+        "id": "pest-control",
+        "name": "Pest control",
+        "icon": "Wrench"
+      },
+      {
+        "id": "laundry-ironing",
+        "name": "Laundry & ironing",
+        "icon": "Wrench"
+      },
+      {
+        "id": "furniture-repair",
+        "name": "Furniture repair",
+        "icon": "Wrench"
+      },
+      {
+        "id": "locksmiths",
+        "name": "Locksmiths",
+        "icon": "Wrench"
+      },
+      {
+        "id": "home-maintenance",
+        "name": "Home maintenance",
+        "icon": "Wrench"
+      },
+      {
+        "id": "gardening-services",
+        "name": "Gardening services",
+        "icon": "Wrench"
+      },
+      {
+        "id": "water-tank-cleaning",
+        "name": "Water tank cleaning",
+        "icon": "Wrench"
+      }
+    ]
+  },
+  {
+    "id": "retail",
+    "name": "General retail & wholesale",
+    "icon": "Storefront",
+    "group_name": "Shopping",
+    "theme": "general",
+    "fields": [
+      "Unit",
+      "Minimum order",
+      "Delivery area"
+    ],
+    "position": 30,
+    "active": true,
+    "subcategories": [
+      {
+        "id": "daily-essentials",
+        "name": "Daily essentials",
+        "icon": "Storefront"
+      },
+      {
+        "id": "household-supplies",
+        "name": "Household supplies",
+        "icon": "Storefront"
+      },
+      {
+        "id": "kitchenware",
+        "name": "Kitchenware",
+        "icon": "Storefront"
+      },
+      {
+        "id": "reusable-bags-containers",
+        "name": "Reusable bags & containers",
+        "icon": "Storefront"
+      },
+      {
+        "id": "wholesale-mixed-goods",
+        "name": "Wholesale mixed goods",
+        "icon": "Storefront"
+      },
+      {
+        "id": "shop-fixtures-displays",
+        "name": "Shop fixtures & displays",
+        "icon": "Storefront"
+      },
+      {
+        "id": "local-crafts-souvenirs",
+        "name": "Local crafts & souvenirs",
+        "icon": "Storefront"
+      },
+      {
+        "id": "seasonal-goods",
+        "name": "Seasonal goods",
+        "icon": "Storefront"
+      }
+    ]
+  }
+]

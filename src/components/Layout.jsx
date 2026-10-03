@@ -1,3 +1,5 @@
+import { categoryCatalog } from "../lib/categories";
+import { categoryIcons, CategoryIcon } from "./CategoryIcon";
 import React, { useState } from "react";
 import {
   List,
@@ -24,18 +26,9 @@ import {
 import { Link, useMarket } from "../lib/context";
 import { Modal } from "./UI";
 import { preview, showSamples, supabase } from "../lib/backend";
-export const icons = {
-  fashion: TShirt,
-  mobiles: DeviceMobile,
-  vehicles: Car,
-  home: Armchair,
-  electronics: Headphones,
-  services: Wrench,
-  property: Buildings,
-  bicycles: Bicycle,
-  motorcycles: Bicycle,
-  retail: Storefront,
-};
+export const icons = Object.fromEntries(
+  categoryCatalog.map((c) => [c.id, categoryIcons[c.icon]]),
+);
 export function Layout({ children }) {
   const { navigate, path, session, categories, settings, notice } = useMarket();
   const [menu, setMenu] = useState(false),
@@ -116,18 +109,36 @@ export function Layout({ children }) {
       </header>
       <nav className="category-nav" aria-label="Product categories">
         <div>
-          <Link to="/search" className="all-categories">
+          <Link to="/categories" className="all-categories">
             <SquaresFour size={19} /> All categories
           </Link>
-          {categories.slice(0, 6).map((c) => {
-            const Icon = icons[c.id] || SquaresFour;
-            return (
-              <Link key={c.id} to={"/search?category=" + c.id}>
-                <Icon size={22} />
-                {c.name}
-              </Link>
-            );
-          })}
+          {categories
+            .filter((c) =>
+              [
+                "fashion",
+                "mobiles",
+                "vehicles",
+                "construction",
+                "architecture",
+                "warehouse",
+              ].includes(c.id),
+            )
+            .map((c) => {
+              const Icon = icons[c.id] || SquaresFour;
+              return (
+                <Link key={c.id} to={"/search?category=" + c.id}>
+                  <Icon size={22} />
+                  {{
+                    fashion: "Clothing",
+                    mobiles: "Mobiles",
+                    vehicles: "Cars",
+                    construction: "Construction",
+                    architecture: "Architects",
+                    warehouse: "Warehouse supplies",
+                  }[c.id] || c.name}
+                </Link>
+              );
+            })}
           <Link to="/shops">
             Local shops <ArrowRight size={16} />
           </Link>
@@ -171,7 +182,7 @@ export function Layout({ children }) {
       <nav className="bottom-nav" aria-label="Mobile navigation">
         {[
           ["/", House, "Home"],
-          ["/search", SquaresFour, "Categories"],
+          ["/categories", SquaresFour, "Categories"],
           ["/sell", Plus, "Sell"],
           ["/saved", Heart, "Saved"],
           [session ? "/dashboard" : "/login", User, "Account"],
@@ -200,6 +211,9 @@ export function Layout({ children }) {
             </Link>
             <Link to="/shops" onClick={() => setMenu(false)}>
               Browse local shops
+            </Link>
+            <Link to="/categories" onClick={() => setMenu(false)}>
+              Browse all categories & subcategories
             </Link>
             <h3>Shop by category</h3>
             {categories.map((c) => {

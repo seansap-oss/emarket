@@ -2301,3 +2301,18 @@ th {
  .preview-ribbon { max-width:100%; font-size:9px; }
 }
 .theme-electronics .store-template-intro p,.theme-vehicles .store-template-intro p,.theme-motorcycles .store-template-intro p { color:#e0e4e1; }
+.category-search {display:block; max-width:680px; margin:25px 0; font-weight:600; font-size:13px;}
+.category-search input {display:block; width:100%; margin-top:9px; padding:15px 18px; border:1px solid #cbd6cc; border-radius:10px; font:inherit;}
+.category-directory-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start;}
+.category-directory-card {border:1px solid #dee5dc;border-radius:14px;padding:24px;background:#fff;}
+.category-card-heading {display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.category-card-heading > span {background:#edf3e9;border-radius:12px;padding:12px;color:var(--green);display:flex;}
+.category-card-heading small {color:#67756b;font-size:11px;}
+.category-card-heading h2 {font-size:23px;margin:5px 0;}
+.category-directory-card ul {list-style:none;padding:0;margin:0;}
+.category-directory-card li a {display:flex;gap:10px;align-items:center;padding:8px 0;font-size:13px;line-height:1.5;}
+.category-directory-card li svg {flex-shrink:0;color:#7b897b;}
+.category-directory-card a:hover {color:#9d6310;text-decoration:underline;}
+.category-view-all {display:block;border-top:1px solid #e8ece5;padding-top:15px;margin-top:14px;font-weight:600;font-size:12px;}
+@media(max-width:1023px){.category-directory-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.category-directory-grid{grid-template-columns:1fr;}.category-directory-card{padding:20px;}.category-search input{font-size:16px;}}

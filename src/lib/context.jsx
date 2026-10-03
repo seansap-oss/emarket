@@ -1,3 +1,4 @@
+import { categoryCatalog } from "./categories";
 import React, {
   createContext,
   useContext,
@@ -14,7 +15,7 @@ export function MarketProvider({ children }) {
     [authReady, setAuthReady] = useState(!configured),
     [seller, setSeller] = useState(null),
     [admin, setAdmin] = useState(false),
-    [categories, setCategories] = useState([]),
+    [categories, setCategories] = useState(categoryCatalog),
     [plans, setPlans] = useState([]),
     [settings, setSettings] = useState({
       name: "Leikai Market",
@@ -95,7 +96,7 @@ export function MarketProvider({ children }) {
               .single(),
           ),
         ]);
-        setCategories(cats);
+        setCategories(cats.filter((c) => c.active !== false));
         setPlans(ps);
         setSettings(st.value);
       } else if (showSamples) {

@@ -4,7 +4,7 @@
   "outputDirectory": "dist/client",
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|images/|sw\\.js$|manifest\\.webmanifest$|favicon\\.png$|icon-192\\.png$|icon-512\\.png$|offline\\.html$|robots\\.txt$).*)",
+      "source": "/((?!api/|category-reference\\.csv$|assets/|images/|sw\\.js$|manifest\\.webmanifest$|favicon\\.png$|icon-192\\.png$|icon-512\\.png$|offline\\.html$|robots\\.txt$).*)",
       "destination": "/index.html"
     }
   ],

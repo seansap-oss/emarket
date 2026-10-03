@@ -1,3 +1,4 @@
+import { subcategoriesFor } from "../lib/categories";
 import React, { useState, useEffect, useRef } from "react";
 import Papa from "papaparse";
 import {
@@ -76,6 +77,7 @@ export function ListingEditor({
               title: f.title,
               price: Number(f.price),
               category_id: f.category_id,
+              subcategory_id: f.subcategory_id || null,
               collection_id: f.collection_id || null,
               description: f.description,
               condition: f.condition,
@@ -124,12 +126,27 @@ export function ListingEditor({
               value={f.category_id}
               onChange={(e) => {
                 update("category_id", e.target.value);
+                update("subcategory_id", "");
                 update("attributes", {});
               }}
             >
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.name}
+                </option>
+              ))}
+            </select>
+          </Field>
+          <Field label="Subcategory">
+            <select
+              value={f.subcategory_id || ""}
+              required={subcategoriesFor(categories, f.category_id).length > 0}
+              onChange={(e) => update("subcategory_id", e.target.value)}
+            >
+              <option value="">Choose a subcategory</option>
+              {subcategoriesFor(categories, f.category_id).map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
                 </option>
               ))}
             </select>
@@ -403,7 +420,7 @@ function Importer({ seller, visual }) {
     [fileName, setFileName] = useState("");
   const cancel = useRef(false);
   const template =
-    "sku,title,category,price,condition,location,images,social_url,tags,description\nTEE-001,Cotton T-shirt,fashion,499,New,Imphal,https://example.com/photo.jpg,,cotton,Locally made\n";
+    "sku,title,category,subcategory,price,condition,location,images,social_url,tags,description\nTEE-001,Cotton T-shirt,fashion,t-shirts-tops,499,New,Imphal,https://example.com/photo.jpg,,cotton,Locally made\n";
   const download = (text, name) => {
     const url = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
     const a = document.createElement("a");
@@ -425,6 +442,11 @@ function Importer({ seller, visual }) {
       >
         <DownloadSimple /> Download CSV template
       </button>
+      <p>
+        <a href="/category-reference.csv" download>
+          Download default category and subcategory IDs (CSV)
+        </a>
+      </p>
       <Field label="Choose your catalogue CSV">
         <input
           type="file"
