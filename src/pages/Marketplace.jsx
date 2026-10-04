@@ -1,3 +1,6 @@
+import { PurchasePanel } from "../components/PurchasePanel";
+import { ProductVideos } from "../components/ProductMedia";
+import { outOfStock } from "../lib/commerce";
 import {
   categoryName,
   subcategoryName,
@@ -41,17 +44,48 @@ import { templates } from "../lib/templates";
 import { icons } from "../components/Layout";
 export function ProductCard({ item }) {
   const { session, navigate, notice } = useMarket();
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(false),
+    [flipped, setFlipped] = useState(false);
   return (
     <article className="product-card">
       <div className="product-photo">
-        <Link to={"/listing/" + item.id}>
-          <Photo src={item.images?.[0]} alt={item.title} loading="lazy" />
+        <Link
+          to={"/listing/" + item.id}
+          data-hovered={flipped}
+          onPointerEnter={(e) =>
+            setFlipped(e.pointerType === "mouse" || e.pointerType === "pen")
+          }
+          onPointerLeave={() => setFlipped(false)}
+          className={
+            item.category_id === "fashion" && item.images?.[1]
+              ? "photo-swap"
+              : ""
+          }
+        >
+          <Photo
+            src={item.images?.[0]}
+            alt={
+              item.title + (item.category_id === "fashion" ? " · front" : "")
+            }
+            loading="lazy"
+          />
+          {item.category_id === "fashion" && item.images?.[1] && (
+            <Photo
+              className="back-photo"
+              src={item.images[1]}
+              alt={item.title + " · back"}
+              loading="lazy"
+            />
+          )}
         </Link>
         <span
           className={"condition " + (item.condition === "Used" ? "used" : "")}
         >
-          {item.sample ? "Sample" : item.condition}
+          {outOfStock(item)
+            ? "Out of stock"
+            : item.sample
+              ? "Sample"
+              : item.condition}
         </span>
         <button
           className={"save-button " + (saved ? "saved" : "")}
@@ -781,7 +815,9 @@ export function Shops() {
   );
 }
 export function SellerPage({ slug }) {
-  const { fixtures, notice } = useMarket();
+  const { fixtures, notice, categories } = useMarket();
+  const [shopCategory, setShopCategory] = useState(""),
+    [shopQuery, setShopQuery] = useState("");
   const [seller, setSeller] = useState(null),
     [items, setItems] = useState([]),
     [collections, setCollections] = useState([]),
@@ -816,11 +852,23 @@ export function SellerPage({ slug }) {
             : null;
           if (collection && query)
             query = query.eq("collection_id", collection);
+          if (shopCategory && query)
+            query = query.eq("category_id", shopCategory);
+          if (shopQuery.trim() && query)
+            query = query.ilike(
+              "title",
+              "%" + shopQuery.trim().replace(/[%_]/g, "") + "%",
+            );
           let rows = fixtures
             ? fixtures.listings.filter(
                 (i) =>
                   i.seller_id === s.id &&
-                  (!collection || i.collection_id === collection),
+                  (!collection || i.collection_id === collection) &&
+                  (!shopCategory || i.category_id === shopCategory) &&
+                  (!shopQuery.trim() ||
+                    i.title
+                      .toLowerCase()
+                      .includes(shopQuery.toLowerCase().trim())),
               )
             : query
               ? await result(
@@ -856,7 +904,7 @@ export function SellerPage({ slug }) {
     return () => {
       live = false;
     };
-  }, [fixtures, slug, collection, page]);
+  }, [fixtures, slug, collection, page, shopCategory, shopQuery]);
   if (!seller)
     return (
       <div className="page">
@@ -952,10 +1000,40 @@ export function SellerPage({ slug }) {
       </div>
       {tab === "products" ? (
         <>
+          <div className="form-grid shop-product-filters">
+            <Field
+              label="Search this shop"
+              type="search"
+              value={shopQuery}
+              onChange={(e) => {
+                setShopQuery(e.target.value);
+                setPage(0);
+              }}
+            />
+            <Field label="Shop category">
+              <select
+                value={shopCategory}
+                onChange={(e) => {
+                  setShopCategory(e.target.value);
+                  setPage(0);
+                }}
+              >
+                <option value="">All categories</option>
+                {categories.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </div>
           <div className="chips">
             <button
               className={!collection ? "active" : ""}
-              onClick={() => setCollection("")}
+              onClick={() => {
+                setCollection("");
+                setPage(0);
+              }}
             >
               All products
             </button>
@@ -1024,11 +1102,10 @@ export function ProductPage({ id }) {
   const [item, setItem] = useState(null),
     [loading, setLoading] = useState(true),
     [image, setImage] = useState(0),
-    [enquire, setEnquire] = useState(path.includes("enquire=1")),
+    [hoverBack, setHoverBack] = useState(false),
     [social, setSocial] = useState(false),
     [report, setReport] = useState(false),
-    [reason, setReason] = useState(""),
-    [message, setMessage] = useState("Hi, is this item still available?");
+    [reason, setReason] = useState("");
   useEffect(() => {
     if (fixtures) {
       setItem(fixtures.listings.find((i) => i.id === id));
@@ -1054,10 +1131,6 @@ export function ProductPage({ id }) {
         </Empty>
       </div>
     );
-  const wa = whatsappUrl(
-    item.seller?.whatsapp,
-    `${message}\n\n${item.title} — ${money(item.price)}\n${location.origin}/listing/${item.id}`,
-  );
   return (
     <div className="page">
       <div className="breadcrumb">
@@ -1071,8 +1144,33 @@ export function ProductPage({ id }) {
       </div>
       <div className="product-detail">
         <section>
-          <div className="detail-photo">
-            <Photo src={item.images?.[image]} alt={item.title} />
+          <div
+            className={
+              "detail-photo " +
+              (item.category_id === "fashion" && image === 0 && item.images?.[1]
+                ? "photo-swap"
+                : "")
+            }
+            tabIndex={0}
+            data-hovered={hoverBack}
+            onPointerEnter={(e) =>
+              setHoverBack(e.pointerType === "mouse" || e.pointerType === "pen")
+            }
+            onPointerLeave={() => setHoverBack(false)}
+          >
+            <Photo
+              src={item.images?.[image]}
+              alt={item.title + ` · photo ${image + 1}`}
+            />
+            {item.category_id === "fashion" &&
+              image === 0 &&
+              item.images?.[1] && (
+                <Photo
+                  className="back-photo"
+                  src={item.images[1]}
+                  alt={item.title + " · back"}
+                />
+              )}
           </div>
           <div className="thumbnails">
             {item.images?.map((p, i) => (
@@ -1083,9 +1181,25 @@ export function ProductPage({ id }) {
                 className={image === i ? "active" : ""}
               >
                 <Photo src={p} alt="" />
+                <span>
+                  {item.category_id === "fashion"
+                    ? ["Front", "Back", "Left", "Right"][i] || "Detail"
+                    : `Photo ${i + 1}`}
+                </span>
               </button>
             ))}
           </div>
+          <ProductVideos
+            videos={[
+              ...(item.videos || []),
+              ...Object.entries(item.socials || {})
+                .filter(
+                  ([, url]) =>
+                    url && !(item.videos || []).some((v) => v.url === url),
+                )
+                .map(([title, url]) => ({ title, url })),
+            ]}
+          />
         </section>
         <section className="detail-info">
           <span className="eyebrow">
@@ -1135,13 +1249,7 @@ export function ProductPage({ id }) {
             </div>
             <ArrowRight />
           </div>
-          <button
-            className="button green full"
-            onClick={() => setEnquire(true)}
-          >
-            <WhatsappLogo size={22} />{" "}
-            {item.sample ? "Preview enquiry" : "Enquire on WhatsApp"}
-          </button>
+          <PurchasePanel item={item} />
           <div className="button-row">
             <button className="button outline" onClick={() => setSocial(true)}>
               <LinkSimple /> Social & video
@@ -1170,50 +1278,6 @@ export function ProductPage({ id }) {
           </button>
         </section>
       </div>
-      {enquire && (
-        <Modal
-          title={
-            item.sample
-              ? "Sample enquiry · no message will be sent"
-              : "Message the seller"
-          }
-          onClose={() => setEnquire(false)}
-        >
-          <div className="enquiry-product">
-            <Photo src={item.images?.[0]} alt="" />
-            <div>
-              <strong>{item.title}</strong>
-              <p>{money(item.price)}</p>
-            </div>
-          </div>
-          <Field label="Your message">
-            <textarea
-              value={message}
-              maxLength={1000}
-              onChange={(e) => setMessage(e.target.value)}
-              rows={5}
-            />
-          </Field>
-          <p className="muted">
-            Your message and this product link will open in WhatsApp. Press Send
-            there to deliver it. We do not store this conversation.
-          </p>
-          {wa ? (
-            <a
-              className="button green full"
-              href={wa}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <WhatsappLogo size={23} /> Continue in WhatsApp
-            </a>
-          ) : (
-            <p className="form-error">
-              This seller has not provided a WhatsApp number.
-            </p>
-          )}
-        </Modal>
-      )}
       {social && (
         <Modal title="Social & video" side onClose={() => setSocial(false)}>
           <SocialLinks values={item.seller?.socials} />

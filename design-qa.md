@@ -33,3 +33,7 @@ The user requested public production samples and distinct category templates. Th
 ## v0.5.0 categories
 
 Reviewed the category directory in the managed browser, including warehouse keyword search, Pallet racks navigation and Build & industry grouping. Screenshot: docs/qa/categories-v050.jpg. Department icons use the existing Phosphor visual style. Responsive CSS provides three/two/one columns; physical mobile verification is still pending. Production build passes.
+
+## v0.6.0 product tools
+
+Browser checked at desktop and 390px width. Clothing mouse hover switches to back view; a pointer event implementation supports mouse/pen without triggering sticky hover on touch. Mobile thumbnails change the main photo without horizontal overflow. Selecting M and quantity 2 produces ₹1,300 for the sample T-shirt; sample enquiries expose no WhatsApp link. Sold-out toys disable purchase requests. Mixed-store electrical filtering returns the batteries only. Seller preview verified photo reordering, category-dependent vehicle fields, and video URL entry. Browser error report was empty. Screenshot files: product-v060.png, product-mobile-v060.png, seller-editor-v060.png in docs/qa. Full-page screenshots include the fixed compact navigation at the capture viewport boundary. Real device and connected-service checks remain pending.

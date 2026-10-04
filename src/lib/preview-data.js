@@ -347,3 +347,87 @@ const sampleSubcategory = {
 listings.forEach((item) => {
   item.subcategory_id = sampleSubcategory[item.id] || item.subcategory_id;
 });
+
+// Interactive options are illustrative; all sample purchase/contact actions remain disabled.
+listings.forEach((item) => {
+  item.commerce = {
+    mode: ["vehicles", "motorcycles"].includes(item.category_id)
+      ? "enquiry"
+      : "retail",
+    stock: 8,
+    variants: [],
+    unit: "item",
+    delivery: "Collection or local delivery · arrange with seller",
+  };
+  if (["vehicles", "motorcycles"].includes(item.category_id)) {
+    item.commerce.stock = 1;
+    item.attributes = {
+      Transmission: "Manual",
+      Owners: "First owner",
+      "Service history": "Full records",
+      "Accident history": "None declared",
+      ...item.attributes,
+    };
+  }
+});
+const tee = listings.find((x) => x.id === "sample-extra-0");
+delete tee.attributes.Size;
+tee.images = ["front", "back", "left", "right"].map(
+  (view) => "/images/shirt-" + view + ".svg",
+);
+tee.commerce.variants = ["XS", "S", "M", "L", "XL", "XXL"].map((label, i) => ({
+  id: "size-" + label,
+  label,
+  stock: i === 4 ? 0 : i + 2,
+  price: null,
+}));
+tee.description =
+  "Sample garment illustrations show the front, back and side gallery. Hover the cover photo or use the thumbnails. Choose a size and quantity to preview a WhatsApp enquiry. Not for sale.";
+
+const variety = sellers.find((s) => s.id === "sample-home");
+variety.description =
+  "A neighbourhood variety shop: furniture, household goods, batteries and toys. Browse a category or a shop collection to find what you need.";
+[
+  [
+    "batteries",
+    "AA rechargeable batteries",
+    399,
+    "electrical",
+    "batteries-energy-storage",
+  ],
+  ["toy", "Wooden building blocks", 699, "kids", "toys-games"],
+].forEach(([key, title, price, category_id, subcategory_id]) => {
+  // Resolve the children's subcategory from the catalogue to retain stable mapping.
+  if (key === "toy")
+    subcategory_id = categories
+      .find((c) => c.id === "kids")
+      .subcategories.find((s) => s.name.toLowerCase().includes("toy")).id;
+  listings.push({
+    id: "sample-variety-" + key,
+    title,
+    price,
+    category_id,
+    subcategory_id,
+    images: ["/images/sample-" + key + ".svg"],
+    seller_id: variety.id,
+    seller: variety,
+    location: variety.location,
+    condition: "New",
+    attributes: { Brand: "Sample" },
+    status: "published",
+    socials: {},
+    tags: "sample variety store " + key,
+    sample: true,
+    created_at: "2026-10-03T04:00:00Z",
+    collection_id: variety.id + "-collection-0",
+    description:
+      "Illustrative sample showing mixed-category products in one shop. Not for sale.",
+    commerce: {
+      mode: "retail",
+      stock: key === "toy" ? 0 : 12,
+      variants: [],
+      unit: "pack",
+      delivery: "Collection or local delivery",
+    },
+  });
+});

@@ -2,7 +2,8 @@ export const money = (n) =>
   new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
-    maximumFractionDigits: 0,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
   }).format(Number(n) || 0);
 export function safeUrl(value) {
   if (!value) return "";
@@ -80,6 +81,8 @@ export function searchable(item) {
     item.seller?.name,
     ...Object.values(item.attributes || {}),
     ...Object.values(item.socials || {}),
+    ...(item.videos || []).flatMap((v) => [v.url, v.title]),
+    ...(item.commerce?.variants || []).map((v) => v.label),
   ]
     .join(" ")
     .toLowerCase();
@@ -115,7 +118,7 @@ export function normalizeImport(row, seller, categories) {
     .map((x) => safeUrl(x.trim()));
   if (!images.length || images.some((x) => !x))
     throw Error("Add valid HTTPS image URLs");
-  if (images.length > 8) throw Error("Maximum 8 photos");
+  if (images.length > 12) throw Error("Maximum 12 photos");
   const social = row.social_url ? socialUrl(row.social_url) : "";
   if (row.social_url && !social) throw Error("Unsupported social URL");
   const condition = row.condition || "New";

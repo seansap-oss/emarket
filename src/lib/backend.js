@@ -103,3 +103,18 @@ export async function checkout(planId) {
     r.open();
   });
 }
+
+export async function uploadVideo(file, userId) {
+  if (!["video/mp4", "video/webm"].includes(file.type))
+    throw Error("Choose an MP4 or WebM video");
+  if (file.size > 6 * 1024 * 1024)
+    throw Error("Use a clip under 6 MB, or paste a hosted video URL.");
+  const client = requireBackend();
+  const path = `${userId}/${crypto.randomUUID()}.${file.type.split("/")[1]}`;
+  await result(
+    client.storage
+      .from("marketplace")
+      .upload(path, file, { contentType: file.type, upsert: false }),
+  );
+  return client.storage.from("marketplace").getPublicUrl(path).data.publicUrl;
+}

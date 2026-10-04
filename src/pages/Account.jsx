@@ -1,3 +1,4 @@
+import { normalizePayments } from "../lib/commerce";
 import { templateForCategory, templates } from "../lib/templates";
 import React, { useState, useEffect } from "react";
 import {
@@ -244,6 +245,7 @@ export function SellerForm({ existing, onSaved }) {
         socials: {},
       },
     ),
+    [uploads, setUploads] = useState({}),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
   const change = (k, v) => setForm((f) => ({ ...f, [k]: v }));
@@ -252,6 +254,7 @@ export function SellerForm({ existing, onSaved }) {
       className="editor-form"
       onSubmit={async (e) => {
         e.preventDefault();
+        if (Object.values(uploads).some(Boolean)) return;
         setError("");
         setBusy(true);
         try {
@@ -264,6 +267,7 @@ export function SellerForm({ existing, onSaved }) {
               throw Error("Use a valid Instagram, Facebook or YouTube URL");
           const payload = {
             ...form,
+            payment_options: normalizePayments(form.payment_options),
             user_id: existing?.user_id || session.user.id,
           };
           delete payload.created_at;
@@ -284,7 +288,10 @@ export function SellerForm({ existing, onSaved }) {
       }}
     >
       <h2>{existing ? "Your shop identity" : "Let’s make it yours"}</h2>
-      <p>Your own name, your own look. One local marketplace.</p>
+      <p>
+        Your own name, your own look. Sell across any category: your shop theme
+        does not limit the products or services you can add.
+      </p>
       <div className="form-grid">
         <Field label="Sell as">
           <select
@@ -381,9 +388,77 @@ export function SellerForm({ existing, onSaved }) {
         messages open in WhatsApp and are not stored here.
       </div>
       <h3>Your logo / profile photo</h3>
-      <Upload value={form.logo} onChange={(v) => change("logo", v)} />
+      <Upload
+        value={form.logo}
+        onBusyChange={(v) => setUploads((p) => ({ ...p, logo: v }))}
+        onChange={(v) => change("logo", v)}
+      />
       <h3>Your cover photo</h3>
-      <Upload value={form.cover} onChange={(v) => change("cover", v)} />
+      <Upload
+        value={form.cover}
+        onBusyChange={(v) => setUploads((p) => ({ ...p, cover: v }))}
+        onChange={(v) => change("cover", v)}
+      />
+      <h3>Payment & collection options</h3>
+      <p className="muted">
+        Published on your product pages. Buyers confirm stock and delivery with
+        you before paying. The marketplace does not verify direct UPI transfers.
+      </p>
+      <div className="form-grid">
+        {[
+          ["upi_id", "UPI ID"],
+          ["upi_name", "UPI recipient name"],
+        ].map(([key, label]) => (
+          <Field
+            key={key}
+            label={label}
+            value={form.payment_options?.[key] || ""}
+            onChange={(e) =>
+              change("payment_options", {
+                ...form.payment_options,
+                [key]: e.target.value,
+              })
+            }
+          />
+        ))}
+      </div>
+      <h4>UPI QR photo (optional)</h4>
+      <Upload
+        onBusyChange={(v) => setUploads((p) => ({ ...p, qr: v }))}
+        value={form.payment_options?.upi_qr || ""}
+        onChange={(v) =>
+          change("payment_options", { ...form.payment_options, upi_qr: v })
+        }
+      />
+      {["cash_on_collection", "cash_on_delivery"].map((key) => (
+        <label className="check-field" key={key}>
+          <input
+            type="checkbox"
+            checked={!!form.payment_options?.[key]}
+            onChange={(e) =>
+              change("payment_options", {
+                ...form.payment_options,
+                [key]: e.target.checked,
+              })
+            }
+          />
+          {key === "cash_on_collection"
+            ? "Cash on collection"
+            : "Cash on delivery (confirm service area)"}
+        </label>
+      ))}
+      <Field label="Payment / delivery instructions">
+        <textarea
+          maxLength={500}
+          value={form.payment_options?.instructions || ""}
+          onChange={(e) =>
+            change("payment_options", {
+              ...form.payment_options,
+              instructions: e.target.value,
+            })
+          }
+        />
+      </Field>
       <h3>Stay connected</h3>
       {["instagram", "facebook", "youtube"].map((k) => (
         <Field
@@ -401,7 +476,10 @@ export function SellerForm({ existing, onSaved }) {
           {error}
         </p>
       )}
-      <button className="button primary" disabled={busy}>
+      <button
+        className="button primary"
+        disabled={busy || Object.values(uploads).some(Boolean)}
+      >
         {busy ? "Saving…" : "Save shop identity"}
         <ArrowRight size={18} />
       </button>
@@ -420,7 +498,8 @@ export function Plans() {
           Every plan includes your own shop page, social links and WhatsApp
           enquiries.
           <br />
-          Choose the space your products need.
+          Sizes, stock, UPI details and category tools are included on every
+          plan. Choose the space your products need.
         </p>
         <span className="pricing-pill">
           Simple 30-day packages · No sales commission
@@ -446,13 +525,13 @@ export function Plans() {
                 <Check /> Your own storefront
               </li>
               <li>
-                <Check /> Logo, photos & shop collections
+                <Check /> Mixed categories & shop collections
               </li>
               <li>
                 <Check /> Social links & WhatsApp enquiries
               </li>
               <li>
-                <Check /> Up to 8 photos per product
+                <Check /> Up to 12 photos, videos & product options
               </li>
               {p.price > 0 && (
                 <li>

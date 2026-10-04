@@ -1,3 +1,12 @@
+import { InventoryEditor } from "../components/ProductOptions";
+import {
+  normalizeCommerce,
+  normalizeVideos,
+  normalizeProductImport,
+  productFields,
+  fieldOptions,
+} from "../lib/commerce";
+import { ProductVideosEditor } from "../components/ProductMedia";
 import { subcategoriesFor } from "../lib/categories";
 import React, { useState, useEffect, useRef } from "react";
 import Papa from "papaparse";
@@ -44,11 +53,20 @@ export function ListingEditor({
         images: [],
         socials: {},
         attributes: {},
+        commerce: {
+          mode: "retail",
+          stock: null,
+          variants: [],
+          unit: "item",
+          delivery: "Arrange with seller",
+        },
         tags: "",
         sku: "",
         status: "draft",
       },
     ),
+    [photoBusy, setPhotoBusy] = useState(false),
+    [videoBusy, setVideoBusy] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [social, setSocial] = useState(false);
@@ -62,6 +80,7 @@ export function ListingEditor({
       <form
         onSubmit={async (e) => {
           e.preventDefault();
+          if (photoBusy || videoBusy) return;
           setBusy(true);
           setError("");
           try {
@@ -72,6 +91,14 @@ export function ListingEditor({
             for (const u of Object.values(f.socials))
               if (u && !socialUrl(u))
                 throw Error("Add a valid social platform URL");
+            if (
+              f.status === "published" &&
+              f.category_id === "fashion" &&
+              f.images.length < 4
+            )
+              throw Error(
+                "Add front, back, left and right clothing photos before publishing.",
+              );
             const payload = {
               seller_id: seller.id,
               title: f.title,
@@ -85,6 +112,8 @@ export function ListingEditor({
               images: f.images,
               socials: f.socials,
               attributes: f.attributes,
+              commerce: normalizeCommerce(f.commerce),
+              videos: normalizeVideos(f.videos),
               tags: f.tags,
               sku: f.sku || null,
               status: f.status,
@@ -106,9 +135,20 @@ export function ListingEditor({
       >
         <span className="eyebrow">YOUR PRODUCT, IN ITS BEST LIGHT</span>
         <h3>Photos</h3>
+        <p className="muted">
+          {f.category_id === "fashion"
+            ? "Add front, back and side photos in that order. The second photo appears on hover; buyers can tap thumbnails on mobile."
+            : "Add exterior, interior and detail photos. The first photo is your cover."}
+        </p>
         <Upload
           multiple
           value={f.images}
+          labels={
+            f.category_id === "fashion"
+              ? ["Front", "Back", "Left side", "Right side", "Detail"]
+              : []
+          }
+          onBusyChange={setPhotoBusy}
           onChange={(v) => update("images", v)}
         />
         <Field
@@ -128,6 +168,26 @@ export function ListingEditor({
                 update("category_id", e.target.value);
                 update("subcategory_id", "");
                 update("attributes", {});
+                update("commerce", {
+                  mode: [
+                    "vehicles",
+                    "motorcycles",
+                    "property",
+                    "services",
+                    "architecture",
+                    "contractors",
+                    "logistics",
+                    "education",
+                    "events",
+                    "business",
+                  ].includes(e.target.value)
+                    ? "enquiry"
+                    : "retail",
+                  stock: null,
+                  variants: [],
+                  unit: "item",
+                  delivery: "Arrange with seller",
+                });
               }}
             >
               {categories.map((c) => (
@@ -194,19 +254,63 @@ export function ListingEditor({
         </Field>
         <h3>Category details</h3>
         <div className="form-grid">
-          {(categories.find((c) => c.id === f.category_id)?.fields || []).map(
+          {productFields(categories.find((c) => c.id === f.category_id)).map(
             (k) => (
-              <Field
-                key={k}
-                label={k}
-                value={f.attributes?.[k] || ""}
-                onChange={(e) =>
-                  update("attributes", { ...f.attributes, [k]: e.target.value })
-                }
-              />
+              <Field key={k} label={k}>
+                {fieldOptions[k] ? (
+                  <select
+                    value={f.attributes?.[k] || ""}
+                    onChange={(e) =>
+                      update("attributes", {
+                        ...f.attributes,
+                        [k]: e.target.value,
+                      })
+                    }
+                  >
+                    <option value="">Choose / not specified</option>
+                    {fieldOptions[k].map((v) => (
+                      <option key={v}>{v}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    type={
+                      ["Year", "Registration year", "Kilometres"].includes(k)
+                        ? "number"
+                        : k === "Insurance until"
+                          ? "date"
+                          : "text"
+                    }
+                    min={k === "Kilometres" ? 0 : 1886}
+                    max={
+                      k === "Kilometres"
+                        ? 10000000
+                        : new Date().getFullYear() + 1
+                    }
+                    step="1"
+                    value={f.attributes?.[k] || ""}
+                    onChange={(e) =>
+                      update("attributes", {
+                        ...f.attributes,
+                        [k]: e.target.value,
+                      })
+                    }
+                  />
+                )}
+              </Field>
             ),
           )}
         </div>
+        <InventoryEditor
+          category={f.category_id}
+          value={f.commerce}
+          onChange={(v) => update("commerce", v)}
+        />
+        <ProductVideosEditor
+          value={f.videos || []}
+          onChange={(v) => update("videos", v)}
+          onBusyChange={setVideoBusy}
+        />
         <Field
           label="Search keywords"
           placeholder="cotton, summer, local, handwoven"
@@ -267,7 +371,10 @@ export function ListingEditor({
             {error}
           </p>
         )}
-        <button className="button primary full" disabled={busy}>
+        <button
+          className="button primary full"
+          disabled={busy || photoBusy || videoBusy}
+        >
           {busy
             ? "Saving…"
             : f.status === "published"
@@ -420,7 +527,7 @@ function Importer({ seller, visual }) {
     [fileName, setFileName] = useState("");
   const cancel = useRef(false);
   const template =
-    "sku,title,category,subcategory,price,condition,location,images,social_url,tags,description\nTEE-001,Cotton T-shirt,fashion,t-shirts-tops,499,New,Imphal,https://example.com/photo.jpg,,cotton,Locally made\n";
+    "sku,title,category,subcategory,price,condition,location,images,social_url,tags,description,selling_mode,stock,variants_json,unit,delivery,video_urls,attributes_json\nTEE-001,Cotton T-shirt,fashion,t-shirts-tops,499,New,Imphal,https://example.com/photo.jpg,,cotton,Locally made,retail,10,,item,Collection or local delivery,,\n";
   const download = (text, name) => {
     const url = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
     const a = document.createElement("a");
@@ -435,6 +542,9 @@ function Importer({ seller, visual }) {
       <p>
         Import a CSV with one row per product. Products are imported as drafts.
         Reusing an SKU updates that product instead of creating a duplicate.
+        Optional stock, selling_mode, variants_json, video_urls and
+        attributes_json columns carry product options. Use | between image or
+        video URLs.
       </p>
       <button
         className="button outline"
@@ -471,7 +581,7 @@ function Importer({ seller, visual }) {
                     try {
                       return {
                         row: i + 2,
-                        data: normalizeImport(row, seller, categories),
+                        data: normalizeProductImport(row, seller, categories),
                       };
                     } catch (e) {
                       return { row: i + 2, error: e.message };

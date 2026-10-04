@@ -2245,74 +2245,551 @@ th {
     animation: none !important;
   }
 }
-@media(max-width:767px){.hero-panel{width:76%}.hero-panel h1{font-size:clamp(23px,7vw,28px)}.hero-panel .eyebrow{font-size:7px}.hero-panel p{max-width:190px}.hero-panel .hero-caption{font-size:8px}}
-/* Public sample catalogue and category-based storefronts. */
-.sample-notice { padding:12px 18px; background:#fff3ce; color:#684d13; font-size:13px; border-radius:8px; margin-bottom:18px; }
-.sample-notice a { text-decoration:underline; margin-left:8px; }
-.template-invite { margin:38px 0; padding:30px; background:#edf3ed; border-radius:12px; display:flex; align-items:center; justify-content:space-between; gap:25px; }
-.template-invite h2 { margin:7px 0; }
-.template-invite p { margin:0; }
-.store-template-intro { padding:28px 32px; margin:16px 0 24px; border-radius:12px; background:#f1f5ef; }
-.store-template-intro h2 { margin:10px 0; font-size:34px; }
-.store-template-intro p { max-width:650px; line-height:1.7; }
-.template-features { display:flex; flex-wrap:wrap; gap:12px; font-size:12px; }
-.template-features span { border:1px solid currentColor; border-radius:6px; padding:8px 12px; }
-.theme-fashion .store-template-intro { background:#f7edea; text-align:center; padding:40px; }
-.theme-fashion .store-template-intro p { margin:auto; }
-.theme-fashion .shop-cover { height:330px; }
-.theme-fashion .product-photo img { object-fit:cover; }
-.theme-electronics .store-template-intro { background:#112b40; color:white; }
-.theme-electronics .store-template-intro h2,.theme-vehicles .store-template-intro h2,.theme-motorcycles .store-template-intro h2 { color:inherit; font-family:'DM Sans',sans-serif; }
-.theme-electronics .store-template-intro .eyebrow,.theme-vehicles .store-template-intro .eyebrow,.theme-motorcycles .store-template-intro .eyebrow { color:#d4dedb; }
-.theme-electronics .product-card { border:1px solid #cbd8e4; border-radius:12px; padding:10px; }
-.theme-vehicles .store-template-intro { background:#26343c; color:white; }
-.theme-vehicles .product-grid,.theme-motorcycles .product-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
-.theme-motorcycles { --accent:#a74625; }
-.theme-motorcycles .store-template-intro { background:#39241e; color:#fff5ed; border-left:6px solid #d16b38; }
-.theme-motorcycles .product-photo { aspect-ratio:1.65; }
-.template-gallery > p { max-width:730px; line-height:1.8; }
-.template-picker { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0; }
-.template-picker button { border:1px solid #d5dfd6; border-radius:30px; padding:12px 19px; }
-.template-picker button.active { background:var(--green); color:white; }
-.template-preview { display:grid; grid-template-columns:1fr 1fr; overflow:hidden; border-radius:16px; background:#f5f1e9; }
-.template-preview > img { width:100%; height:100%; min-height:400px; object-fit:cover; }
-.template-preview > div { padding:40px; }
-.template-preview h2 { font-size:39px; }
-.template-preview p { line-height:1.7; }
-.template-preview .button { margin:10px 8px 10px 0; }
-.template-preview small { display:block; margin-top:15px; line-height:1.5; }
-.template-preview .chips span { border:1px solid #c8ccc5; padding:8px 12px; border-radius:20px; }
-.template-explainer { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin:35px 0; }
-.template-explainer p { line-height:1.7; }
-.template-choice { border-left:4px solid var(--accent,#064b3b); background:#f6f6f0; padding:18px; margin-bottom:20px; }
-.template-choice p { margin:8px 0; }
-.template-choice a { text-decoration:underline; }
-@media(max-width:767px){
- .template-invite { flex-direction:column; align-items:flex-start; padding:22px; }
- .template-preview { grid-template-columns:1fr; }
- .template-preview > img { height:220px; min-height:0; }
- .template-preview > div { padding:24px; }
- .template-preview h2 { font-size:30px; }
- .template-explainer { grid-template-columns:1fr; gap:8px; }
- .store-template-intro,.theme-fashion .store-template-intro { padding:22px; }
- .store-template-intro h2 { font-size:27px; }
- .theme-fashion .shop-cover { height:220px; }
- .theme-vehicles .product-grid,.theme-motorcycles .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
- .preview-ribbon { max-width:100%; font-size:9px; }
+@media (max-width: 767px) {
+  .hero-panel {
+    width: 76%;
+  }
+  .hero-panel h1 {
+    font-size: clamp(23px, 7vw, 28px);
+  }
+  .hero-panel .eyebrow {
+    font-size: 7px;
+  }
+  .hero-panel p {
+    max-width: 190px;
+  }
+  .hero-panel .hero-caption {
+    font-size: 8px;
+  }
 }
-.theme-electronics .store-template-intro p,.theme-vehicles .store-template-intro p,.theme-motorcycles .store-template-intro p { color:#e0e4e1; }
-.category-search {display:block; max-width:680px; margin:25px 0; font-weight:600; font-size:13px;}
-.category-search input {display:block; width:100%; margin-top:9px; padding:15px 18px; border:1px solid #cbd6cc; border-radius:10px; font:inherit;}
-.category-directory-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start;}
-.category-directory-card {border:1px solid #dee5dc;border-radius:14px;padding:24px;background:#fff;}
-.category-card-heading {display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-.category-card-heading > span {background:#edf3e9;border-radius:12px;padding:12px;color:var(--green);display:flex;}
-.category-card-heading small {color:#67756b;font-size:11px;}
-.category-card-heading h2 {font-size:23px;margin:5px 0;}
-.category-directory-card ul {list-style:none;padding:0;margin:0;}
-.category-directory-card li a {display:flex;gap:10px;align-items:center;padding:8px 0;font-size:13px;line-height:1.5;}
-.category-directory-card li svg {flex-shrink:0;color:#7b897b;}
-.category-directory-card a:hover {color:#9d6310;text-decoration:underline;}
-.category-view-all {display:block;border-top:1px solid #e8ece5;padding-top:15px;margin-top:14px;font-weight:600;font-size:12px;}
-@media(max-width:1023px){.category-directory-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media(max-width:600px){.category-directory-grid{grid-template-columns:1fr;}.category-directory-card{padding:20px;}.category-search input{font-size:16px;}}
+/* Public sample catalogue and category-based storefronts. */
+.sample-notice {
+  padding: 12px 18px;
+  background: #fff3ce;
+  color: #684d13;
+  font-size: 13px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.sample-notice a {
+  text-decoration: underline;
+  margin-left: 8px;
+}
+.template-invite {
+  margin: 38px 0;
+  padding: 30px;
+  background: #edf3ed;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.template-invite h2 {
+  margin: 7px 0;
+}
+.template-invite p {
+  margin: 0;
+}
+.store-template-intro {
+  padding: 28px 32px;
+  margin: 16px 0 24px;
+  border-radius: 12px;
+  background: #f1f5ef;
+}
+.store-template-intro h2 {
+  margin: 10px 0;
+  font-size: 34px;
+}
+.store-template-intro p {
+  max-width: 650px;
+  line-height: 1.7;
+}
+.template-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+}
+.template-features span {
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+.theme-fashion .store-template-intro {
+  background: #f7edea;
+  text-align: center;
+  padding: 40px;
+}
+.theme-fashion .store-template-intro p {
+  margin: auto;
+}
+.theme-fashion .shop-cover {
+  height: 330px;
+}
+.theme-fashion .product-photo img {
+  object-fit: cover;
+}
+.theme-electronics .store-template-intro {
+  background: #112b40;
+  color: white;
+}
+.theme-electronics .store-template-intro h2,
+.theme-vehicles .store-template-intro h2,
+.theme-motorcycles .store-template-intro h2 {
+  color: inherit;
+  font-family: "DM Sans", sans-serif;
+}
+.theme-electronics .store-template-intro .eyebrow,
+.theme-vehicles .store-template-intro .eyebrow,
+.theme-motorcycles .store-template-intro .eyebrow {
+  color: #d4dedb;
+}
+.theme-electronics .product-card {
+  border: 1px solid #cbd8e4;
+  border-radius: 12px;
+  padding: 10px;
+}
+.theme-vehicles .store-template-intro {
+  background: #26343c;
+  color: white;
+}
+.theme-vehicles .product-grid,
+.theme-motorcycles .product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.theme-motorcycles {
+  --accent: #a74625;
+}
+.theme-motorcycles .store-template-intro {
+  background: #39241e;
+  color: #fff5ed;
+  border-left: 6px solid #d16b38;
+}
+.theme-motorcycles .product-photo {
+  aspect-ratio: 1.65;
+}
+.template-gallery > p {
+  max-width: 730px;
+  line-height: 1.8;
+}
+.template-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0;
+}
+.template-picker button {
+  border: 1px solid #d5dfd6;
+  border-radius: 30px;
+  padding: 12px 19px;
+}
+.template-picker button.active {
+  background: var(--green);
+  color: white;
+}
+.template-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f5f1e9;
+}
+.template-preview > img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+}
+.template-preview > div {
+  padding: 40px;
+}
+.template-preview h2 {
+  font-size: 39px;
+}
+.template-preview p {
+  line-height: 1.7;
+}
+.template-preview .button {
+  margin: 10px 8px 10px 0;
+}
+.template-preview small {
+  display: block;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+.template-preview .chips span {
+  border: 1px solid #c8ccc5;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+.template-explainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 35px 0;
+}
+.template-explainer p {
+  line-height: 1.7;
+}
+.template-choice {
+  border-left: 4px solid var(--accent, #064b3b);
+  background: #f6f6f0;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.template-choice p {
+  margin: 8px 0;
+}
+.template-choice a {
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .template-invite {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+  .template-preview {
+    grid-template-columns: 1fr;
+  }
+  .template-preview > img {
+    height: 220px;
+    min-height: 0;
+  }
+  .template-preview > div {
+    padding: 24px;
+  }
+  .template-preview h2 {
+    font-size: 30px;
+  }
+  .template-explainer {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .store-template-intro,
+  .theme-fashion .store-template-intro {
+    padding: 22px;
+  }
+  .store-template-intro h2 {
+    font-size: 27px;
+  }
+  .theme-fashion .shop-cover {
+    height: 220px;
+  }
+  .theme-vehicles .product-grid,
+  .theme-motorcycles .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .preview-ribbon {
+    max-width: 100%;
+    font-size: 9px;
+  }
+}
+.theme-electronics .store-template-intro p,
+.theme-vehicles .store-template-intro p,
+.theme-motorcycles .store-template-intro p {
+  color: #e0e4e1;
+}
+.category-search {
+  display: block;
+  max-width: 680px;
+  margin: 25px 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+.category-search input {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  padding: 15px 18px;
+  border: 1px solid #cbd6cc;
+  border-radius: 10px;
+  font: inherit;
+}
+.category-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+.category-directory-card {
+  border: 1px solid #dee5dc;
+  border-radius: 14px;
+  padding: 24px;
+  background: #fff;
+}
+.category-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.category-card-heading > span {
+  background: #edf3e9;
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--green);
+  display: flex;
+}
+.category-card-heading small {
+  color: #67756b;
+  font-size: 11px;
+}
+.category-card-heading h2 {
+  font-size: 23px;
+  margin: 5px 0;
+}
+.category-directory-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.category-directory-card li a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.category-directory-card li svg {
+  flex-shrink: 0;
+  color: #7b897b;
+}
+.category-directory-card a:hover {
+  color: #9d6310;
+  text-decoration: underline;
+}
+.category-view-all {
+  display: block;
+  border-top: 1px solid #e8ece5;
+  padding-top: 15px;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 12px;
+}
+@media (max-width: 1023px) {
+  .category-directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .category-directory-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-directory-card {
+    padding: 20px;
+  }
+  .category-search input {
+    font-size: 16px;
+  }
+}
+
+/* Product media, options and direct seller enquiries */
+.photo-swap {
+  display: block;
+  position: relative;
+}
+.photo-swap .back-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.photo-swap[data-hovered="true"] .back-photo {
+  opacity: 1;
+}
+.photo-swap:focus-visible .back-photo {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-swap .back-photo {
+    transition: none;
+  }
+}
+.photo-position {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #173e35e8;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+}
+.photo-strip .photo-move {
+  left: 0;
+  right: auto;
+  top: 0;
+}
+.media-url-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.media-url-row input {
+  flex: 1;
+  min-width: 0;
+}
+.inventory-editor,
+.video-editor {
+  border-top: 1px solid var(--border, #dce1d8);
+  padding-top: 18px;
+  margin: 22px 0;
+}
+.variant-editor {
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 1fr;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e3e7df;
+}
+.variant-editor .text-button {
+  grid-column: 1/-1;
+  justify-self: end;
+}
+.video-editor-row {
+  background: #f4f5ee;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.video-editor .upload-button {
+  width: auto;
+}
+.product-videos {
+  margin-top: 24px;
+}
+.product-videos video {
+  width: 100%;
+  max-height: 450px;
+  background: #112b25;
+  border-radius: 12px;
+}
+.thumbnails button {
+  position: relative;
+}
+.thumbnails button span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 11px;
+  background: #173e35df;
+  color: white;
+}
+.purchase-panel {
+  background: #f5f6ef;
+  border: 1px solid #dce2d7;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.stock-state {
+  font-size: 14px;
+  color: #245744;
+  font-weight: 700;
+  margin-top: 0;
+}
+.stock-state.unavailable {
+  color: #9c3d22;
+}
+.size-picker {
+  border: 0;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.size-picker legend {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.size-picker button {
+  border: 1px solid #9fab9c;
+  background: white;
+  border-radius: 7px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 9px 12px;
+}
+.size-picker button.active {
+  background: #173e35;
+  color: white;
+  border-color: #173e35;
+}
+.size-picker button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.purchase-quantity {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.purchase-quantity strong,
+.purchase-quantity small {
+  display: block;
+}
+.purchase-quantity strong {
+  font-size: 25px;
+  margin: 3px 0;
+}
+.payment-options {
+  border-top: 1px solid #d4ddcf;
+  margin-top: 16px;
+  padding-top: 16px;
+  overflow-wrap: anywhere;
+}
+.payment-options summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.payment-options small {
+  display: block;
+}
+.upi-qr {
+  display: block;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  background: #fff;
+  margin: 14px 0;
+}
+.check-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+.check-field input {
+  width: auto;
+}
+.shop-product-filters {
+  margin: 20px 0;
+}
+@media (max-width: 600px) {
+  .variant-editor {
+    grid-template-columns: 1fr 1fr;
+  }
+  .variant-editor .field:first-child {
+    grid-column: 1/-1;
+  }
+  .purchase-panel {
+    padding: 16px;
+  }
+  .media-url-row {
+    flex-wrap: wrap;
+  }
+  .media-url-row input {
+    flex-basis: 100%;
+  }
+}

@@ -2,7 +2,7 @@
 
 A Manipur marketplace with individual and business storefronts, global product search, WhatsApp enquiries, seller packages and a restricted admin dashboard.
 
-**Release:** 0.3.0. **Status:** application implemented and locally verified; production service configuration still required. See [BUILD-STATUS.md](BUILD-STATUS.md) for exact verification and remaining scope.
+**Release:** 0.6.1. **Status:** marketplace and seller interface locally verified; live account and payment services still require configuration. See [BUILD-STATUS.md](BUILD-STATUS.md) for exact verification and remaining scope.
 
 ## Run locally
 
@@ -25,8 +25,9 @@ npm run build
 
 - Responsive marketplace and compact-screen bottom navigation, without disabling pinch zoom.
 - Global keyword/URL search, category/location/price/condition/seller filters and pagination.
-- Individual/shop profiles, three specialist storefront themes, logos/covers and collections.
-- Category-dependent product fields; photos, social URLs, listing status, seller dashboard.
+- Individual/shop profiles, category storefront themes, logos/covers and collections.
+- 31 marketplace categories and 331 subcategories with matching seller upload selectors.
+- Seller upload dashboard: galleries of up to 12 photos, reorder/remove, videos/social embeds, clothing sizes and stock, vehicle details, shop UPI/QR, listing status and mixed-store collections.
 - WhatsApp enquiry composer; no messaging database or automatic sending.
 - Supabase email/password signup, confirmation, login, recovery and protected seller/admin routes.
 - Database row-level security, published-listing quotas, seller suspension and ad approval enforcement.
@@ -76,3 +77,7 @@ Schema tests use PGlite and simulated Supabase roles; they do not replace live S
 React/Vite client; Supabase Auth/Postgres/Storage; Vercel Node functions for package payments; external WhatsApp for conversations. Modules live in `src/pages`, shared UI in `src/components`, domain helpers in `src/lib`, SQL in `database`, billing handlers in `api`. The original Product Design worker remains available for static preview, but production payments target Vercel.
 
 The current site is a client-rendered SPA. Per-listing server-rendered SEO/social metadata, native app packaging and automatic social-feed imports are future work; do not claim these exist.
+
+## Product tools (v0.6.0)
+
+See [docs/PRODUCT-TOOLS.md](docs/PRODUCT-TOOLS.md) for galleries, videos, vehicle fields, variants, stock, UPI details, extended imports and database upgrade instructions. Product purchases are WhatsApp requests; they are not confirmed paid orders.

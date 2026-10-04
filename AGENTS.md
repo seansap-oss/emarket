@@ -27,3 +27,7 @@ User explicitly requests placeholder shops/products on the live Vercel site, mat
 ## Category expansion — v0.5.0
 
 Maintain one shared catalogue for navigation, seller forms, search and imports. Include construction materials, architects/designers, contractors, warehouse supplies, tools, electrical, plumbing, finishes, machinery and safety. Preserve stable existing category IDs. Subcategories belong to one parent. Use labelled Phosphor icons.
+
+## Product tools — v0.6.0
+
+Support independent listing categories within a mixed store. All plans include media, options, stock and direct-payment details; price tiers control active listing allowance (Business ₹2,000 / 1,000 items). Clothing requires front, back and two side photos when newly published; desktop mouse/pen hover switches cover to back and mobile uses thumbnails. Vehicle specifications include condition, kilometres, ownership, transmission and history. Buyers choose variants and quantities, then request purchases through WhatsApp. This is not a confirmed order or stock reservation. Direct UPI details/QR are seller-provided and transfers remain unverified. Product Razorpay checkout and automatic inventory settlement are a later phase distinct from the existing seller-package payment handlers.

@@ -39,7 +39,7 @@ test("database permissions, quotas, campaign approval and payment idempotency", 
     const add = async (s, title = "Product") =>
       (
         await db.query(
-          `insert into listings(seller_id,category_id,title,price,images,status) values($1,'fashion',$2,100,'["https://example.com/a.jpg"]','published') returning id`,
+          `insert into listings(seller_id,category_id,title,price,images,status) values($1,'fashion',$2,100,'["https://example.com/a.jpg","https://example.com/b.jpg","https://example.com/c.jpg","https://example.com/d.jpg"]','published') returning id`,
           [s, title],
         )
       ).rows[0].id;
