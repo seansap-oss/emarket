@@ -1,8 +1,8 @@
-# Leikai Market / emarket
+# Onlinekeithel / emarket
 
 A Manipur marketplace with individual and business storefronts, global product search, WhatsApp enquiries, seller packages and a restricted admin dashboard.
 
-**Release:** 0.6.1. **Status:** marketplace and seller interface locally verified; live account and payment services still require configuration. See [BUILD-STATUS.md](BUILD-STATUS.md) for exact verification and remaining scope.
+**Release:** 0.7.0. **Status:** marketplace and seller interface locally verified; live account and payment services still require configuration. See [BUILD-STATUS.md](BUILD-STATUS.md) for exact verification and remaining scope.
 
 ## Run locally
 
@@ -26,7 +26,7 @@ npm run build
 - Responsive marketplace and compact-screen bottom navigation, without disabling pinch zoom.
 - Global keyword/URL search, category/location/price/condition/seller filters and pagination.
 - Individual/shop profiles, category storefront themes, logos/covers and collections.
-- 31 marketplace categories and 331 subcategories with matching seller upload selectors.
+- 31 searchable specialist categories grouped in the interface; Construction brings architects, builders, trades, workers, materials and site suppliers under one department.
 - Seller upload dashboard: galleries of up to 12 photos, reorder/remove, videos/social embeds, clothing sizes and stock, vehicle details, shop UPI/QR, listing status and mixed-store collections.
 - WhatsApp enquiry composer; no messaging database or automatic sending.
 - Supabase email/password signup, confirmation, login, recovery and protected seller/admin routes.
@@ -37,6 +37,7 @@ npm run build
 - CSV template, validation, resumable-by-SKU draft import and result export.
 - Admin homepage content, categories, plans, seller/listing edits, campaign review, reports and audit log.
 - PWA manifest, icons, safe offline fallback; Android/iOS binaries are not part of this release.
+- Shareable `/shop/name` storefronts for individuals and shops, with editable cover/hero copy, preset colours/fonts, social video, photo gallery, optional section order, dashboard preview and copy-link button. Apply migration 007 to existing marketplace databases before saving these settings. See [docs/STOREFRONTS.md](docs/STOREFRONTS.md).
 
 ## Deploy to Vercel
 

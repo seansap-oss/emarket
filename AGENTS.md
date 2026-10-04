@@ -31,3 +31,11 @@ Maintain one shared catalogue for navigation, seller forms, search and imports. 
 ## Product tools — v0.6.0
 
 Support independent listing categories within a mixed store. All plans include media, options, stock and direct-payment details; price tiers control active listing allowance (Business ₹2,000 / 1,000 items). Clothing requires front, back and two side photos when newly published; desktop mouse/pen hover switches cover to back and mobile uses thumbnails. Vehicle specifications include condition, kilometres, ownership, transmission and history. Buyers choose variants and quantities, then request purchases through WhatsApp. This is not a confirmed order or stock reservation. Direct UPI details/QR are seller-provided and transfers remain unverified. Product Razorpay checkout and automatic inventory settlement are a later phase distinct from the existing seller-package payment handlers.
+
+## Brand and construction navigation — v0.7.0
+
+User selected logo option 1: a stylised Keithel gable with upward curling roof-tip ornaments and an arched entrance, using forest green with saffron accents. Public marketplace brand is Onlinekeithel; sample seller names remain independent. Construction is one top-level navigation department containing materials, architects, builders/trades, workers, warehouse supplies and related specialists. Preserve existing category IDs and listing references; group them in the UI and search. Do not show architects or builders as separate top-level header links.
+
+## Seller storefronts — v0.8.0
+
+Every shop and individual has a shareable `/shop/:slug` page; old `/seller/:slug` links redirect locally. Keep a shop slug stable once published so shared links do not break. Sellers edit their cover, hero headline, tagline, introduction, preset accent/font, featured video, gallery and optional section order in the profile dashboard. Marketplace search still indexes their products independently. The domain and subdomain ideas are later work, not live routes. Storefront settings require migration 007 on an existing dedicated Supabase project; never imply sample-preview edits are saved.

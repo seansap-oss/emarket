@@ -8,6 +8,7 @@ import {
 } from "../lib/commerce";
 import { ProductVideosEditor } from "../components/ProductMedia";
 import { subcategoriesFor } from "../lib/categories";
+import { CategoryOptions } from "../components/CategoryOptions";
 import React, { useState, useEffect, useRef } from "react";
 import Papa from "papaparse";
 import {
@@ -31,6 +32,7 @@ import { result, supabase, preview } from "../lib/backend";
 import { money, socialUrl, normalizeImport, safeUrl } from "../lib/utils";
 import { Modal, Field, Photo, Upload, Empty } from "../components/UI";
 import { SellerForm } from "./Account";
+import { shopPath } from "../lib/storefront";
 export function ListingEditor({
   seller,
   initial,
@@ -190,11 +192,7 @@ export function ListingEditor({
                 });
               }}
             >
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.name}
-                </option>
-              ))}
+              <CategoryOptions categories={categories} />
             </select>
           </Field>
           <Field label="Subcategory">
@@ -396,7 +394,7 @@ export function Promotions({ seller, visual = false }) {
       description: "",
       image: "",
       video_url: "",
-      destination: "/seller/" + seller.slug,
+      destination: shopPath(seller.slug),
       starts_at: "",
       ends_at: "",
     });
@@ -548,7 +546,9 @@ function Importer({ seller, visual }) {
       </p>
       <button
         className="button outline"
-        onClick={() => download(template, "leikai-catalogue-template.csv")}
+        onClick={() =>
+          download(template, "onlinekeithel-catalogue-template.csv")
+        }
       >
         <DownloadSimple /> Download CSV template
       </button>
@@ -799,9 +799,45 @@ export function Dashboard({ startSell = false, visual = false }) {
             {seller.type === "shop" ? "Shop account" : "Individual seller"}
           </p>
         </div>
-        <Link className="button outline" to={"/seller/" + seller.slug}>
-          View storefront <ArrowSquareOut size={18} />
-        </Link>
+        <div className="shop-share-actions">
+          <Link className="button outline" to={shopPath(seller.slug)}>
+            View storefront <ArrowSquareOut size={18} />
+          </Link>
+          <button
+            type="button"
+            className="button outline"
+            onClick={async () => {
+              const link = location.origin + shopPath(seller.slug);
+              try {
+                let copied = false;
+                if (navigator.clipboard?.writeText) {
+                  try {
+                    await navigator.clipboard.writeText(link);
+                    copied = true;
+                  } catch {
+                    /* Use the selection fallback below. */
+                  }
+                }
+                if (!copied) {
+                  const input = document.createElement("textarea");
+                  input.value = link;
+                  input.style.position = "fixed";
+                  input.style.opacity = "0";
+                  document.body.append(input);
+                  input.select();
+                  copied = document.execCommand("copy");
+                  input.remove();
+                  if (!copied) throw Error("Copy unavailable");
+                }
+                notice("Shop link copied");
+              } catch {
+                notice("Copy your link from the storefront address bar");
+              }
+            }}
+          >
+            <LinkSimple size={18} /> Copy shop link
+          </button>
+        </div>
       </div>
       {visual && (
         <div className="notice-box">

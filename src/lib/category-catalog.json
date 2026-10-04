@@ -616,7 +616,7 @@
     "subcategories": [
       {
         "id": "general-building-contractors",
-        "name": "General building contractors",
+        "name": "Builders & general contractors",
         "icon": "HardHat"
       },
       {
@@ -687,6 +687,26 @@
       {
         "id": "landscaping-contractors",
         "name": "Landscaping contractors",
+        "icon": "HardHat"
+      },
+      {
+        "id": "bricklayers-masons",
+        "name": "Bricklayers & masons",
+        "icon": "HardHat"
+      },
+      {
+        "id": "handyman-repairs",
+        "name": "Handyman & small repairs",
+        "icon": "Wrench"
+      },
+      {
+        "id": "construction-labourers",
+        "name": "Construction labourers",
+        "icon": "HardHat"
+      },
+      {
+        "id": "site-supervisors",
+        "name": "Site supervisors",
         "icon": "HardHat"
       }
     ]

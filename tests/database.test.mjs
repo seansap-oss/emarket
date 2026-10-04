@@ -17,6 +17,15 @@ test("database permissions, quotas, campaign approval and payment idempotency", 
         "utf8",
       ),
     );
+    const storefrontMigration = await readFile(
+      new URL(
+        "../database/migrations/007_storefront_pages.sql",
+        import.meta.url,
+      ),
+      "utf8",
+    );
+    await db.exec(storefrontMigration);
+    await db.exec(storefrontMigration);
     await db.exec(`insert into public.admins values('${ADMIN}');`);
     const role = async (id, r = "authenticated") =>
       db.exec(
@@ -29,6 +38,15 @@ test("database permissions, quotas, campaign approval and payment idempotency", 
         [A],
       )
     ).rows[0].id;
+    await db.query("update sellers set storefront=$1 where id=$2", [
+      JSON.stringify({ headline: "Made in Imphal", color: "plum" }),
+      sa,
+    ]);
+    assert.equal(
+      (await db.query("select storefront from sellers where id=$1", [sa]))
+        .rows[0].storefront.headline,
+      "Made in Imphal",
+    );
     await role(B);
     const sb = (
       await db.query(
@@ -36,6 +54,24 @@ test("database permissions, quotas, campaign approval and payment idempotency", 
         [B],
       )
     ).rows[0].id;
+    assert.equal(
+      (await db.query("select storefront from sellers where id=$1", [sb]))
+        .rows[0].storefront.headline,
+      undefined,
+    );
+    assert.equal(
+      (await db.query("select * from sellers where id=$1", [sa])).rows.length,
+      1,
+    );
+    assert.equal(
+      (
+        await db.query(
+          "update sellers set storefront='{}' where id=$1 returning id",
+          [sa],
+        )
+      ).rows.length,
+      0,
+    );
     const add = async (s, title = "Product") =>
       (
         await db.query(

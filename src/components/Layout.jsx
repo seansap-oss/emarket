@@ -26,6 +26,8 @@ import {
 import { Link, useMarket } from "../lib/context";
 import { Modal } from "./UI";
 import { preview, showSamples, supabase } from "../lib/backend";
+import { constructionCategories, isConstructionCategory } from "../lib/categories";
+import { BrandMark } from "./BrandMark";
 export const icons = Object.fromEntries(
   categoryCatalog.map((c) => [c.id, categoryIcons[c.icon]]),
 );
@@ -55,7 +57,7 @@ export function Layout({ children }) {
             <List size={25} />
           </button>
           <Link to="/" className="brand">
-            <Storefront weight="duotone" size={40} />
+            <BrandMark />
             <span>
               <b>{settings.name}</b>
               <small>
@@ -118,9 +120,6 @@ export function Layout({ children }) {
                 "fashion",
                 "mobiles",
                 "vehicles",
-                "construction",
-                "architecture",
-                "warehouse",
               ].includes(c.id),
             )
             .map((c) => {
@@ -132,13 +131,21 @@ export function Layout({ children }) {
                     fashion: "Clothing",
                     mobiles: "Mobiles",
                     vehicles: "Cars",
-                    construction: "Construction",
-                    architecture: "Architects",
-                    warehouse: "Warehouse supplies",
                   }[c.id] || c.name}
                 </Link>
               );
             })}
+          {constructionCategories(categories).length > 0 && (
+            <details className="nav-department">
+              <summary><Buildings size={22} /> Construction <CaretDown size={13} /></summary>
+              <div className="nav-department-menu">
+                <Link to="/search?department=construction">All construction</Link>
+                {constructionCategories(categories).map((c) => (
+                  <Link key={c.id} to={"/search?category=" + c.id}>{c.name}</Link>
+                ))}
+              </div>
+            </details>
+          )}
           <Link to="/shops">
             Local shops <ArrowRight size={16} />
           </Link>
@@ -148,7 +155,7 @@ export function Layout({ children }) {
       <footer className="site-footer">
         <div>
           <Link className="brand" to="/">
-            <Storefront size={34} />
+            <BrandMark size={34} />
             <b>{settings.name}</b>
           </Link>
           <p>
@@ -216,7 +223,16 @@ export function Layout({ children }) {
               Browse all categories & subcategories
             </Link>
             <h3>Shop by category</h3>
-            {categories.map((c) => {
+            {constructionCategories(categories).length > 0 && (
+              <details className="drawer-department">
+                <summary><Buildings size={22} /> Construction <CaretDown size={14} /></summary>
+                <Link to="/search?department=construction" onClick={() => setMenu(false)}>All construction</Link>
+                {constructionCategories(categories).map((c) => (
+                  <Link key={c.id} to={"/search?category=" + c.id} onClick={() => setMenu(false)}>{c.name}</Link>
+                ))}
+              </details>
+            )}
+            {categories.filter((c) => !isConstructionCategory(c)).map((c) => {
               const Icon = icons[c.id] || SquaresFour;
               return (
                 <Link

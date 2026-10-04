@@ -53,7 +53,7 @@ export default function Templates() {
             ))}
           </div>
           {showSamples && (
-            <Link className="button primary" to={"/seller/" + chosen.sample}>
+            <Link className="button primary" to={"/shop/" + chosen.sample}>
               Explore this sample shop <ArrowRight />
             </Link>
           )}

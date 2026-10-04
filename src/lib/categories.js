@@ -1,5 +1,9 @@
 import catalog from "./category-catalog.json" with { type: "json" };
 export const categoryCatalog = catalog;
+export const isConstructionCategory = (category) =>
+  category.group_name === "Build & industry";
+export const constructionCategories = (categories) =>
+  categories.filter(isConstructionCategory);
 export const subcategoriesFor = (categories, id) =>
   categories.find((c) => c.id === id)?.subcategories || [];
 export const categoryName = (categories, id) =>

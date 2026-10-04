@@ -1,6 +1,6 @@
 # Marketplace category guide — v0.5.0
 
-31 main categories and 331 subcategories. This is a broad initial marketplace catalogue, designed to be extended through the admin page. Existing category IDs remain stable.
+31 specialist categories and 335 subcategories. In the interface, Construction is one top-level department containing materials, architecture, contractors, site workers, warehouse supplies, tools, electrical, plumbing, finishes, machinery and safety. Existing category IDs remain stable for listings and links.
 
 ## Research and decisions
 
@@ -141,7 +141,7 @@ A category/subcategory mismatch is rejected by the database. Existing listings w
 
 ### Construction & trade contractors — HardHat
 
-- General building contractors
+- Builders & general contractors
 - Civil works contractors
 - Home renovation
 - Masonry & plastering
@@ -156,6 +156,10 @@ A category/subcategory mismatch is rejected by the database. Existing listings w
 - HVAC installers
 - Demolition & site clearing
 - Landscaping contractors
+- Bricklayers & masons
+- Handyman & small repairs
+- Construction labourers
+- Site supervisors
 
 ### Warehouse & site supplies — Warehouse
 

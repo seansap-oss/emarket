@@ -1,0 +1,9 @@
+# Seller storefronts — v0.8.0
+
+Every shop and individual profile has a public URL, `/shop/<unique-name>`. Existing `/seller/<name>` links change the browser address to the new route. Store cards, product seller links, template previews and campaigns use the new format. Product detail URLs remain `/listing/<id>` and still feed marketplace search.
+
+In **Dashboard → Shop identity**, sellers choose a presentation template, upload a logo and cover, edit their headline, tagline and welcome text, choose a safe preset colour and font, optionally add a supported social video URL and a six-photo gallery, show or hide About, Gallery and Video sections, and reorder those sections above the product catalogue. The form previews the selected cover and text before save. The dashboard's **Copy shop link** control copies an absolute URL. To keep shared links stable, a slug can be selected at creation and is read-only afterward.
+
+The settings are stored on the seller record as `storefront` JSON. Existing sellers get theme-based defaults, with no changes to their products or category IDs. New installations use `database/schema.sql`. For an existing dedicated marketplace Supabase project, apply outstanding migrations in sequence, then `database/migrations/007_storefront_pages.sql` before deploying this frontend. Do not rerun the full schema on an existing database. Only owners and admins can edit seller records under the existing RLS policies; a JSON size limit prevents oversized settings.
+
+Current site URLs use the domain on which this Vite app is deployed. A purchased `onlinekeithel.com` domain, per-shop subdomains, seller-owned domains, arbitrary page blocks, and server-rendered per-shop social previews are not yet implemented. Marketplace and sample storefronts can be browsed without a backend; real sign-up, publishing and image uploads require the separate marketplace Supabase configuration.

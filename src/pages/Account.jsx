@@ -19,8 +19,16 @@ import {
   result,
   preview,
 } from "../lib/backend";
-import { Field, Upload, Empty } from "../components/UI";
-import { money, slugify, socialUrl, whatsappUrl } from "../lib/utils";
+import { Field, Upload, Empty, Photo } from "../components/UI";
+import { CategoryOptions } from "../components/CategoryOptions";
+import { money, slugify, socialUrl, whatsappUrl, mediaUrl } from "../lib/utils";
+import {
+  storefrontColors,
+  storefrontFonts,
+  storefrontSettings,
+  storefrontSections,
+  shopPath,
+} from "../lib/storefront";
 export function AuthPage({ reset = false }) {
   const { session, navigate, notice } = useMarket();
   const [mode, setMode] = useState("login"),
@@ -265,9 +273,27 @@ export function SellerForm({ existing, onSaved }) {
           for (const u of Object.values(form.socials))
             if (u && !socialUrl(u))
               throw Error("Use a valid Instagram, Facebook or YouTube URL");
+          const display = storefrontSettings(form);
+          if (display.videoUrl && !socialUrl(display.videoUrl))
+            throw Error("Use a valid YouTube, Instagram or Facebook video URL");
+          if (display.gallery.some((url) => !mediaUrl(url)))
+            throw Error("Gallery photos need valid HTTPS image URLs");
           const payload = {
             ...form,
             payment_options: normalizePayments(form.payment_options),
+            storefront: {
+              headline: display.headline.trim().slice(0, 100),
+              tagline: display.tagline.trim().slice(0, 100),
+              introduction: display.introduction.trim().slice(0, 1200),
+              color: display.color,
+              font: display.font,
+              videoUrl: display.videoUrl.trim(),
+              gallery: display.gallery,
+              sections: display.sections,
+              showAbout: display.showAbout,
+              showGallery: display.showGallery,
+              showVideo: display.showVideo,
+            },
             user_id: existing?.user_id || session.user.id,
           };
           delete payload.created_at;
@@ -313,11 +339,7 @@ export function SellerForm({ existing, onSaved }) {
             <option value="" disabled>
               Choose a category to apply its template
             </option>
-            {categories.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
+            <CategoryOptions categories={categories} />
           </select>
         </Field>
         <Field label="Shop presentation">
@@ -354,9 +376,16 @@ export function SellerForm({ existing, onSaved }) {
         required
         pattern="[a-z0-9][a-z0-9-]{2,59}"
         value={form.slug}
+        readOnly={!!existing}
         onChange={(e) => change("slug", slugify(e.target.value))}
       />
-      <small>/seller/{form.slug || "your-name"}</small>
+      <small>
+        {location.origin}
+        {shopPath(form.slug || "your-name")}
+        {existing
+          ? " · This address stays the same so shared links keep working."
+          : ""}
+      </small>
       <Field label="About your shop">
         <textarea
           rows={4}
@@ -399,6 +428,199 @@ export function SellerForm({ existing, onSaved }) {
         onBusyChange={(v) => setUploads((p) => ({ ...p, cover: v }))}
         onChange={(v) => change("cover", v)}
       />
+      <h3>Your storefront landing page</h3>
+      <p className="muted">
+        Make this page feel like yours. Your cover photo appears above the
+        headline; shoppers can still find your items in marketplace search.
+      </p>
+      <div className="form-grid">
+        <Field
+          label="Hero headline"
+          maxLength={100}
+          value={form.storefront?.headline ?? ""}
+          placeholder={templates[form.theme]?.headline}
+          onChange={(e) =>
+            change("storefront", {
+              ...form.storefront,
+              headline: e.target.value,
+            })
+          }
+        />
+        <Field
+          label="Short tagline"
+          maxLength={100}
+          value={form.storefront?.tagline ?? ""}
+          placeholder="Discover our collection"
+          onChange={(e) =>
+            change("storefront", {
+              ...form.storefront,
+              tagline: e.target.value,
+            })
+          }
+        />
+        <Field label="Accent colour">
+          <select
+            value={form.storefront?.color || "theme"}
+            onChange={(e) =>
+              change("storefront", {
+                ...form.storefront,
+                color: e.target.value,
+              })
+            }
+          >
+            {Object.entries(storefrontColors).map(([key, choice]) => (
+              <option key={key} value={key}>
+                {choice.label}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label="Headline font">
+          <select
+            value={form.storefront?.font || "classic"}
+            onChange={(e) =>
+              change("storefront", { ...form.storefront, font: e.target.value })
+            }
+          >
+            {Object.entries(storefrontFonts).map(([key, choice]) => (
+              <option key={key} value={key}>
+                {choice.label}
+              </option>
+            ))}
+          </select>
+        </Field>
+      </div>
+      <Field label="Welcome message">
+        <textarea
+          maxLength={1200}
+          rows={3}
+          value={form.storefront?.introduction ?? ""}
+          placeholder={form.description || "Introduce your shop to visitors"}
+          onChange={(e) =>
+            change("storefront", {
+              ...form.storefront,
+              introduction: e.target.value,
+            })
+          }
+        />
+      </Field>
+      <Field
+        label="Featured video URL (optional)"
+        type="url"
+        placeholder="YouTube, Instagram or Facebook link"
+        value={form.storefront?.videoUrl ?? ""}
+        onChange={(e) =>
+          change("storefront", { ...form.storefront, videoUrl: e.target.value })
+        }
+      />
+      <h4>Shop photo gallery</h4>
+      <Upload
+        multiple
+        maxItems={6}
+        value={form.storefront?.gallery || []}
+        onBusyChange={(v) => setUploads((p) => ({ ...p, gallery: v }))}
+        onChange={(v) =>
+          change("storefront", { ...form.storefront, gallery: v })
+        }
+      />
+      <div
+        className={"storefront-preview theme-" + form.theme}
+        style={{
+          "--shop-accent":
+            storefrontColors[storefrontSettings(form).color].value,
+          "--shop-font": storefrontFonts[storefrontSettings(form).font].value,
+        }}
+      >
+        <Photo src={form.cover} alt="Your cover photo preview" />
+        <div>
+          <span>YOUR STOREFRONT PREVIEW</span>
+          <strong>{storefrontSettings(form).headline}</strong>
+          <p>{storefrontSettings(form).tagline}</p>
+          <small>{storefrontSettings(form).introduction}</small>
+        </div>
+      </div>
+      <label className="check-field">
+        <input
+          type="checkbox"
+          checked={form.storefront?.showAbout !== false}
+          onChange={(e) =>
+            change("storefront", {
+              ...form.storefront,
+              showAbout: e.target.checked,
+            })
+          }
+        />
+        Show an About section
+      </label>
+      <label className="check-field">
+        <input
+          type="checkbox"
+          checked={form.storefront?.showGallery !== false}
+          onChange={(e) =>
+            change("storefront", {
+              ...form.storefront,
+              showGallery: e.target.checked,
+            })
+          }
+        />
+        Show the photo gallery
+      </label>
+      <label className="check-field">
+        <input
+          type="checkbox"
+          checked={form.storefront?.showVideo !== false}
+          onChange={(e) =>
+            change("storefront", {
+              ...form.storefront,
+              showVideo: e.target.checked,
+            })
+          }
+        />
+        Show a featured video section
+      </label>
+      <h4>Section order</h4>
+      <p className="muted">
+        Move these sections above the product catalogue. Empty or hidden
+        sections will not appear.
+      </p>
+      <div className="storefront-section-order">
+        {storefrontSettings(form).sections.map((section, index, ordered) => (
+          <div key={section}>
+            <span>
+              {index + 1}.{" "}
+              {section === "about"
+                ? "About"
+                : section === "gallery"
+                  ? "Photo gallery"
+                  : "Featured video"}
+            </span>
+            <button
+              type="button"
+              disabled={index === 0}
+              aria-label={`Move ${section} section up`}
+              onClick={() => {
+                const next = [...ordered];
+                [next[index - 1], next[index]] = [next[index], next[index - 1]];
+                change("storefront", { ...form.storefront, sections: next });
+              }}
+            >
+              ↑
+            </button>
+            <button
+              type="button"
+              disabled={index === storefrontSections.length - 1}
+              aria-label={`Move ${section} section down`}
+              onClick={() => {
+                const next = [...ordered];
+                [next[index + 1], next[index]] = [next[index], next[index + 1]];
+                change("storefront", { ...form.storefront, sections: next });
+              }}
+            >
+              ↓
+            </button>
+          </div>
+        ))}
+      </div>
       <h3>Payment & collection options</h3>
       <p className="muted">
         Published on your product pages. Buyers confirm stock and delivery with

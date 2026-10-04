@@ -11,7 +11,7 @@ export function Information({ kind }) {
   };
   return (
     <div className="page prose info-page">
-      <span className="eyebrow">LEIKAI MARKET</span>
+      <span className="eyebrow">ONLINEKEITHEL</span>
       <h1>{titles[kind]}</h1>
       {kind === "help" ? (
         <>
@@ -41,13 +41,13 @@ export function Information({ kind }) {
           )}
           {whatsappUrl(
             settings.support_whatsapp,
-            "Hello, I need help with Leikai Market.",
+            "Hello, I need help with Onlinekeithel.",
           ) && (
             <a
               className="button green"
               href={whatsappUrl(
                 settings.support_whatsapp,
-                "Hello, I need help with Leikai Market.",
+                "Hello, I need help with Onlinekeithel.",
               )}
               target="_blank"
               rel="noopener noreferrer"

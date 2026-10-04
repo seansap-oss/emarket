@@ -92,7 +92,7 @@ architecture,"Architects, design & engineering",land-surveying,Land surveying,Bl
 architecture,"Architects, design & engineering",quantity-surveying-estimation,Quantity surveying & estimation,Blueprint
 architecture,"Architects, design & engineering",project-management-consultants,Project management consultants,Blueprint
 architecture,"Architects, design & engineering",town-planning-consultants,Town planning consultants,Blueprint
-contractors,Construction & trade contractors,general-building-contractors,General building contractors,HardHat
+contractors,Construction & trade contractors,general-building-contractors,Builders & general contractors,HardHat
 contractors,Construction & trade contractors,civil-works-contractors,Civil works contractors,HardHat
 contractors,Construction & trade contractors,home-renovation,Home renovation,HardHat
 contractors,Construction & trade contractors,masonry-plastering,Masonry & plastering,HardHat
@@ -107,6 +107,10 @@ contractors,Construction & trade contractors,plumbing-contractors,Plumbing contr
 contractors,Construction & trade contractors,hvac-installers,HVAC installers,HardHat
 contractors,Construction & trade contractors,demolition-site-clearing,Demolition & site clearing,HardHat
 contractors,Construction & trade contractors,landscaping-contractors,Landscaping contractors,HardHat
+contractors,Construction & trade contractors,bricklayers-masons,Bricklayers & masons,HardHat
+contractors,Construction & trade contractors,handyman-repairs,Handyman & small repairs,Wrench
+contractors,Construction & trade contractors,construction-labourers,Construction labourers,HardHat
+contractors,Construction & trade contractors,site-supervisors,Site supervisors,HardHat
 warehouse,Warehouse & site supplies,pallet-racks,Pallet racks,Warehouse
 warehouse,Warehouse & site supplies,shelving-storage-systems,Shelving & storage systems,Warehouse
 warehouse,Warehouse & site supplies,pallets-crates-bins,"Pallets, crates & bins",Warehouse

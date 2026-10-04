@@ -15,7 +15,7 @@ export const plans = [
   active: true,
 }));
 export const settings = {
-  name: "Leikai Market",
+  name: "Onlinekeithel",
   tagline: "Our people. Our neighbourhood.",
   hero_title: "Your neighbourhood. Every shop.",
   hero_description:
@@ -35,6 +35,15 @@ export const sellers = [
     type: "shop",
     location: "Khurai, Imphal",
     cover: "/images/hero-handloom.webp",
+    storefront: {
+      headline: "Woven for every day.",
+      tagline: "LEIKAI HANDLOOMS · IMPHAL",
+      color: "plum",
+      font: "editorial",
+      introduction:
+        "Thoughtful handloom pieces and everyday textiles from our local makers.",
+      gallery: ["/images/phanek.webp", "/images/hero-handloom.webp"],
+    },
     description:
       "Woven with care. Discover traditional phanek, shawls and everyday textiles from local makers.",
     socials: {},
@@ -48,6 +57,10 @@ export const sellers = [
     type: "shop",
     location: "Keishampat, Imphal",
     cover: "/images/phone.jpg",
+    storefront: {
+      headline: "The tech you need, close to home.",
+      color: "indigo",
+    },
     description: "Phones, accessories and everyday technology, close to home.",
     socials: {},
     whatsapp: "",
@@ -392,8 +405,8 @@ variety.description =
     "batteries",
     "AA rechargeable batteries",
     399,
-    "electrical",
-    "batteries-energy-storage",
+    "retail",
+    "household-supplies",
   ],
   ["toy", "Wooden building blocks", 699, "kids", "toys-games"],
 ].forEach(([key, title, price, category_id, subcategory_id]) => {

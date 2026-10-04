@@ -31,14 +31,20 @@ function Router() {
           ? "Marketplace administration"
           : p.startsWith("/dashboard")
             ? "Your seller workspace"
-            : "Explore your local marketplace") + " | Leikai Market";
+            : "Explore your local marketplace") + " | Onlinekeithel";
+  }, [p]);
+  useEffect(() => {
+    if (p.startsWith("/seller/")) {
+      history.replaceState({}, "", "/shop/" + p.slice(8));
+      dispatchEvent(new PopStateEvent("popstate"));
+    }
   }, [p]);
   let page;
   if (p === "/") page = <Home />;
   else if (p === "/search" || p === "/saved")
     page = <Search key={p} saved={p === "/saved"} />;
   else if (p === "/shops") page = <Shops />;
-  else if (p.startsWith("/seller/"))
+  else if (p.startsWith("/shop/") || p.startsWith("/seller/"))
     page = <SellerPage key={p} slug={decodeURIComponent(p.split("/")[2])} />;
   else if (p.startsWith("/listing/"))
     page = <ProductPage key={p} id={decodeURIComponent(p.split("/")[2])} />;

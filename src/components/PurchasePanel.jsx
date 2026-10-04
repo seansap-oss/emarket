@@ -165,7 +165,7 @@ export function PurchasePanel({ item }) {
         <p>{payments.instructions}</p>
         <small>
           Pay only after agreement with the seller. Direct transfers are not
-          verified by Leikai Market.
+          verified by Onlinekeithel.
         </small>
       </details>
       {open && (

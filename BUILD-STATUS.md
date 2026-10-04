@@ -1,4 +1,12 @@
-# Build status — v0.3.0
+# Build status — v0.8.0
+
+## v0.8.0 shareable storefronts (4 October 2026)
+
+Added `/shop/:slug` for every seller and individual, with old `/seller/:slug` URLs redirected in the browser. Shop identity editing now includes a cover-led hero, headline, tagline, welcome message, preset accent/font, featured social video, six-photo gallery, optional section visibility and ordering. Sample shops demonstrate custom presentation; the dashboard previews changes and copies the share link. The existing backend seller ownership rules also cover the new JSON settings. Migration 007 is required on a connected existing marketplace database; fresh schema includes the column. Eight test files and the production build pass; browser inspection covered the public shop, legacy route and preview seller editor. Real seller writes and live service acceptance remain unverified because no marketplace backend is configured here. This version is local and is not on GitHub or Vercel yet.
+
+## v0.7.0 brand and construction department
+
+Onlinekeithel replaces the marketplace-facing Leikai Market brand in the header, title, manifest, app icons, payment descriptor and assistance copy. The selected architectural roof logo has a scalable SVG and rendered PWA icons. The Construction header and drawer expose a single department with nested specialists; search and category directory group the same existing IDs. Builder, bricklayer, handyman, labourer and supervisor options appear inside the construction trades category. Existing category IDs and listing references remain stable. An optional 006 SQL migration updates an old marketplace name and adds these subcategories to a connected backend; it must be applied to the dedicated marketplace database before those new choices are used by live sellers.
 
 ## v0.6.1 seller UI handoff (4 October 2026)
 

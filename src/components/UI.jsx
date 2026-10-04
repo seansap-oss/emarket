@@ -84,6 +84,7 @@ export function Upload({
   multiple = false,
   labels = [],
   onBusyChange,
+  maxItems = 12,
 }) {
   const { session } = useMarket();
   const [busy, setBusy] = useState(false),
@@ -142,8 +143,8 @@ export function Upload({
             try {
               if (!session) throw Error("Sign in to upload photos");
               const files = Array.from(e.target.files);
-              if (files.length + items.length > 12 && multiple)
-                throw Error("Up to 12 photos per item");
+              if (files.length + items.length > maxItems && multiple)
+                throw Error(`Up to ${maxItems} photos`);
               const uploaded = [];
               for (const file of files)
                 uploaded.push(await uploadImage(file, session.user.id));
@@ -160,7 +161,7 @@ export function Upload({
       </label>
       <small>
         JPG, PNG or WebP · up to 5 MB each
-        {multiple ? " · up to 12 photos · use arrows to reorder" : ""}
+        {multiple ? ` · up to ${maxItems} photos · use arrows to reorder` : ""}
       </small>
       <div className="media-url-row">
         <input
@@ -177,8 +178,8 @@ export function Upload({
           onClick={() => {
             const safe = safeUrl(url);
             if (!safe) return setError("Enter an HTTPS photo URL");
-            if (multiple && items.length >= 12)
-              return setError("Up to 12 photos per item");
+            if (multiple && items.length >= maxItems)
+              return setError(`Up to ${maxItems} photos`);
             onChange(multiple ? [...items, safe] : safe);
             setUrl("");
             setError("");

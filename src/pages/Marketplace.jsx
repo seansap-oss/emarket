@@ -5,6 +5,7 @@ import {
   categoryName,
   subcategoryName,
   subcategoriesFor,
+  constructionCategories,
 } from "../lib/categories";
 import React, { useState, useEffect, useRef } from "react";
 import {
@@ -24,6 +25,7 @@ import {
   MagnifyingGlass,
 } from "@phosphor-icons/react";
 import { useMarket, Link } from "../lib/context";
+import { CategoryOptions } from "../components/CategoryOptions";
 import { supabase, configured, result } from "../lib/backend";
 import {
   money,
@@ -41,6 +43,12 @@ import {
   Video,
 } from "../components/UI";
 import { templates } from "../lib/templates";
+import {
+  storefrontColors,
+  storefrontFonts,
+  storefrontSettings,
+  shopPath,
+} from "../lib/storefront";
 import { icons } from "../components/Layout";
 export function ProductCard({ item }) {
   const { session, navigate, notice } = useMarket();
@@ -129,7 +137,7 @@ export function ProductCard({ item }) {
           {item.title}
         </Link>
         <strong className="price">{money(item.price)}</strong>
-        <Link to={"/seller/" + item.seller?.slug} className="seller-line">
+        <Link to={shopPath(item.seller?.slug)} className="seller-line">
           <Storefront size={14} />
           {item.seller?.name || "Local seller"}
         </Link>
@@ -150,7 +158,7 @@ export function ProductCard({ item }) {
 }
 export function ShopCard({ seller }) {
   return (
-    <Link className="shop-card" to={"/seller/" + seller.slug}>
+    <Link className="shop-card" to={shopPath(seller.slug)}>
       <Photo src={seller.cover} alt={seller.name} loading="lazy" />
       <div>
         <span className="shop-avatar">
@@ -433,6 +441,7 @@ export function Search({ saved = false }) {
   const params = new URLSearchParams(path.split("?")[1]);
   const q = params.get("q") || "",
     cat = params.get("category") || "",
+    department = params.get("department") || "",
     sub = params.get("subcategory") || "",
     loc = params.get("location") || "";
   const [items, setItems] = useState([]),
@@ -447,7 +456,7 @@ export function Search({ saved = false }) {
     [filters, setFilters] = useState(false);
   useEffect(
     () => setPage(0),
-    [q, cat, sub, loc, sort, condition, type, min, max],
+    [q, cat, department, sub, loc, sort, condition, type, min, max],
   );
   useEffect(() => {
     let live = true;
@@ -464,6 +473,10 @@ export function Search({ saved = false }) {
                 (x) =>
                   (!q || searchable(x).includes(q.toLowerCase())) &&
                   (!cat || x.category_id === cat) &&
+                  (department !== "construction" ||
+                    constructionCategories(categories).some(
+                      (c) => c.id === x.category_id,
+                    )) &&
                   (!sub || x.subcategory_id === sub) &&
                   (!loc ||
                     x.location.toLowerCase().includes(loc.toLowerCase())) &&
@@ -479,6 +492,13 @@ export function Search({ saved = false }) {
             .rpc("search_listings", { p_query: q })
             .select("*,seller:sellers!inner(*)");
           if (cat) query = query.eq("category_id", cat);
+          else if (department === "construction") {
+            const ids = constructionCategories(categories).map((c) => c.id);
+            query = query.in(
+              "category_id",
+              ids.length ? ids : ["construction"],
+            );
+          }
           if (sub) query = query.eq("subcategory_id", sub);
           if (loc)
             query = query.ilike(
@@ -526,6 +546,7 @@ export function Search({ saved = false }) {
   }, [
     path,
     fixtures,
+    categories,
     sort,
     condition,
     type,
@@ -550,10 +571,12 @@ export function Search({ saved = false }) {
               ? "Your saved finds"
               : q
                 ? `Results for “${q}”`
-                : cat
-                  ? subcategoryName(categories, cat, sub) ||
-                    categoryName(categories, cat)
-                  : "Explore the marketplace"}
+                : department === "construction" && !cat
+                  ? "Construction"
+                  : cat
+                    ? subcategoryName(categories, cat, sub) ||
+                      categoryName(categories, cat)
+                    : "Explore the marketplace"}
           </h1>
           <p>Products from shops and individuals across Manipur.</p>
         </div>
@@ -578,17 +601,18 @@ export function Search({ saved = false }) {
                     new URLSearchParams({
                       q,
                       category: e.target.value,
+                      department: e.target.value ? "" : department,
                       location: loc,
                     }),
                 )
               }
             >
-              <option value="">All categories</option>
-              {categories.map((c) => (
-                <option value={c.id} key={c.id}>
-                  {c.name}
-                </option>
-              ))}
+              <option value="">
+                {department === "construction"
+                  ? "All construction"
+                  : "All categories"}
+              </option>
+              <CategoryOptions categories={categories} />
             </select>
           </Field>
           {cat && (
@@ -905,6 +929,9 @@ export function SellerPage({ slug }) {
       live = false;
     };
   }, [fixtures, slug, collection, page, shopCategory, shopQuery]);
+  useEffect(() => {
+    if (seller) document.title = `${seller.name} | Onlinekeithel`;
+  }, [seller]);
   if (!seller)
     return (
       <div className="page">
@@ -913,16 +940,30 @@ export function SellerPage({ slug }) {
         </Empty>
       </div>
     );
+  const display = storefrontSettings(seller);
   return (
-    <div className={"page storefront theme-" + seller.theme}>
+    <div
+      className={"page storefront theme-" + seller.theme}
+      style={{
+        "--shop-accent": storefrontColors[display.color].value,
+        "--shop-font": storefrontFonts[display.font].value,
+      }}
+    >
       {seller.sample && (
         <div className="sample-notice">
           Sample shop · illustrative products and prices.{" "}
           <Link to="/templates">Explore all templates</Link>
         </div>
       )}
-      <div className="shop-cover">
+      <div className="shop-cover shop-hero">
         <Photo src={seller.cover} alt={seller.name} />
+        <div className="shop-hero-content">
+          <span>{display.tagline}</span>
+          <h1>{display.headline}</h1>
+          <a href="#shop-products" className="button primary">
+            Explore products <ArrowRight size={17} />
+          </a>
+        </div>
       </div>
       <div className="store-identity">
         <span className="store-logo">
@@ -946,13 +987,13 @@ export function SellerPage({ slug }) {
         <SocialLinks values={seller.socials} />
         {whatsappUrl(
           seller.whatsapp,
-          "Hello, I found your shop on Leikai Market.",
+          "Hello, I found your shop on Onlinekeithel.",
         ) && (
           <a
             className="button primary"
             href={whatsappUrl(
               seller.whatsapp,
-              "Hello, I found your shop on Leikai Market.",
+              "Hello, I found your shop on Onlinekeithel.",
             )}
             target="_blank"
             rel="noopener noreferrer"
@@ -961,34 +1002,74 @@ export function SellerPage({ slug }) {
           </a>
         )}
       </div>
-      <section className="store-template-intro">
-        <span className="eyebrow">
-          {templates[seller.theme]?.name || "Neighbourhood"} ·{" "}
-          {templates[seller.theme]?.category}
-        </span>
-        <h2>{templates[seller.theme]?.headline}</h2>
-        <p>{seller.description}</p>
-        {seller.theme === "electronics" && (
-          <div className="template-features">
-            <span>Device specifications</span>
-            <span>Phones & accessories</span>
-            <span>Compare your options</span>
-          </div>
-        )}
-        {["vehicles", "motorcycles"].includes(seller.theme) && (
-          <div className="template-features">
-            <span>Year & mileage</span>
-            <span>
-              {seller.theme === "motorcycles"
-                ? "Engine capacity"
-                : "Fuel & model"}
-            </span>
-            <span>Enquire before viewing</span>
-          </div>
-        )}
-      </section>
-      <div className="tabs">
-        {["products", "about", "videos"].map((t) => (
+      {display.sections.map((section) => (
+        <React.Fragment key={section}>
+          {section === "about" && display.showAbout && display.introduction && (
+            <section className="store-template-intro">
+              <span className="eyebrow">
+                {templates[seller.theme]?.name || "Neighbourhood"} ·{" "}
+                {templates[seller.theme]?.category}
+              </span>
+              <h2>Welcome to {seller.name}</h2>
+              <p>{display.introduction}</p>
+              {seller.theme === "electronics" && (
+                <div className="template-features">
+                  <span>Device specifications</span>
+                  <span>Phones & accessories</span>
+                  <span>Compare your options</span>
+                </div>
+              )}
+              {["vehicles", "motorcycles"].includes(seller.theme) && (
+                <div className="template-features">
+                  <span>Year & mileage</span>
+                  <span>
+                    {seller.theme === "motorcycles"
+                      ? "Engine capacity"
+                      : "Fuel & model"}
+                  </span>
+                  <span>Enquire before viewing</span>
+                </div>
+              )}
+            </section>
+          )}
+          {section === "gallery" &&
+            display.showGallery &&
+            display.gallery.length > 0 && (
+              <section className="shop-gallery">
+                <div>
+                  <span className="eyebrow">INSIDE OUR SHOP</span>
+                  <h2>Photo gallery</h2>
+                </div>
+                <div className="shop-gallery-grid">
+                  {display.gallery.map((photo, index) => (
+                    <Photo
+                      key={photo + index}
+                      src={photo}
+                      alt={`${seller.name} gallery photo ${index + 1}`}
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
+          {section === "video" && display.showVideo && display.videoUrl && (
+            <section className="shop-featured-video">
+              <div>
+                <span className="eyebrow">A CLOSER LOOK</span>
+                <h2>From {seller.name}</h2>
+                <p>Get to know the people and products behind this shop.</p>
+              </div>
+              <Video url={display.videoUrl} />
+            </section>
+          )}
+        </React.Fragment>
+      ))}
+      <div className="tabs" id="shop-products">
+        {[
+          "products",
+          ...(display.showAbout ? ["about"] : []),
+          ...(display.showVideo ? ["videos"] : []),
+        ].map((t) => (
           <button
             key={t}
             className={tab === t ? "active" : ""}
@@ -1019,11 +1100,7 @@ export function SellerPage({ slug }) {
                 }}
               >
                 <option value="">All categories</option>
-                {categories.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name}
-                  </option>
-                ))}
+                <CategoryOptions categories={categories} />
               </select>
             </Field>
           </div>
@@ -1237,7 +1314,7 @@ export function ProductPage({ id }) {
           <div className="detail-seller">
             <Storefront size={30} />
             <div>
-              <Link to={"/seller/" + item.seller?.slug}>
+              <Link to={shopPath(item.seller?.slug)}>
                 <strong>{item.seller?.name}</strong>
               </Link>
               <small>
